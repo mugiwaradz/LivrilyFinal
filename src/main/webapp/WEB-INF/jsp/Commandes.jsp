@@ -18,10 +18,10 @@
 		<tbody>
 			<c:forEach items="${orders}" var="order">
 				<tr>
-					<td>${order.getCommande().getNumeroCommande()}-</td>
+					<td>${order.getCommande().getNumeroCommande()}</td>
 					<td>${order.getCommande().getClinet_ID()}</td>
-					<td>${order.getCommande().getDtaedeCommande()}-</td>
-					<td>${order.getCommande().getStatue()}-</td>
+					<td>${order.getCommande().getDtaedeCommande()}</td>
+					<td>${order.getCommande().getStatue()}</td>
 					<td>${order.getCommande().getTotal()}</td>
 					<td>${order.getCommande().getTva()}</td>
 					<td><a type="button" class="btn btn-success"
