@@ -1,6 +1,5 @@
 package com.zinou.springboot.web.repository;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
@@ -12,7 +11,7 @@ import com.zinou.springboot.web.model.Commandecomplette;
 @Repository
 public interface CommandeRepository {
 
-	List<Commandecomplette> getCommandes(Timestamp date_commande, int id_commande);
+	List<Commandecomplette> getCommandes (int id_commande);
 
 	CommandeLine saveCommandeLine(CommandeLine line);
 

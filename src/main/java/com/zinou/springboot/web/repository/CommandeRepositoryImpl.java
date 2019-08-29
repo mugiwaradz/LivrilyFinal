@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,27 +22,25 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 	@Autowired DB db;
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 	@Override
-	public List<Commandecomplette> getCommandes(Timestamp date_commande, int id_commande) {
+	public List<Commandecomplette> getCommandes( int id_commande) {
 
 		    ResultSet rs=null;
 			String sql = null ;
 			try {
-			if (date_commande != null) {
-				sql="SELECT * FROM commande inner join commande_line "
-						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ " where commande.datecommande<(?) order by commande.datecommande";
-				PreparedStatement stmt;
-				stmt = db.getConnection().prepareStatement(sql);
-				stmt.setTimestamp(1, date_commande);
-				 rs = stmt.executeQuery();
-
-			}else if (id_commande > 0) {
+			if (id_commande > 0) {
 				sql="SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
 						+ " where commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
+				 rs = stmt.executeQuery();
+			}else{
+				sql="SELECT * FROM commande inner join commande_line "
+						+ "on (commande.commande_id = commande_line.commande_id)"
+						+ "order by commande.datecommande";
+				PreparedStatement stmt;
+				stmt = db.getConnection().prepareStatement(sql);
 				 rs = stmt.executeQuery();
 
 			}

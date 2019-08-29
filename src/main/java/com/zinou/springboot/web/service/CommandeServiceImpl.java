@@ -43,8 +43,8 @@ public class CommandeServiceImpl implements CommandeService {
 	JavaMailSender javaMailSender;
 
 	@Override
-	public List<Commandecomplette> getCommandes(Timestamp date_commande, int id_commande) {
-		return 	 repository.getCommandes(date_commande, id_commande);
+	public List<Commandecomplette> getCommandes(int id_commande) {
+		return 	 repository.getCommandes(id_commande);
 	}
 
 	@Override

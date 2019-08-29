@@ -23,7 +23,7 @@ public class PromotionsRepositoryImpl implements PromotionsRepository {
 	@Override
 	public int postPromotion(int promotion,int produit_ID) {
 
-		String sql="UPDATE `livrili`.`produit` SET `promotion` = ? WHERE (`produit_id` = ?);";
+		String sql="UPDATE `produit` SET `promotion` = ? WHERE (`produit_id` = ?);";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
