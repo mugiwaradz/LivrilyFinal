@@ -87,10 +87,10 @@ public class FactureRepositoryImpl implements FactureRepository {
 				}
 
 				FactureLine factureLine= new FactureLine();
-				factureLine.setFactureLine_ID(rs.getInt("Factureline_id"));
+				factureLine.setFactureLine_ID(rs.getInt("facture_line_id"));
 				factureLine.setProduitID(rs.getInt("produit_id"));
-				factureLine.setQuantityFacture(rs.getInt("quantitefacture"));
-				factureLine.setTotalLine(rs.getDouble("totaleline"));
+				factureLine.setQuantityFacture(rs.getInt("quantityFacture"));
+				factureLine.setTotalLine(rs.getDouble("totalLine"));
 				factureLine.setPrix(rs.getDouble("prix"));
 
 				facturelines.add(factureLine);

@@ -16,10 +16,11 @@ public class LivraisonController {
 	@Autowired
 	LivraisonService service ;
 
-	@RequestMapping(value = "/Livraison", method = RequestMethod.GET)
+	@RequestMapping(value = "/Livraisons", method = RequestMethod.GET)
 	String getLivraisons(@RequestParam(required = false) Boolean estlivre, @RequestParam(required = false)  String id_livraison, ModelMap model){
 
 		int id = id_livraison == null || id_livraison.length() == 0 ? 0 : Integer.parseInt(id_livraison);
+		estlivre=true;
 		model.put("shipments", service.getLivraisons(estlivre, id));
 
 		return "Livraisons";

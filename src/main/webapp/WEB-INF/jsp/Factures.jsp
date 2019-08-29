@@ -6,18 +6,21 @@
 			<caption>Liste des articles </caption>
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>prix</th>
-					<th></th>
+					<th>NumeroFacture</th>
+					<th>Tarif</th>
+					<th>Tva</th>
+					<th>Total</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${produits}" var="produit">
+				<c:forEach items="${invoices}" var="invoice">
 					<tr>
-						<td>${produit.getNomProduit()} -${produit.getReferance()}-</td>
-						<td>${produit.getPrixDevante()} DA</td>
+						<td>${invoice.getFacture().getNumeroFacture()}</td>
+						<td>${invoice.getFacture().getTarif()} DA</td>
+						<td>${invoice.getFacture().getTva()}</td>
+						<td>${invoice.getFacture().getTotal()}</td>
 						<td><a type="button" class="btn btn-success"
-							href="/update-todo?id=${produit.getProduit_ID()}">Commander</a></td>
+							href="/update-todo?id=${facture.getfacture_ID()}">imprimer</a></td>
 						
 					</tr>
 				</c:forEach>

@@ -3,21 +3,23 @@
 	
 	<div class="container">
 		<table class="table table-striped">
-			<caption>Liste des articles </caption>
+			<caption>Liste des Livraisons </caption>
 			<thead>
 				<tr>
-					<th>Nom</th>
-					<th>prix</th>
-					<th></th>
+					<th>NumeroLivraison</th>
+					<th>Livreur id</th>
+					<th>VolumneTotal</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${produits}" var="produit">
+				<c:forEach items="${shipments}" var="shipment">
 					<tr>
-						<td>${produit.getNomProduit()} -${produit.getReferance()}-</td>
-						<td>${produit.getPrixDevante()} DA</td>
+						<td>${shipment.getLivraison().getNumeroLivraison()}</td>
+						<td>${shipment.getLivraison().getLivreur_ID()}-</td>
+						<td>${shipment.getLivraison().getVolumneTotal()} </td>
+
 						<td><a type="button" class="btn btn-success"
-							href="/update-todo?id=${produit.getProduit_ID()}">Commander</a></td>
+							href="/update-todo?id=${produit.getProduit_ID()}">Livrer</a></td>
 						
 					</tr>
 				</c:forEach>
