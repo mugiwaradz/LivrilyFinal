@@ -7,15 +7,15 @@
 			<thead>
 				<tr>
 					<th>Nom</th>
-					<th>Qty</th>
+					<th>prix</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${produits}" var="produit">
 					<tr>
-						<td>${produit.getNomProduit()}</td>
-						<td><fmt:formatNumber value="0"/></td>
+						<td>${produit.getNomProduit()} -${produit.getReferance()}-</td>
+						<td>${produit.getPrixDevante()} DA</td>
 						<td><a type="button" class="btn btn-success"
 							href="/update-todo?id=${produit.getProduit_ID()}">Commander</a></td>
 						
