@@ -28,8 +28,8 @@ public class FactureServiceImpl implements FactureService{
 
 
 	@Override
-	public List<Facturecomplette> getFactures() {
-		return repository.getFactures();
+	public List<Facturecomplette> getFactures(int id_facture) {
+		return repository.getFactures(id_facture);
 	}
 
 	@Override

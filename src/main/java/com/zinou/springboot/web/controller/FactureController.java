@@ -1,17 +1,18 @@
 package com.zinou.springboot.web.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.zinou.springboot.web.model.Facturecomplette;
 import com.zinou.springboot.web.service.FactureService;
 
 
@@ -21,9 +22,14 @@ public class FactureController {
 	@Autowired
 	FactureService service ;
 
-	@GetMapping("Factures")
-	List<Facturecomplette> getFactures(){
-		return service.getFactures();
+	@RequestMapping(value = "/Factures", method = RequestMethod.GET)
+	String getLivraisons( @RequestParam(required = false)  String id_facture, ModelMap model){
+
+		int id = id_facture == null || id_facture.length() == 0 ? 0 : Integer.parseInt(id_facture);
+		model.put("invoices", service.getFactures(id));
+
+		return "Factures";
+
 	}
 
 	@PostMapping("Factures")

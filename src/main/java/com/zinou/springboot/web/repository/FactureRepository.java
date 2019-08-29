@@ -14,7 +14,7 @@ import com.zinou.springboot.web.model.Facturecomplette;
 @Repository
 public interface FactureRepository {
 
-	List<Facturecomplette> getFactures();
+	List<Facturecomplette> getFactures(int id_facture);
 
 	Facture createFacture(Facture Facture);
 

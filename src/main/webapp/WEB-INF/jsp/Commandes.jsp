@@ -26,7 +26,6 @@
 					<td>${order.getCommande().getTva()}</td>
 					<td><a type="button" class="btn btn-success"
 						href="/Commandes?id_commande=${order.getCommande().getCommande_ID()}">Détail</a></td>
-
 				</tr>
 			</c:forEach>
 		</tbody>

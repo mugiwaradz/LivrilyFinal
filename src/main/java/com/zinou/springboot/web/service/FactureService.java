@@ -12,9 +12,9 @@ import com.zinou.springboot.web.model.Facturecomplette;
 @Service
 public interface FactureService {
 
-	List<Facturecomplette> getFactures();
+	List<Facturecomplette> getFactures(int id_facture);
 
-	boolean createFacture(int id_facture);
+	boolean createFacture(int id_livraison);
 
 	ResponseEntity<InputStreamResource> printFacture(int id_facture);
 

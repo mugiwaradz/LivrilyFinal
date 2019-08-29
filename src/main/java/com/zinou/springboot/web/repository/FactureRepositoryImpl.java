@@ -39,10 +39,13 @@ public class FactureRepositoryImpl implements FactureRepository {
 
 
 	@Override
-	public List<Facturecomplette> getFactures() {
+	public List<Facturecomplette> getFactures(int id_facture) {
 
 		String sql="SELECT * FROM Facture inner join Facture_line "
 				+ "on (Facture.Facture_id = Facture_line.Facture_id)";
+		
+		if(id_facture > 0)
+			sql = sql + " WHERE facture.Facture_id = ? ";
 
 		PreparedStatement stmt;
 
@@ -50,7 +53,9 @@ public class FactureRepositoryImpl implements FactureRepository {
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 
-			//			stmt.setBoolean(1, estlivre);
+			if(id_facture > 0)
+				stmt.setInt(1, id_facture);
+			
 			ResultSet rs = stmt.executeQuery();
 			List<Facturecomplette> factures = new ArrayList<>();
 
