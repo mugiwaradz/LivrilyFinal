@@ -1,10 +1,9 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 
-<div class="container">
-	<table class="table table-striped">
-		<caption>Liste des Commandes</caption>
-		<thead>
+<table class="table">
+  <thead class="thead-light">
+		
 			<tr>
 				<th>Numéro commande</th>
 				<th>Client</th>

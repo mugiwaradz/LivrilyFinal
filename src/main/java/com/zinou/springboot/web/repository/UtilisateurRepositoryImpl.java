@@ -48,10 +48,12 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 					utilisateur.setMoyenLivraison((rs.getString("moyenLivraison")));
 					utilisateur.setTypePermetConduire((rs.getString("typePermetConduire")));
 					utilisateur.setDistanceMax((rs.getInt("distanceMax")));
+					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
+					
 					break;
 				case 3:
 					utilisateur.setNumeroFiscale((rs.getInt("numeroFiscale")));
-					utilisateur.setNumeroGestire((rs.getInt("numeroGestire")));
+					utilisateur.setNumeroGestire((rs.getInt("numeroRegistre")));
 					utilisateur.setTaxid((rs.getString("taxid")));
 					break;
 

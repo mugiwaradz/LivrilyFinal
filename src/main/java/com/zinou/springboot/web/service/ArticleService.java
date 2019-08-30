@@ -4,14 +4,15 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
 
 @Service
 public interface ArticleService {
 	
-	Produit getProduit(int id_article);
+	FullProduit getProduit(int id_article);
 	
-	List<Produit> getProduits();
+	List<FullProduit> getProduits();
 	
 	Produit createProduits(Produit produit);
 	

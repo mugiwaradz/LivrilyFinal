@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.service.ArticleService;
 
@@ -23,13 +24,13 @@ public class ArticleController {
 	ArticleService service;
 	
 	@GetMapping("Article/{id_article}")
-	Produit getArticles(@PathVariable( "id_article") int id_article){
+	FullProduit getArticles(@PathVariable( "id_article") int id_article){
 		return service.getProduit(id_article);
 	}
 
 	@RequestMapping(value = "/articles", method = RequestMethod.GET)
 	String getArticles(ModelMap model){
-		List<Produit> articles = service.getProduits();
+		List<FullProduit> articles = service.getProduits();
 		model.put("produits", articles);
 		return "articles";
 	}

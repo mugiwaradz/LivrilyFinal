@@ -1,15 +1,13 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
-	
-	<div class="container">
-		<table class="table table-striped">
-			<caption>Liste des articles </caption>
-			<thead>
+	<table class="table">
+  <thead class="thead-light">
 				<tr>
 					<th>NumeroFacture</th>
 					<th>Tarif</th>
 					<th>Tva</th>
 					<th>Total</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>

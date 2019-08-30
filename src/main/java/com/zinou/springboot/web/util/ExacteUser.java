@@ -21,13 +21,13 @@ public class ExacteUser {
 	
 	public static String GetFournisseur() {
 
-		String sql = "SELECT * FROM Utilisateur inner join fournisseur on (Utilisateur.Utilisateur_id = fournisseur.utilisatuer_id)" ; 
+		String sql = "SELECT * FROM Utilisateur inner join fournisseur on (Utilisateur.Utilisateur_id = fournisseur.utilisateur_id)" ; 
 				
 		return sql;
 	}
 	public static  String  GetLivreur() {
 
-		String sql = "SELECT * FROM Utilisateur inner join livreur on (Utilisateur.Utilisateur_id = livreur.utilisatuer_id)" ; 
+		String sql = "SELECT * FROM Utilisateur inner join livreur on (Utilisateur.Utilisateur_id = livreur.utilisateur_id)" ; 
 		return sql;
 	}
 

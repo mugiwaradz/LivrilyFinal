@@ -40,23 +40,27 @@ public class UtilisateurController {
 		return "Clients";
 	}
 	
-//	@RequestMapping(value = "/Commandes", method = RequestMethod.GET)
-//	String getCommandes(@RequestParam(required = false) String id_commande, ModelMap model) {
-//
-//		int id = id_commande == null || id_commande.length() == 0 ? 0 : Integer.parseInt(id_commande);
-//		model.put("orders", service.getCommandes(id));
-//
-//		return "Commandes";
-//	}
-//	
-//	@RequestMapping(value = "/Commandes", method = RequestMethod.GET)
-//	String getCommandes(@RequestParam(required = false) String id_commande, ModelMap model) {
-//
-//		int id = id_commande == null || id_commande.length() == 0 ? 0 : Integer.parseInt(id_commande);
-//		model.put("orders", service.getCommandes(id));
-//
-//		return "Commandes";
-//	}
+	@RequestMapping(value = "/Livreurs", method = RequestMethod.GET)
+	String getLivreurs(@RequestParam(required = false) String id_livruer, ModelMap model) {
+
+		int id = id_livruer == null || id_livruer.length() == 0 ? 0 : Integer.parseInt(id_livruer);
+		int type_user=2;
+
+		model.put("Livreurs", service.getutilisateurs(type_user,id));
+
+		return "Livreurs";
+	}
+	
+	@RequestMapping(value = "/Fournisseurs", method = RequestMethod.GET)
+	String getFournisseurs(@RequestParam(required = false) String id_fournisseur, ModelMap model) {
+
+		int id = id_fournisseur == null || id_fournisseur.length() == 0 ? 0 : Integer.parseInt(id_fournisseur);
+		int type_user=3;
+
+		model.put("Fournisseurs", service.getutilisateurs(type_user,id));
+
+		return "Fournisseurs";
+	}
 //	
 	
 	

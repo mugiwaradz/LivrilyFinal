@@ -16,6 +16,7 @@ import com.zinou.springboot.web.model.Commande;
 import com.zinou.springboot.web.model.CommandeLine;
 import com.zinou.springboot.web.model.CommandeSimple;
 import com.zinou.springboot.web.model.Commandecomplette;
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Full_User;
 import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.repository.ArticleRepositoryImpl;
@@ -72,7 +73,7 @@ public class CommandeServiceImpl implements CommandeService {
 		for (CommandeSimple c : commandes) {
 			int produit_id=c.getProduit_id();
 
-			Produit produit =  articleService.getProduit(produit_id);
+			FullProduit produit =  articleService.getProduit(produit_id);
 			CommandeLine line = new CommandeLine();
 			line.setCommande_ID(commande.getCommande_ID());
 			line.setPrix(produit.getPrixDevante());

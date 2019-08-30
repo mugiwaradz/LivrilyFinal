@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.util.DB;
 
@@ -23,9 +24,10 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
-	public Produit getProduit(int id_article) {
+	public FullProduit getProduit(int id_article) {
 
-		String sql = "SELECT * FROM Produit WHERE produit_id = ? ";
+		String sql = "SELECT * FROM Produit inner join categorie_produit" + 
+				"						+ \"on (Produit.categorie_produit = categorie_produit.categorie_produit) WHERE produit_id = ? ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
@@ -43,7 +45,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
 
 	@Override
-	public List<Produit> getProduits() {
+	public List<FullProduit> getProduits() {
 
 		String sql = "SELECT * FROM Produit";
 		PreparedStatement stmt;
@@ -51,7 +53,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 			stmt = db.getConnection().prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 
-			List<Produit> produits = new ArrayList<>();
+			List<FullProduit> produits = new ArrayList<>();
 			while(rs.next()) {
 				produits.add(getProduit(rs));
 			}
@@ -115,8 +117,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 		return false;
 	}
 
-	private Produit getProduit(ResultSet rs) throws SQLException {
-		Produit produit = new Produit();
+	private FullProduit getProduit(ResultSet rs) throws SQLException {
+		FullProduit produit = new FullProduit();
 		produit.setProduit_ID(rs.getInt(1));
 		produit.setNomProduit(rs.getString(2));
 		produit.setCategoréProduit_ID(rs.getInt(3));
@@ -125,6 +127,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 		produit.setFournisseur_ID(rs.getInt(6));
 		produit.setImage(rs.getString(7));
 		produit.setReferance(rs.getString(8));
+		produit.setNomCategore(rs.getString(9));
 
 		return produit;
 

@@ -4,29 +4,27 @@
 	<table class="table">
   <thead class="thead-light">
 				<tr>
+					<th>Fournisseur_ID</th>
 					<th>Nom</th>
 					<th>prenom</th>
-					<th>Num carte </th>
-					<th>DateNaissance</th>
-					<th>LieudeudeNaissance</th>
-                    <th>Phone1</th>
-                    <th>Email</th>
+					<th>numeroGestire </th>
+					<th>numeroFiscale</th>
+					<th>taxid</th>
+                    
                     <th></th>
                     <th></th>
 
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${Clients}" var="client">
+				<c:forEach items="${Fournisseurs}" var="Fournisseur">
 					<tr>
-						<td>${client.getUtilisateur().getNom()}</td>
-						<td>${client.getUtilisateur().getPrenom() }</td>
-						<td>${client.getNumCarteCredit()}</td>
-						
-						<td >${client.getUtilisateur().getDateNaissance() }</td>
-						<td >${client.getUtilisateur().getLieudeudeNaissance()} </td>
-						<td>${client.getUtilisateur().getPhone1()} </td>				
-						<td>${client.getUtilisateur().getEmail()} </td>						
+					    <td>${Fournisseur.getFournisseur_ID()}</td>
+						<td>${Fournisseur.getUtilisateur().getNom()}</td>
+						<td>${Fournisseur.getUtilisateur().getPrenom() }</td>
+						<td>${Fournisseur.getNumeroGestire() }</td>
+						<td>${Fournisseur.getNumeroFiscale()} </td>				
+						<td>${Fournisseur.getTaxid()} </td>						
 						<td><a type="button" class="btn btn-danger"
 							href="/update-todo?id=${produit.getProduit_ID()}">Supprimer</a> </td>
 						<td><a type="button" class="btn btn-warning"

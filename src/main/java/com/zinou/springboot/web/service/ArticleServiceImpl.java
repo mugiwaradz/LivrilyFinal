@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.repository.ArticleRepository;
 
@@ -15,7 +16,7 @@ public class ArticleServiceImpl implements ArticleService {
 	ArticleRepository repository ;
 	
 	@Override
-	public Produit getProduit(int id_article) {
+	public FullProduit getProduit(int id_article) {
 		return repository.getProduit(id_article);
 	}
 
@@ -30,7 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
 	}
 
 	@Override
-	public List<Produit> getProduits() {
+	public List<FullProduit> getProduits() {
 		return repository.getProduits();
 	}	
 }

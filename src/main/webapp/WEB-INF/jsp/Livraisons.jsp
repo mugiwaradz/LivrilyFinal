@@ -1,14 +1,12 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
-	
-	<div class="container">
-		<table class="table table-striped">
-			<caption>Liste des Livraisons </caption>
-			<thead>
+	<table class="table">
+  <thead class="thead-light">
 				<tr>
 					<th>NumeroLivraison</th>
 					<th>Livreur id</th>
 					<th>VolumneTotal</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
