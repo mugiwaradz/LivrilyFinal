@@ -14,7 +14,14 @@ public class FullProduit {
 	private int CtegoréProduit_ID;
 	private String NomCategore;
 	private String ImageCatégoré;
+	private int quantite;
 	
+	public int getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(int quantité) {
+		this.quantite = quantité;
+	}
 	public int getProduit_ID() {
 		return Produit_ID;
 	}

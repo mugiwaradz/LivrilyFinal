@@ -13,6 +13,8 @@
 					<th>fournisseur_id</th>
 					<th>Image</th>
 					<th>promotion</th>
+					<th>Quantite</th>
+
 					<th></th>
 					<th></th>
 
@@ -31,6 +33,8 @@
 						<td>${produit.getFournisseur_ID()}</td>
 						<td>${produit.getImage()} </td>
 						<td>${produit.getPromotion() } %</td>
+						<td>${produit.getQuantite()} </td>
+
 						
 						<td><a type="button" class="btn btn-danger"
 							href="/update-todo?id=${produit.getProduit_ID()}">Supprimer</a> </td>
@@ -43,7 +47,7 @@
   </tbody>
 </table>
 	<div align="center"><a type="button" class="btn btn-success"
-							href="/update-todo?id=${produit.getProduit_ID()}">Ajouter un nouveau produit</a> </div>
+							href="/Add-article?id=${produit.getProduit_ID()}">Ajouter un nouveau produit</a> </div>
 
 		<div>
 			<a class="button" href="/add-todo">Add a Todo</a>

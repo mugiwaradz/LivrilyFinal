@@ -12,6 +12,7 @@ public interface ArticleService {
 	
 	FullProduit getProduit(int id_article);
 	
+	
 	List<FullProduit> getProduits();
 	
 	Produit createProduits(Produit produit);

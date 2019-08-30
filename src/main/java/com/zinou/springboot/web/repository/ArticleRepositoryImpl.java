@@ -26,8 +26,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	@Override
 	public FullProduit getProduit(int id_article) {
 
-		String sql = "SELECT * FROM Produit inner join categorie_produit" + 
-				"						+ \"on (Produit.categorie_produit = categorie_produit.categorie_produit) WHERE produit_id = ? ";
+		String sql = "select * FROM Produit inner join categorie_produit on "
+				+ "(Produit.categorie_produit_id = categorie_produit.categorie_produit_id) WHERE produit_id = ? ;";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
@@ -47,7 +47,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	@Override
 	public List<FullProduit> getProduits() {
 
-		String sql = "SELECT * FROM Produit";
+		String sql = "select * FROM Produit inner join categorie_produit on "
+				+ "(Produit.categorie_produit_id = categorie_produit.categorie_produit_id);";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
@@ -71,7 +72,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	@Override
 	public Produit createProduits(Produit produit) {
 
-		String sql = "INSERT INTO `produit` ( `nom`, `category_produit_id`, `prix_achat`, `prix_vente`, `fournisseur_id`, `reference`,`image`) VALUES  (?,?,?,?,?,?,?) ";
+		String sql = "INSERT INTO `produit` ( `nom`, `category_produit_id`, `prix_achat`, `prix_vente`, `fournisseur_id`, `reference`,`image`,`quantite`) VALUES  (?,?,?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -121,13 +122,14 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 		FullProduit produit = new FullProduit();
 		produit.setProduit_ID(rs.getInt(1));
 		produit.setNomProduit(rs.getString(2));
-		produit.setCategoréProduit_ID(rs.getInt(3));
+		produit.setNomCategore(rs.getString("nom_categorie"));
 		produit.setPrixDachat(rs.getDouble(4));
 		produit.setPrixDevante(rs.getDouble(5));
 		produit.setFournisseur_ID(rs.getInt(6));
 		produit.setImage(rs.getString(7));
 		produit.setReferance(rs.getString(8));
-		produit.setNomCategore(rs.getString(9));
+		produit.setQuantite(rs.getInt(10));
+		produit.setPromotion(rs.getInt("promotion"));
 
 		return produit;
 
