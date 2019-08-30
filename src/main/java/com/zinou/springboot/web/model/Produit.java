@@ -4,12 +4,20 @@ public class Produit {
 
 	private int Produit_ID;
 	private String NomProduit;
-	private int CategoréProduit_ID;
+	private int CategoreProduit_ID;
 	private Double PrixDachat;
 	private Double PrixDevante;
 	private int Fournisseur_ID;
 	private String Image;
 	private String Referance;
+	private int quantite;
+
+	public int getQuantite() {
+		return quantite;
+	}
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
 	private int promotion=0;	
 	
 	
@@ -31,11 +39,11 @@ public class Produit {
 	public void setNomProduit(String nomProduit) {
 		NomProduit = nomProduit;
 	}
-	public int getCategoréProduit_ID() {
-		return CategoréProduit_ID;
+	public int getCategoreProduit_ID() {
+		return CategoreProduit_ID;
 	}
-	public void setCategoréProduit_ID(int categoréProduit_ID) {
-		CategoréProduit_ID = categoréProduit_ID;
+	public void setCategoreProduit_ID(int categoréProduit_ID) {
+		CategoreProduit_ID = categoréProduit_ID;
 	}
 	public Double getPrixDachat() {
 		return PrixDachat;

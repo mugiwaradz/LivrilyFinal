@@ -1,13 +1,20 @@
 package com.zinou.springboot.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.zinou.springboot.web.model.Supermarché;
+import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.service.SupermarchéService;
 
 
@@ -18,10 +25,37 @@ public class SupermarchéControleur {
 	SupermarchéService service;
 	
 	@PostMapping("Supermarche")
-	Supermarché AjouterSupermarché(@RequestBody Supermarché supermarché){
+	Supermarche AjouterSupermarché(@RequestBody Supermarche supermarché){
 		return service.AjouterSupermarché(supermarché);
 	}
 
+	@RequestMapping(value = "/add-Supermarche", method = RequestMethod.GET)
+	public String showAddArticlePage(ModelMap model) {
+		model.addAttribute("Supermarche", new Supermarche());
+		return "Supermarche";
+	}
+	
+	@RequestMapping(value = "/add-Supermarche", method = RequestMethod.POST)
+	public String addSupermarche(ModelMap model, @Valid Supermarche supermarche, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "Supermarche";
+		}
+
+		service.AjouterSupermarché(supermarche);
+				
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/delete-Supermarche", method = RequestMethod.GET)
+	public String deleteSupermarche(@RequestParam int id) {
+
+		service.suprimerSupermarché(id);
+		return "redirect:/";
+	}
+	
+	
+	
 	@DeleteMapping("Supermarche/{id_supermarche}")
 	boolean SupprimerSupermarché(@PathVariable("id_supermarche") int id_Supermarché){
 		return service.suprimerSupermarché(id_Supermarché);

@@ -53,7 +53,7 @@ public class PromotionsRepositoryImpl implements PromotionsRepository {
 			List<Produit> produits = new ArrayList<>();
 			while(rs.next()) {
 				Produit produit = new Produit();
-				produit.setCategoréProduit_ID(categorieProduit_ID);
+				produit.setCategoreProduit_ID(categorieProduit_ID);
 				produit.setNomProduit(rs.getString(1));
 				produit.setPromotion(rs.getInt(2));
 				

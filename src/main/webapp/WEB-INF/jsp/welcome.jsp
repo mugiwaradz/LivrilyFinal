@@ -9,7 +9,7 @@
 <p> <a  href="/Clients" class="text-primary">Click here to chaek lits clients</a><br> </p> <br>
 <a href="/Livreurs">Click here to chaek lits Livreuers</a><br> <br>
 <a href="/Fournisseurs">Click here to chaek lits Fournisseurs</a><br> <br>
-<a href="/SignUp">Click here to login</a><br> <br>
+<a href="/add-Supermarche">Click here to add new supermarché</a><br> <br>
 
 
 <form class="form-inline my-2 my-lg-0 ">

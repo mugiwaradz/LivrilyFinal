@@ -37,7 +37,7 @@
 
 						
 						<td><a type="button" class="btn btn-danger"
-							href="/update-todo?id=${produit.getProduit_ID()}">Supprimer</a> </td>
+							href="/delete-article?id=${produit.getProduit_ID()}">Supprimer</a> </td>
 						<td><a type="button" class="btn btn-warning"
 							href="/update-todo?id=${produit.getProduit_ID()}">modifier</a> </td>
 						
@@ -47,7 +47,7 @@
   </tbody>
 </table>
 	<div align="center"><a type="button" class="btn btn-success"
-							href="/Add-article?id=${produit.getProduit_ID()}">Ajouter un nouveau produit</a> </div>
+							href="/add-Article">Ajouter un nouveau produit</a> </div>
 
 		<div>
 			<a class="button" href="/add-todo">Add a Todo</a>

@@ -2,14 +2,14 @@ package com.zinou.springboot.web.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.zinou.springboot.web.model.Supermarché;
+import com.zinou.springboot.web.model.Supermarche;
 
 @Repository
 public interface SupermarchéRepository {
 	
 	
 		
-	Supermarché AjouterSupermarché(Supermarché supermarché);
+	Supermarche AjouterSupermarché(Supermarche supermarché);
 	
 	boolean SupprimerSupermarché(int id_supermarché);
 

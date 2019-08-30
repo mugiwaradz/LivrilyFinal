@@ -72,17 +72,18 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	@Override
 	public Produit createProduits(Produit produit) {
 
-		String sql = "INSERT INTO `produit` ( `nom`, `category_produit_id`, `prix_achat`, `prix_vente`, `fournisseur_id`, `reference`,`image`,`quantite`) VALUES  (?,?,?,?,?,?,?,?) ";
+		String sql = "INSERT INTO `produit` ( `nom`, `categorie_produit_id`, `prix_achat`, `prix_vente`, `fournisseur_id`, `reference`,`image`,`quantite`) VALUES  (?,?,?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, produit.getNomProduit());
-			stmt.setInt(2, produit.getCategoréProduit_ID());
+			stmt.setInt(2, produit.getCategoreProduit_ID());
 			stmt.setDouble(3, produit.getPrixDachat());
 			stmt.setDouble(4, produit.getPrixDevante());
 			stmt.setInt(5, produit.getFournisseur_ID());
 			stmt.setString(6, produit.getReferance());
 			stmt.setString(7, produit.getImage());
+			stmt.setInt(8, produit.getQuantite());
 
 			stmt.executeUpdate();
 
