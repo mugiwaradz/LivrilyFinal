@@ -1,13 +1,15 @@
 package com.zinou.springboot.web.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Commande {
 
 	private int Commande_ID;
 	private int Supermarché_ID;
 	private int Clinet_ID;
-	private Timestamp DtaedeCommande;
+	private Date DtaedeCommande;
 	private String Statue;
 	private int NumeroCommande;
 	private Double total;
@@ -31,10 +33,11 @@ public class Commande {
 	public void setClinet_ID(int clinet_ID) {
 		Clinet_ID = clinet_ID;
 	}
-	public Timestamp getDtaedeCommande() {
+	
+	public Date getDtaedeCommande() {
 		return DtaedeCommande;
 	}
-	public void setDtaedeCommande(Timestamp dtaedeCommande) {
+	public void setDtaedeCommande(Date dtaedeCommande) {
 		DtaedeCommande = dtaedeCommande;
 	}
 	public String getStatue() {

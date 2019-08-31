@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -66,7 +67,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 					commande.setCommande_ID(rs.getInt(1));	
 					commande.setSupermarché_ID(rs.getInt(2));
 					commande.setClinet_ID(rs.getInt(3));
-					commande.setDtaedeCommande(rs.getTimestamp(4));
+					commande.setDtaedeCommande(rs.getDate(4));
 					commande.setStatue(rs.getString(5));
 					commande.setNumeroCommande(rs.getInt(6));
 					commande.setTarif(rs.getString(7));
@@ -156,7 +157,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, commande.getClinet_ID());
 			stmt.setInt(2, commande.getSupermarché_ID());
-			stmt.setTimestamp(3, commande.getDtaedeCommande());
+			stmt.setTimestamp(3, new Timestamp(commande.getDtaedeCommande().getTime()));
 			stmt.setString(4, "non-Livré");
 			stmt.setString(5, null);
 			stmt.setInt(6, 0);
