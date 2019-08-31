@@ -18,7 +18,6 @@ import com.zinou.springboot.web.model.CommandeSimple;
 import com.zinou.springboot.web.model.Commandecomplette;
 import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Full_User;
-import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.repository.ArticleRepositoryImpl;
 import com.zinou.springboot.web.repository.CommandeRepository;
 

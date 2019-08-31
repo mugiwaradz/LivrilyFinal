@@ -62,14 +62,7 @@ public class UtilisateurController {
 		return "Fournisseurs";
 	}
 //	
-	
-	
-	
-	
-	
-	
-	
-	@PostMapping("Utilisateur")
+	@PostMapping("create-utilisateur")
 	Full_User createUtilisateurs(@RequestBody Full_User full_user){
 		return service.createutilisateurs(full_user);
 	}

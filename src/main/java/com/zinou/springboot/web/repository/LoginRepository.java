@@ -1,11 +1,13 @@
 
 package com.zinou.springboot.web.repository;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LoginRepository {
 
-	boolean Login(String login, String pasword);
+	Map<String, Object> Login(String login, String pasword);
 
 }

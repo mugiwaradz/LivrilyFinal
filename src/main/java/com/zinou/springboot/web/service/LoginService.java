@@ -1,12 +1,12 @@
 package com.zinou.springboot.web.service;
 
-import org.springframework.stereotype.Service;
+import java.util.Map;
 
-import com.zinou.springboot.web.model.Utilisateur;
+import org.springframework.stereotype.Service;
 
 @Service
 public interface LoginService {
 
-	boolean Login(Utilisateur utilisateur);
+	Map<String, Object> Login(String login, String password);
 
 }

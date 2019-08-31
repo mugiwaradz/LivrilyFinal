@@ -2,8 +2,6 @@ package com.zinou.springboot.web.model;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 public class Commande {
 
 	private int Commande_ID;

@@ -1,6 +1,5 @@
 package com.zinou.springboot.web.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -20,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
-import com.zinou.springboot.web.model.Todo;
 import com.zinou.springboot.web.service.ArticleService;
 
 @Controller
