@@ -46,6 +46,14 @@ public class ArticleController {
 		return "Comandearticles";
 	}
 	
+
+	@RequestMapping(value = "/Nosarticles", method = RequestMethod.GET)
+	String getNosarticles(ModelMap model){
+		List<FullProduit> articles = service.getProduits();
+		model.put("produits", articles);
+		return "Nosarticles";
+	}
+	
 	
 	@RequestMapping(value = "/add-Article", method = RequestMethod.GET)
 	public String showAddArticlePage(ModelMap model) {

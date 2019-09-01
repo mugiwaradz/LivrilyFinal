@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Produit;
 @Service
 public interface PromotionsService {

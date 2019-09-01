@@ -44,7 +44,7 @@ public class PromotionsRepositoryImpl implements PromotionsRepository {
 	@Override
 	public List<Produit> getPromotion(int categorieProduit_ID) {
 
-		String sql="SELECT produit.nom ,produit.promotion FROM  produit inner join categorie_produit on (produit.category_produit_id = categorie_produit.categorie_produit_id)";
+		String sql="SELECT * FROM  produit inner join categorie_produit on (produit.categorie_produit_id = categorie_produit.categorie_produit_id)";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
@@ -54,12 +54,14 @@ public class PromotionsRepositoryImpl implements PromotionsRepository {
 			while(rs.next()) {
 				Produit produit = new Produit();
 				produit.setCategoreProduit_ID(categorieProduit_ID);
-				produit.setNomProduit(rs.getString(1));
-				produit.setPromotion(rs.getInt(2));
-				
-				if(produit.getPromotion()>0)
+				produit.setNomProduit(rs.getString("nom"));
+				produit.setPromotion(rs.getInt("promotion"));
+				produit.setImage(rs.getString("image"));
+				produit.setPrixDevante(rs.getDouble("prix_vente"));
+				if(produit.getPromotion()>0) {
+					 produit.setPrixDevante((produit.getPrixDevante()*produit.getPromotion())/100);
 					produits.add(produit);
-
+				}
 			}
 
 			return produits;

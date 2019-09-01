@@ -173,7 +173,7 @@
       <li>
 								<form class="px-4 py-3" action="login" method="post">
 									<div class="form-group">
-										<label for="login">Email address</label> <input
+										<label for="login">Login</label> <input
 											type="text" class="form-control" id="login"
 											placeholder="login">
 									</div>
@@ -195,8 +195,8 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">CONSULTER
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="Nosarticles">Produits</a></li>
-            <li><a href="Noscategories">Categorie</a></li>
+            <li><a href="Nosarticles">nos Articles</a></li>
+            <li><a href="Nospromotions">Promotions</a></li>
             <li><a href="#">Supermarche</a></li> 
           </ul>
         </li>
