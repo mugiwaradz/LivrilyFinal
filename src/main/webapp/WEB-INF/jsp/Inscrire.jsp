@@ -6,11 +6,11 @@
 
 <div class="header">
   <a href="/" class="logo"><img width="50" height="50" alt="livrily" src="Livrily.png"> </a>
-   <h1> <strong>Inscrivez-vous</strong></h1>
+   <h1 style="color: white;"> <strong>Inscrivez-vous</strong></h1>
  
 </div>
 
-<form>
+<form:form method="post" >
   <div class="form-row">
     <div class="form-group col-md-6">
       <legend>
@@ -55,6 +55,6 @@
     <br>
   
  <div align="center"> <button style="aligne:center" type="submit" class="btn btn-primary" >S'inscrire</button> </div>
-</form>
+</form:form>
 </body>
 </html>

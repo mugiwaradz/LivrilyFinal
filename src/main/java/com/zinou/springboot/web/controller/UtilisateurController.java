@@ -64,6 +64,8 @@ public class UtilisateurController {
 //	
 	@PostMapping("Inscrire")
 	Full_User createUtilisateurs(@RequestBody Full_User full_user){
+		int type_user=1;
+		full_user.setType_user(type_user);
 		return service.createutilisateurs(full_user);
 	}
 	
