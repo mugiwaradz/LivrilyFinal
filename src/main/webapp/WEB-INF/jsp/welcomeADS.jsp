@@ -23,8 +23,8 @@
 
 <div style="overflow:auto">
   <div class="menu">
-<div> <img width="50" height="50" alt="" src="/scooter-livraison.png"> <a href="/Livreurs">Click here to chaek lits Livreuers</a> </div><br> <br>
-<a href="/Fournisseurs">Click here to chaek lits Fournisseurs</a><br> <br>
+<div> <img width="50" height="50" alt="" src="/scooter-livraison.png"> <a href="/Livreurs">Liste des Livreurs</a> </div><br> <br>
+<a href="/Fournisseurs">Liste des Fournisseurs</a><br> <br>
 <a href="/add-Supermarche">Click here to add new supermarché</a><br> <br>
   </div>
 

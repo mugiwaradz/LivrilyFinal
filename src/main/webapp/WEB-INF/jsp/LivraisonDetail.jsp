@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf"%>
 
-<h1 align="center"> Livraison details</h1>
+<h1 align="center"> ${shipment.getLivraison().getNumeroLivraison()} details</h1>
 
 <table class="table">
   <thead class="thead-light">

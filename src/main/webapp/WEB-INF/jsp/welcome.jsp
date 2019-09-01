@@ -165,7 +165,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="Client">INSCRIRE</a></li>
+        <li><a href="Inscrire">INSCRIRE</a></li>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN
           <span class="caret"></span></a>
@@ -183,11 +183,8 @@
 											placeholder="Password">
 									</div>
 									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											id="dropdownCheck"> <label class="form-check-label"
-											for="dropdownCheck"> Remember me </label>
-									</div>
-									<button type="submit" class="btn btn-primary" >Sign in</button>
+									
+								<div align="center">	<button type="submit" class="btn btn-primary" >Sign in</button></div>
 								</form>
 							</li>
   </ul>

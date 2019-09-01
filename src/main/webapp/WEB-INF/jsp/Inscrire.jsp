@@ -43,10 +43,10 @@
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="Login">
+      <input type="text" class="form-control" id="Login" placeholder="Login">
     </div>
     <div class="form-group col-md-6">
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control" id="password" placeholder="password ">
     </div>
     </div>
  <div align="center"><button type="submit" class="btn btn-primary" >Sign in</button></div> 

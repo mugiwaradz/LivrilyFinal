@@ -1,9 +1,12 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>
+<body background="back.jpg">
 <div style="background-color:#fffff;padding:30px;text-align:center;">
-<h2> Liste des produits</h2>
-</div>
-<div align="right">
+<header> <div> <a href="WelcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
+<h1 style="color: white;"> Liste des produits</h1>
+ </header>
+<center>
+<section>
+
 <div class="row" >
 
 <br> <br>
@@ -24,8 +27,12 @@
 </div>
 
 </div>
-		<div>
-			<a class="button" href="/add-todo">Add a Todo</a>
-		</div>
-
+		
+		</section>
+		</center>
+			<a class
+			="button" href="/add-todo">Add a Todo</a>
+		
+</body>
+  
 <%@ include file="common/footer.jspf" %>
