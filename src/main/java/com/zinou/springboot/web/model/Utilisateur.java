@@ -1,13 +1,12 @@
 package com.zinou.springboot.web.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Utilisateur {
 	private String Nom;
  	private String Prenom;
-	private Timestamp DateNaissance;
+	private String DateNaissance;
 	private String LieudeudeNaissance;
-	private String sex;
 	private String Email;
 	private String Login;
 	private String Pasword;
@@ -70,18 +69,13 @@ public class Utilisateur {
 	public void setPhone2(int phone2) {
 		Phone2 = phone2;
 	}
-	public Timestamp getDateNaissance() {
+	public String getDateNaissance() {
 		return DateNaissance;
 	}
-	public void setDateNaissance(Timestamp dateNaissance) {
+	public void setDateNaissance(String dateNaissance) {
 		DateNaissance = dateNaissance;
 	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
+	
 
 	
 	

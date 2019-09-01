@@ -8,6 +8,8 @@ import com.zinou.springboot.web.model.Client;
 public interface ClientService {
 	
 	Client getClient(int client_id);
+
+	int inscrClient(int utilsateur_id, int numCartCredit);
 	
 
 }

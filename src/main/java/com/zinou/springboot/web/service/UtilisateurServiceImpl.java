@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zinou.springboot.web.model.Full_User;
+import com.zinou.springboot.web.model.Utilisateur;
 import com.zinou.springboot.web.repository.UtilisateurRepository;
 import com.zinou.springboot.web.util.ExacteUser;
 
@@ -48,8 +49,8 @@ public class UtilisateurServiceImpl implements UtilisateureService {
 	}
 
 	@Override
-	public Full_User createutilisateurs(Full_User full_user) {
-		return repository.createutilisateurs( full_user);
+	public Utilisateur createutilisateurs(Utilisateur utilisateur) {
+		return repository.createutilisateurs( utilisateur);
 
 	}
 

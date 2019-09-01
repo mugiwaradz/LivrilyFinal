@@ -11,10 +11,15 @@ public class ClientServiceImpl implements ClientService {
 
 	@Autowired
 	ClientRepository Repository;
-	
+
 	@Override
 	public Client getClient(int client_id) {
 		return Repository.getClient(client_id);
+	}
+
+	@Override
+	public int inscrClient(int utilsateur_id, int numCartCredit) {
+		return Repository.createClient(utilsateur_id, numCartCredit);
 	}
 
 }
