@@ -14,6 +14,7 @@
 					<th>Tva</th>
 					<th>Total</th>
 					<th></th>
+					<th> </th>
 				</tr>
 			</thead>
 			<tbody>
@@ -29,13 +30,12 @@
 						<td>${invoice.getFacture().getTotal()}</td>
 						<td><a type="button" class="btn btn-success"
 						href="/FacturesDetail?id_facture=${invoice.getFacture().getFacture_ID()}">Détail </a></td>
+						 <td><a type="button" class="btn btn-primary"
+							href="printFacture?id_facture=${invoice.getFacture().getFacture_ID()}">Imprimer</a> </td>
 						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
-			<a class="button" href="/add-todo">Add a Todo</a>
-		</div>
-	</div>
+		
 <%@ include file="common/footer.jspf" %>
