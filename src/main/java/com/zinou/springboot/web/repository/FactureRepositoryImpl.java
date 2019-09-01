@@ -1,5 +1,9 @@
 package com.zinou.springboot.web.repository;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,8 +16,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
@@ -23,7 +29,6 @@ import com.zinou.springboot.web.model.FactureLine;
 import com.zinou.springboot.web.model.Facturecomplette;
 import com.zinou.springboot.web.util.DB;
 
-import net.sf.jasperreports.engine.JREmptyDataSource;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -190,7 +195,7 @@ public class FactureRepositoryImpl implements FactureRepository {
 	}
 
 	@Override
-	public ResponseEntity<InputStreamResource> printFacture(int id_facture) {
+	public ResponseEntity<Resource> printFacture(int id_facture) {
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("facture_id", id_facture);
 		Connection datasource = db.getConnection();
@@ -198,17 +203,25 @@ public class FactureRepositoryImpl implements FactureRepository {
 			JasperReport jrxmlFile = JasperCompileManager.compileReport("src/main/resources/facture.jrxml");
 			JasperPrint jasperPrint = JasperFillManager.fillReport(jrxmlFile, parameters, datasource); //with datasource
 
-			String filename =   System.temp "facture_" + id_facture + ".pdf";
+			String filename =  "facture_" + id_facture + ".pdf";
 			JasperExportManager.exportReportToPdfFile(jasperPrint, filename);
 
-			ClassPathResource pdfFile = new ClassPathResource(filename);
+			File file = new File(filename);
 
-			return ResponseEntity
-					.ok()
-					.contentLength(pdfFile.contentLength())
-					.contentType(MediaType.parseMediaType("application/octet-stream"))
-					.body(new InputStreamResource(pdfFile.getInputStream()));
+	        HttpHeaders header = new HttpHeaders();
+	        header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename);
+	        header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+	        header.add("Pragma", "no-cache");
+	        header.add("Expires", "0");
 
+	        Path path = Paths.get(file.getAbsolutePath());
+	        ByteArrayResource resource = new ByteArrayResource(Files.readAllBytes(path));
+
+	        return ResponseEntity.ok()
+	                .headers(header)
+	                .contentLength(file.length())
+	                .contentType(MediaType.parseMediaType("application/octet-stream"))
+	                .body(resource);
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}

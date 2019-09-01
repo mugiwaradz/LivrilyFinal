@@ -3,6 +3,7 @@ package com.zinou.springboot.web.service;
 import java.util.List;
 
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,6 @@ public interface FactureService {
 
 	boolean createFacture(int id_livraison);
 
-	ResponseEntity<InputStreamResource> printFacture(int id_facture);
+	ResponseEntity<Resource> printFacture(int id_facture);
 
 }

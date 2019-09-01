@@ -3,7 +3,7 @@ package com.zinou.springboot.web.controller;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -49,7 +49,7 @@ public class FactureController {
 
 
 	@GetMapping(value = "printFacture", produces = "application/pdf")
-	public ResponseEntity<InputStreamResource> downloadPDFFile(@RequestParam String id_facture)
+	public ResponseEntity<Resource> downloadPDFFile(@RequestParam String id_facture)
 			throws IOException {
 		return service.printFacture(Integer.parseInt(id_facture));
 	}

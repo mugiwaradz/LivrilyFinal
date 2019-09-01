@@ -3,6 +3,7 @@ package com.zinou.springboot.web.repository;
 import java.util.List;
 
 import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 
@@ -22,6 +23,6 @@ public interface FactureRepository {
 
 	void updateFacture(Double volumneTotal, int Facture_id);
 
-	ResponseEntity<InputStreamResource> printFacture(int id_facture);
+	ResponseEntity<Resource> printFacture(int id_facture);
 
 }

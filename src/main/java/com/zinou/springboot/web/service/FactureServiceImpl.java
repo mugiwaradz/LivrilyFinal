@@ -3,7 +3,7 @@ package com.zinou.springboot.web.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -69,7 +69,7 @@ public class FactureServiceImpl implements FactureService{
 	}
 
 	@Override
-	public ResponseEntity<InputStreamResource> printFacture(int id_facture) {
+	public ResponseEntity<Resource> printFacture(int id_facture) {
 		return repository.printFacture(id_facture);
 	}
 
