@@ -31,7 +31,7 @@
 						<td>${produit.getPrixDevante()} DA</td>
 						<td>${produit.getPrixDachat()} DA</td>
 						<td>${produit.getFournisseur_ID()}</td>
-						<td>${produit.getImage()} </td>
+						<td><img style height="40" width="40" alt="img" src="${produit.getImage()}">  </td>
 						<td>${produit.getPromotion() } %</td>
 						<td>${produit.getQuantite()} </td>
 

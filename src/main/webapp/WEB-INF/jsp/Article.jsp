@@ -58,7 +58,7 @@
 
 		<fieldset class="form-group">
 			<form:label path="quantite">Quantite</form:label>
-			<form:input path="quantite" type="text" class="form-control"
+			<form:input path="quantite" type="number" class="form-control"
 				required="required" />
 			<form:errors path="quantite" cssClass="text-warning" />
 		</fieldset>

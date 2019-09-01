@@ -1,6 +1,20 @@
 
 <%@ include file="common/header.jspf"%>
 <%@ include file="common/navigation.jspf" %>
+ <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
 <body style="font-family:Arial;color:#000000;">
 
 <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
@@ -33,7 +47,10 @@
   </div>
 </div>
 
-<div style="background-color:#000000;text-align:center;padding:10px;margin-top:7px;color: white;"> <i>www.livrily.dz</i></div>
+<footer class="container-fluid text-center">
+  <p> <i>www.livrily.dz</i></p>
+</footer>
+
 
 
 
