@@ -23,7 +23,7 @@ public class LoginController {
 		String type = (String) resulMap.get("type");
 		int user_id = (Integer) resulMap.get("user_id");
 		if (user_id <= 0)
-			return "redirect:/create-utilisateur";
+			return "redirect:/Inscrire";
 
 		switch (type) {
 		case "C":

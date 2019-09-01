@@ -1,13 +1,13 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/navigation.jspf" %>
-
+<h2 align="center"> Liste des Produits</h2>
 <table class="table">
   <thead class="thead-light">
     <tr>
                     <th>Produit_ID</th>
 					<th>Nom</th>
 					<th>Referance</th>
-					<th>Catégorie </th>
+					<th>Categorie </th>
 					<th>Prix de vante</th>
 					<th>prix d'achat</th>
 					<th>fournisseur_id</th>

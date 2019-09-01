@@ -39,6 +39,12 @@ public class ArticleController {
 		return "articles";
 	}
 	
+	@RequestMapping(value = "/Comandearticles", method = RequestMethod.GET)
+	String getCommandeArticles(ModelMap model){
+		List<FullProduit> articles = service.getProduits();
+		model.put("produits", articles);
+		return "Comandearticles";
+	}
 	
 	
 	@RequestMapping(value = "/add-Article", method = RequestMethod.GET)
@@ -48,7 +54,7 @@ public class ArticleController {
 	}
 	
 	@RequestMapping(value = "/add-Article", method = RequestMethod.POST)
-	public String addTodo(ModelMap model, @Valid Produit article, BindingResult result) {
+	public String addArticle(ModelMap model, @Valid Produit article, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "Article";

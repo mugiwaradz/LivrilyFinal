@@ -48,7 +48,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 	public List<FullProduit> getProduits() {
 
 		String sql = "select * FROM Produit inner join categorie_produit on "
-				+ "(Produit.categorie_produit_id = categorie_produit.categorie_produit_id);";
+				+ "(Produit.categorie_produit_id = categorie_produit.categorie_produit_id)  order by Produit.categorie_produit_id ;";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);

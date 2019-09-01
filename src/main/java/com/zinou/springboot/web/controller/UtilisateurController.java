@@ -62,13 +62,39 @@ public class UtilisateurController {
 		return "Fournisseurs";
 	}
 //	
-	@PostMapping("create-utilisateur")
+	@PostMapping("Inscrire")
 	Full_User createUtilisateurs(@RequestBody Full_User full_user){
 		return service.createutilisateurs(full_user);
 	}
-
+	
+	@GetMapping("Inscrire")
+   String Inscrire() {
+		return "Inscrire";
+	}
 	@DeleteMapping("Utilisateur/{id_utilisateur}")
 	boolean deleteUtilisateurs(@PathVariable("id_utilisateur") int id_utilisateur){
 		return service.deleteUtilisateurs(id_utilisateur);
 	}
+	
+	@GetMapping("/welcomeFournisseur")
+	String welcomeFournisseur(){
+		return "welcomeFournisseur";
+		
+	}
+	@GetMapping("/welcomeClient")
+	String welcomeClient(){
+		return "welcomeClient";
+		
+	}
+	@GetMapping("/welcomeADS")
+	String welcomeADS(){
+		return "welcomeADS";
+		
+	}
+	@GetMapping("/welcomeADF")
+	String welcomeADF(){
+		return "welcomeADF";
+		
+	}
+
 }

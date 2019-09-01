@@ -147,7 +147,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public Livraison createLivraison(Livraison livraison) {		
 
 		//		TODO corriger requette
-		String sql = "INSERT INTO `livrili`.`livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`)  VALUES  (?,?,?,?,?) ";
+		String sql = "INSERT INTO `livrily`.`livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`)  VALUES  (?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -178,7 +178,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public Livraison_Line createLivraisonLine(Livraison_Line line) {		
 
 		//		TODO corriger requette
-		String sql = "INSERT INTO `livrili`.`livraison_line` (`livraison_id`, `produit_id`, `quantitylivre`, `volume`) VALUES  (?,?,?,?) ";
+		String sql = "INSERT INTO `livrily`.`livraison_line` (`livraison_id`, `produit_id`, `quantitylivre`, `volume`) VALUES  (?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

@@ -31,7 +31,16 @@ public class CommandeController {
 		return "Commandes";
 	}
 
-	@PostMapping("Commandes")
+	@RequestMapping(value = "/CommandeDetail", method = RequestMethod.GET)
+	String getCommandesDetail(@RequestParam(required = false) String id_commande, ModelMap model) {
+
+		int id= Integer.parseInt(id_commande);
+		model.put("order", service.getCommandes(id).get(0));
+
+		return "CommandeDetail";
+	}
+	
+	@PostMapping("Commander")
 	Commandecomplette getCommandes( @RequestBody List <CommandeSimple> commandes) {
 		return service.createCommandes(commandes);
 	}

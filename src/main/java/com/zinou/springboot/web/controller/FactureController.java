@@ -31,6 +31,16 @@ public class FactureController {
 		return "Factures";
 
 	}
+	@RequestMapping(value = "/FacturesDetail", method = RequestMethod.GET)
+	String getFacturesDetail( @RequestParam(required = false)  String id_facture, ModelMap model){
+
+		int id = Integer.parseInt(id_facture);
+		model.put("invoice", service.getFactures(id).get(0));
+
+		return "FacturesDetail";
+
+	}
+
 
 	@PostMapping("Factures")
 	boolean createFacture(@RequestParam int id_livraison){

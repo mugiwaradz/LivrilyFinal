@@ -1,18 +1,12 @@
-<%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf"%>
-
-<form class="dropdown-menu p-4">
-  <div class="form-group">
-    <label for="exampleDropdownFormEmail2">Email address</label>
-    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-  </div>
-  <div class="form-group">
-    <label for="exampleDropdownFormPassword2">Password</label>
-    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-  
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
-
-
-
-<%@ include file="common/footer.jspf"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> done </h1>
+</body>
+</html>

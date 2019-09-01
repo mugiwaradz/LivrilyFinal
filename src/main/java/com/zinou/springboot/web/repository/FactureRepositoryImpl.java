@@ -71,9 +71,9 @@ public class FactureRepositoryImpl implements FactureRepository {
 
 					facturelines= new ArrayList<>();
 					Facture facture=new Facture();
-					facture.setClient_ID(rs.getInt(1));
-					facture.setFacture_ID(rs.getInt(2));
-					facture.setLivraison_ID(rs.getInt(3));
+					facture.setFacture_ID(rs.getInt(1));
+					facture.setLivraison_ID(rs.getInt(2));
+					facture.setClient_ID(rs.getInt(3));
 					facture.setNumeroFacture(rs.getString(4));
 					facture.setTarif(rs.getString(5));
 					facture.setTotal(rs.getDouble(6));

@@ -45,6 +45,7 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 					utilisateur.setClient_ID(rs.getInt("client_id"));
 					break;
 				case 2:
+					utilisateur.setLivreur_ID(rs.getInt("livreur_id"));
 					utilisateur.setMoyenLivraison((rs.getString("moyenLivraison")));
 					utilisateur.setTypePermetConduire((rs.getString("typePermetConduire")));
 					utilisateur.setDistanceMax((rs.getInt("distanceMax")));
@@ -52,6 +53,7 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 					
 					break;
 				case 3:
+					utilisateur.setFournisseur_ID(rs.getInt("fournisseur_id"));
 					utilisateur.setNumeroFiscale((rs.getInt("numeroFiscale")));
 					utilisateur.setNumeroGestire((rs.getInt("numeroRegistre")));
 					utilisateur.setTaxid((rs.getString("taxid")));
