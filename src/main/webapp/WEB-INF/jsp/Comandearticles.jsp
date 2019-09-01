@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf" %>
 <body background="back.jpg">
 <div style="background-color:#fffff;padding:30px;text-align:center;">
-<header> <div> <a href="WelcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
+<header> <div> <a href="welcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
 <h1 style="color: white;"> Liste des produits</h1>
  </header>
 <center>

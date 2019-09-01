@@ -1,6 +1,5 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>
-<div class="container">
+<%@ include file="common/naviguationadmine.jspf"%><div class="container">
 	<form:form method="post" commandName="Article">
 
 		<fieldset class="form-group">

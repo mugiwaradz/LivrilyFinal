@@ -1,5 +1,5 @@
 <%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf"%>
+<%@ include file="common/naviguationadmine.jspf"%>
 <h2 align="center"> liste des Commandes</h2>
 <table class="table">
   <thead class="thead-light">

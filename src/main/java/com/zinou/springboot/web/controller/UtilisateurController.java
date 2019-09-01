@@ -88,6 +88,10 @@ public class UtilisateurController {
 		return "welcomeADF";
 		
 	}
+	@GetMapping("/welcomeLivreur")
+	String welcomeL(){
+		return "welcomeLivreur";
+	}
 	@GetMapping("/Inscrire")
 	String Inscrire(){
 		return "Inscrire";

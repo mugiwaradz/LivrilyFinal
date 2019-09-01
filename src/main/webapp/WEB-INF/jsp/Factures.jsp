@@ -1,5 +1,5 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>
+<%@ include file="common/naviguationadmine.jspf"%>
 
 <h2 align="center">Liste des factures</h2>
 	<table class="table">

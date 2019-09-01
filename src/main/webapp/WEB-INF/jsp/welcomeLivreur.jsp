@@ -1,28 +1,22 @@
-
 <%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf" %>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"> <img   width="42" height="42 alt="livrily" src="/Livrily.png" > </a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/Livraisons">Livraisons</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/Factures">Factures</a>
+      </li>
+       </ul>
+       
+  </div>
 
-<div class="container">
-	Welcome ${name}!! <a href="/articles">Click here</a> to manage your
-	articles. <br> <br>
-<p> <a  href="/Clients" class="text-primary">Click here to chaek lits clients</a><br> </p> <br>
-<a href="/Livreurs">Click here to chaek lits Livreuers</a><br> <br>
-<a href="/Fournisseurs">Click here to chaek lits Fournisseurs</a><br> <br>
-<a href="/add-Supermarche">Click here to add new supermarché</a><br> <br>
-
-
-<form class="form-inline my-2 my-lg-0 ">
-    <button class="btn btn-warning"" type="button" margine"center">panier</button>
-  </form>
-        <span class="navbar-text">
-          Bonjour <strong> ${name}  </strong>
-          </span>
-
-
-
-
-
+</nav>
 
 
 
