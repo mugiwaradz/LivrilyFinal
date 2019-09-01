@@ -4,7 +4,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,9 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.zinou.springboot.web.model.Full_User;
+import com.zinou.springboot.web.model.Utilisateur;
 import com.zinou.springboot.web.util.DB;
 import com.zinou.springboot.web.util.ExacteUser;
-import com.zinou.springboot.web.util.Inscription;
 
 @Repository
 public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
@@ -74,42 +77,46 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 	}
 
 	@Override
-	public Full_User createutilisateurs(Full_User full_user) {
+	public Utilisateur createutilisateurs(Utilisateur utilisateur) {
 
-		String sql = "INSERT INTO `livrili`.`utilisateur` ( `nom`, `prenom`, `datedenaissance`, `lieudenaissance`, `phone`, `phone2`, `email`, `login`, `pasword`)  VALUES  (?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO `utilisateur` ( `nom`, `prenom`, `datedenaissance`, `lieudenaissance`, `phone`, `phone2`, `email`, `login`, `pasword`)  VALUES  (?,?,?,?,?,?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-			stmt.setString(1, full_user.getUtilisateur().getNom());
-			stmt.setString(2, full_user.getUtilisateur().getPrenom());
-			stmt.setTimestamp(3, full_user.getUtilisateur().getDateNaissance());
-			stmt.setString(4, full_user.getUtilisateur().getLieudeudeNaissance());
-			stmt.setInt(5, full_user.getUtilisateur().getPhone1());
-			stmt.setInt(6, full_user.getUtilisateur().getPhone2());
-			stmt.setString(7, full_user.getUtilisateur().getEmail());
-			stmt.setString(8, full_user.getUtilisateur().getLogin());
-			stmt.setString(9, full_user.getUtilisateur().getPasword());
+			stmt.setString(1, utilisateur.getNom());
+			stmt.setString(2, utilisateur.getPrenom());
+			
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		    Date parsedDate = dateFormat.parse(utilisateur.getDateNaissance());
+			
+			stmt.setTimestamp(3, new Timestamp(parsedDate.getTime()));
+			stmt.setString(4, utilisateur.getLieudeudeNaissance());
+			stmt.setInt(5, utilisateur.getPhone1());
+			stmt.setInt(6, utilisateur.getPhone2());
+			stmt.setString(7, utilisateur.getEmail());
+			stmt.setString(8, utilisateur.getLogin());
+			stmt.setString(9, utilisateur.getPasword());
 
 			stmt.executeUpdate();
 
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
-				full_user.getUtilisateur().setUtilisateur_ID(generatedKeys.getInt(1));
-				Inscription inscription =new Inscription();
-				switch (full_user.getType_user()) {
-
-				case 1:inscription.createClient(full_user);
-				break;
-
-				case 2:inscription.createLivreur(full_user);
-				break;
-
-				case 3:inscription.createFournisseur(full_user);
-				break;
-
-				default:
-					break;
-				}
+				utilisateur.setUtilisateur_ID(generatedKeys.getInt(1));
+//				Inscription inscription =new Inscription();
+//				switch (full_user.getType_user()) {
+//
+//				case 1:inscription.createClient(1);
+//				break;
+//
+////				case 2:inscription.createLivreur(full_user);
+////				break;
+////
+////				case 3:inscription.createFournisseur(full_user);
+////				break;
+//
+//				default:
+//					break;
+//				}
 
 			}
 			else {
@@ -119,7 +126,7 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
-		return full_user ;
+		return utilisateur ;
 	}
 
 

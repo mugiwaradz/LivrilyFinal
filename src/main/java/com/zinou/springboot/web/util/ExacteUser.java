@@ -46,7 +46,7 @@ public class ExacteUser {
 		user.setUtilisateur_ID((rs.getInt(1)));
 		user.setNom(rs.getString(2));
 		user.setPrenom(rs.getString(3));
-		user.setDateNaissance(rs.getTimestamp(4));
+		user.setDateNaissance(rs.getTimestamp(4).toString());
 		user.setLieudeudeNaissance(rs.getString(5));
 		user.setPhone1(rs.getInt(6));
 		user.setPhone2(rs.getInt(7));

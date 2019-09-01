@@ -11,21 +11,21 @@
  
 </div>
 
-<form>
+<form method = "post" action = "Utilisateur">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="Nom" placeholder="votre nom">
+      <input type="text" class="form-control" path="Nom" name = "Nom" placeholder="votre nom">
     </div>
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="Prenom" placeholder="votre Prenom">
+      <input type="text" class="form-control" path="Prenom" name="Prenom" placeholder="votre Prenom">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="date" class="form-control" id="date" placeholder="votre date de naissance">
+      <input type="date" pattern="MM/DD/YYYY" class="form-control" path="DateNaissance" name = "DateNaissance" placeholder="votre date de naissance">
     </div>
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="lieu" placeholder="votre Lieu de Niassance">
+      <input type="text" class="form-control" path="LieudeudeNaissance" name="LieudeudeNaissance" placeholder="votre Lieu de Niassance">
     </div>
   </div>
   <div class="form-row">
@@ -38,15 +38,15 @@
   </div>
   <div class="form-row">
   <div class="form-group col-md-6">
-    <input type="email" class="form-control" id="email" placeholder="votre email">
+    <input type="Email" class="form-control" path="Email" name="Email" placeholder="votre email">
   </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="Login" placeholder="Login">
+      <input type="text" class="form-control" path="Login" name="Login">
     </div>
     <div class="form-group col-md-6">
-      <input type="password" class="form-control" id="password" placeholder="password ">
+      <input type="password" class="form-control" path="Pasword" name="Pasword">
     </div>
     </div>
  <div align="center"><button type="submit" class="btn btn-primary" >Sign in</button></div> 
