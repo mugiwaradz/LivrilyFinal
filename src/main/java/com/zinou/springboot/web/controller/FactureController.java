@@ -49,9 +49,9 @@ public class FactureController {
 
 
 	@GetMapping(value = "printFacture", produces = "application/pdf")
-	public ResponseEntity<InputStreamResource> downloadPDFFile(@RequestParam int id_facture)
+	public ResponseEntity<InputStreamResource> downloadPDFFile(@RequestParam String id_facture)
 			throws IOException {
-		return service.printFacture(id_facture);
+		return service.printFacture(Integer.parseInt(id_facture));
 	}
 
 }

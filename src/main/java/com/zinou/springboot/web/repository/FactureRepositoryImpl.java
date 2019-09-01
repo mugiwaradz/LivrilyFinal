@@ -192,14 +192,13 @@ public class FactureRepositoryImpl implements FactureRepository {
 	@Override
 	public ResponseEntity<InputStreamResource> printFacture(int id_facture) {
 		HashMap<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("id_facture", id_facture);
+		parameters.put("facture_id", id_facture);
 		Connection datasource = db.getConnection();
 		try {
 			JasperReport jrxmlFile = JasperCompileManager.compileReport("src/main/resources/facture.jrxml");
-//			JasperPrint jasperPrint; = JasperFillManager.fillReport(jasperReport, hm, ds); //with datasource
-			JasperPrint jasperPrint = JasperFillManager.fillReport(jrxmlFile, parameters, new JREmptyDataSource());
+			JasperPrint jasperPrint = JasperFillManager.fillReport(jrxmlFile, parameters, datasource); //with datasource
 
-			String filename =   "facture_" + id_facture + ".pdf";
+			String filename =   System.temp "facture_" + id_facture + ".pdf";
 			JasperExportManager.exportReportToPdfFile(jasperPrint, filename);
 
 			ClassPathResource pdfFile = new ClassPathResource(filename);

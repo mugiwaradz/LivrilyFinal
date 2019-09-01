@@ -55,6 +55,11 @@
 		
 	<div align="center">	<a type="button" class="btn btn-danger"
 							href="Factures">show less</a> 
+		</div>
+		
+	</br>
+		<div align="center">	<a type="button" class="btn btn-danger"
+							href="printFacture?id_facture="${invoice.getFacture().getFacture_ID()}>Imprimer</a> 
 		<div>
 			<a class="button" href="/add-todo">Add a Todo</a>
 		</div>
