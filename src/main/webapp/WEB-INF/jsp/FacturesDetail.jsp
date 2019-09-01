@@ -37,14 +37,14 @@
 				     <th>TotalLine </th>
 				     
 					</tr>
-				<c:forEach items="${invoices.getFacturelines()}" var="invoice">
+				<c:forEach items="${invoice.getFacturelines()}" var="line">
 					<tr>
-						<td>${invoice.getFactureLine_ID()}</td>
-						<td>${invoice.getFacture_ID()}</td>
-						<td>${invoice.getProduitID()} </td>
-						<td>${invoice.getPrix()}</td>
-			         	<td>${invoice.getQuantityFacture()}</td>
-			        	<td>${invoice.getTotalLine()}</td>
+						<td>${line.getFactureLine_ID()}</td>
+						<td>${line.getFacture_ID()}</td>
+						<td>${line.getProduitID()} </td>
+						<td>${line.getPrix()}</td>
+			         	<td>${line.getQuantityFacture()}</td>
+			        	<td>${line.getTotalLine()}</td>
 			         	
 						<td></td>
 						
@@ -59,7 +59,7 @@
 		
 	</br>
 		<div align="center">	<a type="button" class="btn btn-danger"
-							href="printFacture?id_facture="${invoice.getFacture().getFacture_ID()}>Imprimer</a> 
+							href="printFacture?id_facture=${invoice.getFacture().getFacture_ID()}">Imprimer</a> 
 		<div>
 			<a class="button" href="/add-todo">Add a Todo</a>
 		</div>
