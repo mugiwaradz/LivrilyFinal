@@ -37,14 +37,7 @@ public class LoginController {
 		case "ADS":
 			return "redirect:/welcomeADS";
 		default:
-			return "redirect:/Login";
+			return "redirect:/login";
 		}
 	}
-
-
-	@GetMapping("/login")
-	String Login(){
-		return "login";
-	}
-
 }
