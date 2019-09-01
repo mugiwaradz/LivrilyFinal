@@ -3,12 +3,9 @@ package com.zinou.springboot.web.service;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
-import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import com.zinou.springboot.web.model.Client;
@@ -17,7 +14,6 @@ import com.zinou.springboot.web.model.CommandeLine;
 import com.zinou.springboot.web.model.CommandeSimple;
 import com.zinou.springboot.web.model.Commandecomplette;
 import com.zinou.springboot.web.model.FullProduit;
-import com.zinou.springboot.web.model.Full_User;
 import com.zinou.springboot.web.repository.ArticleRepositoryImpl;
 import com.zinou.springboot.web.repository.CommandeRepository;
 
@@ -35,13 +31,7 @@ public class CommandeServiceImpl implements CommandeService {
 
 	@Autowired
 	ArticleService articleService ;
-
-	@Autowired
-	UtilisateureService utilisateureService ;
-
-	@Autowired
-	JavaMailSender javaMailSender;
-
+	
 	@Override
 	public List<Commandecomplette> getCommandes(int id_commande) {
 		return 	 repository.getCommandes(id_commande);
@@ -92,26 +82,6 @@ public class CommandeServiceImpl implements CommandeService {
 		repository.updateCommande(prixTotal, commande.getCommande_ID());
 		commande.setTotal(prixTotal);
 		return commandeComplete;
-	}
-
-	@Override
-	public boolean sendMail(int user_id) {
-
-		Full_User utilisateur = utilisateureService.getutilisateurs(1, user_id).get(0);		
-
-		SimpleMailMessage msg = new SimpleMailMessage();
-		msg.setTo(utilisateur.getUtilisateur().getEmail());
-
-		msg.setSubject("Livraison OK");
-		msg.setText("Hello " + utilisateur.getUtilisateur().getNom() + " \n Votre comande est livrée");
-
-		try{
-			javaMailSender.send(msg);
-			return true;
-		}catch (Exception e) {
-			log.log(Level.SEVERE, e.getMessage(), e);
-			return false;
-		}
 	}
 
 }

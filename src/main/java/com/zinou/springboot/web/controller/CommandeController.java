@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,11 +42,6 @@ public class CommandeController {
 	@PostMapping("Commander")
 	Commandecomplette getCommandes( @RequestBody List <CommandeSimple> commandes) {
 		return service.createCommandes(commandes);
-	}
-
-	@GetMapping("mail")
-	boolean getCommandes( @RequestParam int user_id) {
-		return service.sendMail(user_id);
 	}
 
 

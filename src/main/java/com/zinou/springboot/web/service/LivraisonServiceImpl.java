@@ -2,24 +2,43 @@ package com.zinou.springboot.web.service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+import com.zinou.springboot.web.model.Client;
 import com.zinou.springboot.web.model.CommandeLine;
 import com.zinou.springboot.web.model.Commandecomplette;
+import com.zinou.springboot.web.model.Full_User;
 import com.zinou.springboot.web.model.Livraison;
 import com.zinou.springboot.web.model.Livraison_Line;
 import com.zinou.springboot.web.model.Livraisoncomplette;
+import com.zinou.springboot.web.repository.ArticleRepositoryImpl;
 import com.zinou.springboot.web.repository.LivraisonRepository;
 
 @Service
 public class LivraisonServiceImpl implements LivraisonService{
 
+	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
+	
 	@Autowired
 	LivraisonRepository repository;
 	@Autowired
 	CommandeService commandeservice;
+
+	@Autowired
+	UtilisateureService utilisateureService ;
+	
+	@Autowired
+	ClientService clientService ;
+
+
+	@Autowired
+	JavaMailSender javaMailSender;
 
 	@Override
 	public List<Livraisoncomplette> getLivraisons(Boolean estlivre, int livraison_id) {
@@ -56,7 +75,32 @@ public class LivraisonServiceImpl implements LivraisonService{
 		
 		repository.updateLivraison(volumneTotal, livraison.getLivraison_ID());
 
+		sendMail(commande.getCommande().getClinet_ID());
+		
 		return true;
+	}
+	
+
+	@Override
+	public boolean sendMail(int client_id) {
+
+		Client client = clientService.getClient(client_id);		
+
+		Full_User utilisateur = utilisateureService.getutilisateurs(1, client.getUtilisateur_ID()).get(0);		
+
+		SimpleMailMessage msg = new SimpleMailMessage();
+		msg.setTo(utilisateur.getUtilisateur().getEmail());
+
+		msg.setSubject("Livraison OK");
+		msg.setText("Hello " + utilisateur.getUtilisateur().getNom() + " \n Votre comande est livrée");
+
+		try{
+			javaMailSender.send(msg);
+			return true;
+		}catch (Exception e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+			return false;
+		}
 	}
 
 }

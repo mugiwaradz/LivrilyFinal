@@ -13,8 +13,5 @@ public interface CommandeService {
 	List<Commandecomplette> getCommandes( int commande_id);
 	
 	Commandecomplette createCommandes(List<CommandeSimple> commandes);
-
-	boolean sendMail(int user_id);
-
 	
 }

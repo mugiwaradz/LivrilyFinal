@@ -14,4 +14,6 @@ public interface LivraisonService {
 
 	boolean createLivraison(int id_commande, int livreur_id);
 
+	boolean sendMail(int user_id);
+
 }

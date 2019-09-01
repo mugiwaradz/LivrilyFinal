@@ -1,17 +1,14 @@
 package com.zinou.springboot.web.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.zinou.springboot.web.model.Produit;
 import com.zinou.springboot.web.service.LivraisonService;
 
 @Controller
@@ -46,6 +43,13 @@ public class LivraisonController {
 	@PostMapping("Livraisons")
 	boolean createLivraison(@RequestParam int id_commande,@RequestParam int livreur_id){
 		return service.createLivraison(id_commande, livreur_id);
+	}
+	
+	
+
+	@GetMapping("mail")
+	boolean getCommandes( @RequestParam int client_id) {
+		return service.sendMail(client_id);
 	}
 
 
