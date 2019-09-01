@@ -1,7 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+
     <%@ include file="common/header.jspf"%>
   <body  background="back.jpg" >  
+  <%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div style="background-color:#fffff;padding:30px;text-align:center;">
 
 <div class="header">
@@ -10,10 +11,9 @@
  
 </div>
 
-<form:form method="post" >
+<form>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <legend>
       <input type="text" class="form-control" id="Nom" placeholder="votre nom">
     </div>
     <div class="form-group col-md-6">
@@ -36,25 +36,22 @@
       <input type="text" class="form-control" id="Phonne 2" placeholder="Phonne 2">
     </div>
   </div>
-   <div class="form-row">
-    
+  <div class="form-row">
   <div class="form-group col-md-6">
     <input type="email" class="form-control" id="email" placeholder="votre email">
-   </div>
- 
+  </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="Login"  placeholder="votre Login">
+      <input type="text" class="form-control" id="Login">
     </div>
     <div class="form-group col-md-6">
-      <input type="password" class="form-control" id="password"  placeholder="votre Password">
+      <input type="password" class="form-control" id="password">
     </div>
     </div>
-    <br>
-    <br>
-  
- <div align="center"> <button style="aligne:center" type="submit" class="btn btn-primary" >S'inscrire</button> </div>
-</form:form>
+ <div align="center"><button type="submit" class="btn btn-primary" >Sign in</button></div> 
+</form>
+</body>
+</html>
 </body>
 </html>

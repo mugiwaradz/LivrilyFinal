@@ -165,21 +165,21 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="Inscrire">INSCRIRE</a></li>
+        <li><a href="Client">INSCRIRE</a></li>
      <li class="dropdown">
      <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN
           <span class="caret"></span></a>
       <ul class="dropdown-menu">
-      <li>
+      <li id="login">
 								<form class="px-4 py-3" action="login" method="post">
 									<div class="form-group">
 										<label for="login">Login</label> <input
-											type="text" class="form-control" id="login"
+											type="text" class="form-control" name="login"
 											placeholder="login">
 									</div>
 									<div class="form-group">
 										<label for="password">Password</label> <input
-											type="password" class="form-control" id="password"
+											type="password" class="form-control" name="password"
 											placeholder="Password">
 									</div>
 									<div class="form-check">
@@ -187,7 +187,7 @@
 											id="dropdownCheck"> <label class="form-check-label"
 											for="dropdownCheck"> Remember me </label>
 									</div>
-									<button type="submit" class="btn btn-primary">Sign in</button>
+									<button type="submit" class="btn btn-primary" >Sign in</button>
 								</form>
 							</li>
   </ul>

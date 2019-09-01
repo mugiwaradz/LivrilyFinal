@@ -62,17 +62,7 @@ public class UtilisateurController {
 		return "Fournisseurs";
 	}
 //	
-	@PostMapping("Inscrire")
-	Full_User createUtilisateurs(@RequestBody Full_User full_user){
-		int type_user=1;
-		full_user.setType_user(type_user);
-		return service.createutilisateurs(full_user);
-	}
 	
-	@GetMapping("Inscrire")
-   String Inscrire() {
-		return "Inscrire";
-	}
 	@DeleteMapping("Utilisateur/{id_utilisateur}")
 	boolean deleteUtilisateurs(@PathVariable("id_utilisateur") int id_utilisateur){
 		return service.deleteUtilisateurs(id_utilisateur);
@@ -98,5 +88,9 @@ public class UtilisateurController {
 		return "welcomeADF";
 		
 	}
-
+	@GetMapping("/Inscrire")
+	String Inscrire(){
+		return "Inscrire";
+		
+	}
 }
