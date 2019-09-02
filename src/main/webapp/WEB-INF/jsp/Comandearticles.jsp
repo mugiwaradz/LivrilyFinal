@@ -7,11 +7,11 @@
 <center>
 <section>
 
-<div class="row" >
+<div align="center" class="row" >
 
 <br> <br>
 <c:forEach items="${produits}" var="produit">
-<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+<div class="card text-white bg-dark mb-3" style="max-width: 13.5rem;">
   <div style align="center" class="card-header">${produit.getNomCategore()}</div>
   <div class="card-body">
     <h5 style align="center" class="card-title">${produit.getNomProduit()}</h5>

@@ -55,26 +55,28 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<input type="text" class="form-control" path="Login" name="Login">
+					<input type="text" class="form-control" path="Login" name="Login"
+						placeholder="login">
 				</div>
 				<div class="form-group col-md-6">
 					<input type="password" class="form-control" path="Pasword"
-						name="Pasword">
+						name="Pasword" placeholder="password">
 				</div>
 			</div>
 
 			<div class="radio">
-				<label><input type="radio" name="type_user" value = "C" checked>Client</label>
+				<label><input type="radio" name="type_user" value="C"
+					checked>Client</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="type_user" value = "F" >Fornisseur</label>
+				<label><input type="radio" name="type_user" value="F">Fornisseur</label>
 			</div>
 			<div class="radio">
-				<label><input type="radio" name="type_user" value = "L" >Livreur</label>
+				<label><input type="radio" name="type_user" value="L">Livreur</label>
 			</div>
 
 			<div align="center">
-				<button type="submit" class="btn btn-primary">Sign in</button>
+				<button type="submit" class="btn btn-success">Sign in</button>
 			</div>
 		</form>
 </body>

@@ -1,19 +1,44 @@
 <%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf"%>
-<div class="container">
-	<form:form method="post" action="InscrFournisseur">
-		<div class="form-group">
-			<label for="utilisateur_id">Utilisateur</label> <input type="number"
-				class="form-control" name="utilisateur_id" value="<%= request.getParameter("utilisateur_id") %>" readonly>
-			<label for="numeroRegistre">numero Registre</label> <input type="number"
-				class="form-control" name="numeroRegistre" placeholder="numeroRegistre">
-				<label for=numeroFiscale>numero Fiscale</label> <input type="number"
-				class="form-control" name="numeroFiscale" placeholder="numeroFiscale">
-		<label for="taxId">tax ID</label> <input type="text"
-				class="form-control" name="taxId" placeholder="taxId">
-		
+<body background="back.jpg">
+	<div class="container">
+
+		<div
+			style="background-color: #fffff; padding: 30px; text-align: center;">
+
+			<div class="header">
+				<a href="/" class="logo"><img width="50" height="50"
+					alt="livrily" src="Livrily.png"> </a>
+				<h1 style="color: white;">
+					<strong>Inscrivez-vous</strong>
+				</h1>
+
+			</div>
+
+			<form method="post" action="InscrFournisseur">
+				<div class="form-row">
+					<div class="form-group col-md-6">
+						<input type="number" class="form-control" path="utilisateur_id"
+							name="utilisateur_id"
+							value="<%=request.getParameter("utilisateur_id")%>"
+							readonly>
+					</div>
+					<div class="form-group col-md-6">
+						<input type="number" class="form-control" path="numeroRegistre"
+							name="numeroRegistre" placeholder="votre numeroRegistre">
+					</div>
+					<div class="form-group col-md-6">
+						<input type="number" class="form-control" path="numeroFiscale"
+							name="numeroFiscale" placeholder="votre numeroFiscale">
+					</div>
+					<div class="form-group col-md-6">
+						<input type="text" class="form-control" path="taxId"
+							name="taxId" placeholder="votre taxid">
+					</div>
+
+				</div>
+				<button type="submit" class="btn btn-success">Finaliser
+					Inscription</button>
+			</form>
+
 		</div>
-		<button type="submit" class="btn btn-success">Finaliser Inscription</button>
-	</form:form>
-</div>
-<%@ include file="common/footer.jspf"%>
+		<%@ include file="common/footer.jspf"%>

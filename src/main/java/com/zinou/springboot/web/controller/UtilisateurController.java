@@ -34,7 +34,7 @@ public class UtilisateurController {
 	String createUtilisateurs(@Valid Utilisateur utilisateur) {
 
 		utilisateur = service.createutilisateurs(utilisateur);
-
+   
 		switch (utilisateur.getType_user()) {
 		case "F":
 			return "redirect:/InscrFournisseur?utilisateur_id=" + utilisateur.getUtilisateur_ID();

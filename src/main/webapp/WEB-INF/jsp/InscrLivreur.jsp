@@ -1,19 +1,47 @@
 <%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf"%>
+
+<body background="back.jpg">
+
 <div class="container">
-	<form:form method="post" action="InscrLivreur">
-		<div class="form-group">
-			<label for="utilisateur_id">Utilisateur</label> <input type="text"
-				class="form-control" name="utilisateur_id" value="<%= request.getParameter("utilisateur_id") %>" readonly>
-			<label for="moyenLivraison">Moyen Livraison</label> <input type="text"
-				class="form-control" name="moyenLivraison" placeholder="moyenLivraison">
-				<label for="typePermetConduire">Type de Permis de conduire</label> <input type="text"
-				class="form-control" name="typePermetConduire" placeholder="typePermetConduire">
-		<label for="distanceMax">Disnance max</label> <input type="number"
-				class="form-control" name="distanceMax" placeholder="distanceMax">
-		
+
+	<div
+		style="background-color: #fffff; padding: 30px; text-align: center;">
+
+		<div class="header">
+			<a href="/" class="logo"><img width="50" height="50"
+				alt="livrily" src="Livrily.png"> </a>
+			<h1 style="color: white;">
+				<strong>Inscrivez-vous</strong>
+			</h1>
+
 		</div>
-		<button type="submit" class="btn btn-success">Finaliser Inscription</button>
-	</form:form>
-</div>
-<%@ include file="common/footer.jspf"%>
+
+		<form method="post" action="InscrLivreur">
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<input type="number" class="form-control" path="utilisateur_id"
+						name="utilisateur_id"
+						value="<%=request.getParameter("utilisateur_id")%>"
+						readonly="readonly">
+				</div>
+				<div class="form-group col-md-6">
+					<input type="text" class="form-control" path="moyenLivraison"
+						name="moyenLivraison" placeholder="Moyen Livraison">
+				</div>
+				<div class="form-group col-md-6">
+					<input type="text" class="form-control" path="type PermetConduire"
+						name="typePermetConduire" placeholder=" typePermetConduire">
+				</div>
+				<div class="form-group col-md-6">
+					<input type="number" class="form-control" path="distanceMax"
+						name="distanceMax" placeholder=" distanc emax">
+				</div>
+
+			</div>
+			<button type="submit" class="btn btn-success">Finaliser
+				Inscription</button>
+		</form>
+
+
+	</div>
+	<%@ include file="common/footer.jspf"%>
