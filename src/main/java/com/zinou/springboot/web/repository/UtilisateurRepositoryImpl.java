@@ -21,22 +21,22 @@ import com.zinou.springboot.web.util.DB;
 import com.zinou.springboot.web.util.ExacteUser;
 
 @Repository
-public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
+public class UtilisateurRepositoryImpl implements UtilisateurRepository {
 
-	@Autowired DB db;
+	@Autowired
+	DB db;
 	Logger log = Logger.getLogger(UtilisateurRepositoryImpl.class.getName());
-	Full_User user=new Full_User();
-
+	Full_User user = new Full_User();
 
 	@Override
-	public List<Full_User> getUtilsateurs(int type_user, String sql)  {
+	public List<Full_User> getUtilsateurs(int type_user, String sql) {
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
 
 			List<Full_User> utilsateurs = new ArrayList<>();
-			while(rs.next()) {
+			while (rs.next()) {
 
 				Full_User utilisateur = ExacteUser.getutilisateur(rs);
 				utilisateur.setType_user(type_user);
@@ -53,7 +53,7 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 					utilisateur.setTypePermetConduire((rs.getString("typePermetConduire")));
 					utilisateur.setDistanceMax((rs.getInt("distanceMax")));
 					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
-					
+
 					break;
 				case 3:
 					utilisateur.setFournisseur_ID(rs.getInt("fournisseur_id"));
@@ -65,7 +65,7 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 				default:
 					break;
 				}
-				utilsateurs.add( utilisateur );
+				utilsateurs.add(utilisateur);
 			}
 
 			return utilsateurs;
@@ -85,10 +85,10 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setString(1, utilisateur.getNom());
 			stmt.setString(2, utilisateur.getPrenom());
-			
+
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		    Date parsedDate = dateFormat.parse(utilisateur.getDateNaissance());
-			
+			Date parsedDate = dateFormat.parse(utilisateur.getDateNaissance());
+
 			stmt.setTimestamp(3, new Timestamp(parsedDate.getTime()));
 			stmt.setString(4, utilisateur.getLieudeudeNaissance());
 			stmt.setInt(5, utilisateur.getPhone1());
@@ -102,33 +102,31 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				utilisateur.setUtilisateur_ID(generatedKeys.getInt(1));
-//				Inscription inscription =new Inscription();
-//				switch (full_user.getType_user()) {
-//
-//				case 1:inscription.createClient(1);
-//				break;
-//
-////				case 2:inscription.createLivreur(full_user);
-////				break;
-////
-////				case 3:inscription.createFournisseur(full_user);
-////				break;
-//
-//				default:
-//					break;
-//				}
+				// Inscription inscription =new Inscription();
+				// switch (full_user.getType_user()) {
+				//
+				// case 1:inscription.createClient(1);
+				// break;
+				//
+				//// case 2:inscription.createLivreur(full_user);
+				//// break;
+				////
+				//// case 3:inscription.createFournisseur(full_user);
+				//// break;
+				//
+				// default:
+				// break;
+				// }
 
-			}
-			else {
+			} else {
 				throw new SQLException("Creating user failed, no ID obtained.");
 			}
 
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
-		return utilisateur ;
+		return utilisateur;
 	}
-
 
 	@Override
 	public boolean deleteutilisateurs(int id_utilisateur) {
@@ -138,8 +136,8 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setInt(1, id_utilisateur);
 
-			int ret=stmt.executeUpdate();
-			return ret>0 ;
+			int ret = stmt.executeUpdate();
+			return ret > 0;
 
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
@@ -149,7 +147,3 @@ public class UtilisateurRepositoryImpl implements  UtilisateurRepository {
 	}
 
 }
-
-
-
-

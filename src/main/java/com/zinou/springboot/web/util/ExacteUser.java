@@ -9,39 +9,37 @@ import com.zinou.springboot.web.model.Utilisateur;
 import com.zinou.springboot.web.repository.UtilisateurRepositoryImpl;
 
 public class ExacteUser {
-	
-	Logger log = Logger.getLogger(UtilisateurRepositoryImpl.class.getName());
 
+	Logger log = Logger.getLogger(UtilisateurRepositoryImpl.class.getName());
 
 	public static String GetClient() {
 
-		String sql = "SELECT * FROM Utilisateur inner join client on (utilisateur.utilisateur_id = client.utilisateur_id)" ; 
+		String sql = "SELECT * FROM Utilisateur inner join client on (utilisateur.utilisateur_id = client.utilisateur_id)";
 		return sql;
 	}
-	
+
 	public static String GetFournisseur() {
 
-		String sql = "SELECT * FROM Utilisateur inner join fournisseur on (Utilisateur.Utilisateur_id = fournisseur.utilisateur_id)" ; 
-				
-		return sql;
-	}
-	public static  String  GetLivreur() {
+		String sql = "SELECT * FROM Utilisateur inner join fournisseur on (Utilisateur.Utilisateur_id = fournisseur.utilisateur_id)";
 
-		String sql = "SELECT * FROM Utilisateur inner join livreur on (Utilisateur.Utilisateur_id = livreur.utilisateur_id)" ; 
 		return sql;
 	}
 
-	public static  String  GetUtilisateur() {
+	public static String GetLivreur() {
+
+		String sql = "SELECT * FROM Utilisateur inner join livreur on (Utilisateur.Utilisateur_id = livreur.utilisateur_id)";
+		return sql;
+	}
+
+	public static String GetUtilisateur() {
 
 		String sql = "SELECT * FROM Utilisateur where 1=1 ";
 		return sql;
 	}
 
-
-
 	public static Full_User getutilisateur(ResultSet rs) throws SQLException {
 		Full_User utilisateur = new Full_User();
-		
+
 		Utilisateur user = new Utilisateur();
 		user.setUtilisateur_ID((rs.getInt(1)));
 		user.setNom(rs.getString(2));

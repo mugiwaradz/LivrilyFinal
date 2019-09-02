@@ -22,19 +22,18 @@ public class CommandeServiceImpl implements CommandeService {
 
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
-
 	@Autowired
 	CommandeRepository repository;
 
 	@Autowired
-	ClientService clientService ;
+	ClientService clientService;
 
 	@Autowired
-	ArticleService articleService ;
-	
+	ArticleService articleService;
+
 	@Override
 	public List<Commandecomplette> getCommandes(int id_commande) {
-		return 	 repository.getCommandes(id_commande);
+		return repository.getCommandes(id_commande);
 	}
 
 	@Override
@@ -46,7 +45,7 @@ public class CommandeServiceImpl implements CommandeService {
 		Commande commande = new Commande();
 		commande.setClinet_ID(client.getClient_ID());
 		commande.setDtaedeCommande(new Timestamp(System.currentTimeMillis()));
-		commande.setStatue("Brouillon"); //TODO
+		commande.setStatue("Brouillon"); // TODO
 		commande.setSupermarché_ID(commandes.get(0).getSuperMarche_id());
 		commande.setTarif(client.getTarif());
 		commande.setTva(17);
@@ -60,9 +59,9 @@ public class CommandeServiceImpl implements CommandeService {
 		List<CommandeLine> lines = new ArrayList<>();
 
 		for (CommandeSimple c : commandes) {
-			int produit_id=c.getProduit_id();
+			int produit_id = c.getProduit_id();
 
-			FullProduit produit =  articleService.getProduit(produit_id);
+			FullProduit produit = articleService.getProduit(produit_id);
 			CommandeLine line = new CommandeLine();
 			line.setCommande_ID(commande.getCommande_ID());
 			line.setPrix(produit.getPrixDevante());
@@ -85,7 +84,3 @@ public class CommandeServiceImpl implements CommandeService {
 	}
 
 }
-
-
-
-

@@ -20,51 +20,51 @@ import com.zinou.springboot.web.util.DB;
 
 @Repository
 public class CommandeRepositoryImpl implements CommandeRepository {
-	@Autowired DB db;
+	@Autowired
+	DB db;
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
-	@Override
-	public List<Commandecomplette> getCommandes( int id_commande) {
 
-		    ResultSet rs=null;
-			String sql = null ;
-			try {
+	@Override
+	public List<Commandecomplette> getCommandes(int id_commande) {
+
+		ResultSet rs = null;
+		String sql = null;
+		try {
 			if (id_commande > 0) {
-				sql="SELECT * FROM commande inner join commande_line "
+				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
 						+ " where commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
-				 rs = stmt.executeQuery();
-			}else{
-				sql="SELECT * FROM commande inner join commande_line "
-						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ "order by commande.datecommande";
+				rs = stmt.executeQuery();
+			} else {
+				sql = "SELECT * FROM commande inner join commande_line "
+						+ "on (commande.commande_id = commande_line.commande_id)" + "order by commande.datecommande";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
-				 rs = stmt.executeQuery();
+				rs = stmt.executeQuery();
 
 			}
 
-			
 			List<Commandecomplette> commandes = new ArrayList<>();
 
-			int old_comande_id=0;
+			int old_comande_id = 0;
 
 			Commandecomplette commandecomplette = null;
 			List<CommandeLine> commandelines = null;
 
 			while (rs.next()) {
 
-				if(old_comande_id != rs.getInt(1)) {
+				if (old_comande_id != rs.getInt(1)) {
 
 					commandecomplette = new Commandecomplette();
-					commandes.add(commandecomplette);	
+					commandes.add(commandecomplette);
 
-					commandelines= new ArrayList<>();
+					commandelines = new ArrayList<>();
 
-					Commande commande=new Commande();
-					commande.setCommande_ID(rs.getInt(1));	
+					Commande commande = new Commande();
+					commande.setCommande_ID(rs.getInt(1));
 					commande.setSupermarché_ID(rs.getInt(2));
 					commande.setClinet_ID(rs.getInt(3));
 					commande.setDtaedeCommande(rs.getDate(4));
@@ -90,16 +90,16 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			}
 			return commandes;
 
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	@Override
-	public CommandeLine saveCommandeLine(CommandeLine line) {		
 
-		//		TODO corriger requette
+	@Override
+	public CommandeLine saveCommandeLine(CommandeLine line) {
+
+		// TODO corriger requette
 		String sql = "INSERT INTO `Commande_line` ( `Commande_ID`, `produit_id`, `prix`, `quantityCommande`, `totalLine`) VALUES  (?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
@@ -115,8 +115,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				line.setCommandeLine_ID(generatedKeys.getInt(1));
-			}
-			else {
+			} else {
 				throw new SQLException("Creating commande line failed, no ID obtained.");
 			}
 
@@ -127,11 +126,10 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 
 	}
 
-
 	@Override
-	public void updateCommande(Double prixTotal, int commande_ID) {		
+	public void updateCommande(Double prixTotal, int commande_ID) {
 
-		//		TODO corriger requette
+		// TODO corriger requette
 		String sql = "UPDATE `Commande` set total = ?  where commande_ID = ? ";
 		PreparedStatement stmt;
 		try {
@@ -146,11 +144,12 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 		}
 
 	}
-	@Override
-	public Commande saveCommande(Commande commande) {		
 
-		//		TODO corriger requette
-		//TODO plsql numero commande sequence
+	@Override
+	public Commande saveCommande(Commande commande) {
+
+		// TODO corriger requette
+		// TODO plsql numero commande sequence
 		String sql = "INSERT INTO `Commande` ( `client_id`, `supermarche_id`, `datecommande`, `statue`, `NumeroCommande`, `tarif`, `tva`) VALUES  (?,?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
@@ -168,9 +167,8 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				commande.setCommande_ID(generatedKeys.getInt(1));
-				commande.setNumeroCommande(1000+generatedKeys.getInt(1));
-			}
-			else {
+				commande.setNumeroCommande(1000 + generatedKeys.getInt(1));
+			} else {
 				throw new SQLException("Creating commande failed, no ID obtained.");
 			}
 
