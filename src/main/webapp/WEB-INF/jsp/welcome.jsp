@@ -206,7 +206,8 @@ textarea {
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="/"><img alt="livrily"
-					src="Livrily.png" width="30" height="30"> </a>
+					src="Livrily.png" width="40"height="30"> </a>
+					 
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav navbar-right">

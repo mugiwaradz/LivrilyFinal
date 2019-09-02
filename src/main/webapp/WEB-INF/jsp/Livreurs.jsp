@@ -27,7 +27,7 @@
 						<td>${Livreur.getTypePermetConduire()} </td>				
 										
 						<td><a type="button" class="btn btn-dark"
-							href="/PostLivraison?livreur_id=${Livreur.getLivreur_ID()} ">Ajouter</a> </td>
+							href="/Commandealivrer?livreur_id=${Livreur.getLivreur_ID()} ">Ajouter</a> </td>
 					
 					</tr>
 				</c:forEach>
