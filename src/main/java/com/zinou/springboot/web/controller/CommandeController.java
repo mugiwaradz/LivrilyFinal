@@ -19,7 +19,7 @@ import com.zinou.springboot.web.service.CommandeService;
 public class CommandeController {
 
 	@Autowired
-	CommandeService service ;
+	CommandeService service;
 
 	@RequestMapping(value = "/Commandes", method = RequestMethod.GET)
 	String getCommandes(@RequestParam(required = false) String id_commande, ModelMap model) {
@@ -33,17 +33,15 @@ public class CommandeController {
 	@RequestMapping(value = "/CommandeDetail", method = RequestMethod.GET)
 	String getCommandesDetail(@RequestParam(required = false) String id_commande, ModelMap model) {
 
-		int id= Integer.parseInt(id_commande);
+		int id = Integer.parseInt(id_commande);
 		model.put("order", service.getCommandes(id).get(0));
 
 		return "CommandeDetail";
 	}
-	
+
 	@PostMapping("Commander")
-	Commandecomplette getCommandes( @RequestBody List <CommandeSimple> commandes) {
+	Commandecomplette getCommandes(@RequestBody List<CommandeSimple> commandes) {
 		return service.createCommandes(commandes);
 	}
-
-
 
 }

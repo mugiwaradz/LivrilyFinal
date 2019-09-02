@@ -20,18 +20,17 @@ import com.zinou.springboot.web.util.DB;
 @Repository
 public class LivraisonRepositoryImpl implements LivraisonRepository {
 
-	@Autowired DB db;
+	@Autowired
+	DB db;
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
 	public List<Livraisoncomplette> getLivraisons(Boolean estlivre) {
 
-		String sql="SELECT * FROM Livraison inner join livraison_line "
-				+ "on (livraison.livraison_id = livraison_line.livraison_id)"
-				+ " where livraison.estLivre= (?)";
-		
-		PreparedStatement stmt;
+		String sql = "SELECT * FROM Livraison inner join livraison_line "
+				+ "on (livraison.livraison_id = livraison_line.livraison_id)" + " where livraison.estLivre= (?)";
 
+		PreparedStatement stmt;
 
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
@@ -40,18 +39,18 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			ResultSet rs = stmt.executeQuery();
 			List<Livraisoncomplette> Livraisons = new ArrayList<>();
 
-			int old_livraison_id=0;
+			int old_livraison_id = 0;
 
 			Livraisoncomplette livraisoncomplette = null;
 			List<Livraison_Line> livraisonlines = null;
 			while (rs.next()) {
-				if(old_livraison_id!= rs.getInt(1)) {
+				if (old_livraison_id != rs.getInt(1)) {
 
 					livraisoncomplette = new Livraisoncomplette();
-					Livraisons.add(livraisoncomplette);	
+					Livraisons.add(livraisoncomplette);
 
-					livraisonlines= new ArrayList<>();
-					Livraison livraison=new Livraison();
+					livraisonlines = new ArrayList<>();
+					Livraison livraison = new Livraison();
 					livraison.setCommande_ID(rs.getInt(1));
 					livraison.setLivraison_ID(rs.getInt(2));
 					livraison.setLivreur_ID(rs.getInt(3));
@@ -62,10 +61,10 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 					livraisoncomplette.setLivraison(livraison);
 					livraisoncomplette.setLivraisonlines(livraisonlines);
 
-					old_livraison_id=rs.getInt(1);
+					old_livraison_id = rs.getInt(1);
 				}
 
-				Livraison_Line livraison_Line= new Livraison_Line();
+				Livraison_Line livraison_Line = new Livraison_Line();
 				livraison_Line.setLivraison_Line_ID(rs.getInt("livraison_line_id"));
 				livraison_Line.setProduit_ID(rs.getInt("produit_id"));
 				livraison_Line.setQuantitylivre(rs.getInt("quantitylivre"));
@@ -74,43 +73,38 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			}
 			return Livraisons;
 
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
 		return null;
 	}
-
 
 	@Override
 	public Livraisoncomplette getLivraisonByID(int livraison_id) {
 
-		String sql="SELECT * FROM Livraison inner join livraison_line "
-				+ "on (livraison.livraison_id = livraison_line.livraison_id)"
-				+"where livraison.livraison_id=(?);";
+		String sql = "SELECT * FROM Livraison inner join livraison_line "
+				+ "on (livraison.livraison_id = livraison_line.livraison_id)" + "where livraison.livraison_id=(?);";
 		PreparedStatement stmt;
-
 
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 
 			stmt.setInt(1, livraison_id);
 			ResultSet rs = stmt.executeQuery();
-			
+
 			Livraisoncomplette livraisoncomplette = null;
 			List<Livraison_Line> livraisonlines = null;
-			int old_livraison_id=0;
+			int old_livraison_id = 0;
 
 			if (rs.next()) {
-				if(old_livraison_id!= rs.getInt(1)) {
+				if (old_livraison_id != rs.getInt(1)) {
 
 					livraisoncomplette = new Livraisoncomplette();
 
-					livraisonlines= new ArrayList<>();
-					Livraison livraison=new Livraison();
+					livraisonlines = new ArrayList<>();
+					Livraison livraison = new Livraison();
 					livraison.setCommande_ID(rs.getInt(1));
 					livraison.setLivraison_ID(rs.getInt(2));
 					livraison.setLivreur_ID(rs.getInt(3));
@@ -121,10 +115,10 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 					livraisoncomplette.setLivraison(livraison);
 					livraisoncomplette.setLivraisonlines(livraisonlines);
 
-					old_livraison_id=rs.getInt(1);
+					old_livraison_id = rs.getInt(1);
 				}
 
-				Livraison_Line livraison_Line= new Livraison_Line();
+				Livraison_Line livraison_Line = new Livraison_Line();
 				livraison_Line.setLivraison_Line_ID(rs.getInt("livraison_line_id"));
 				livraison_Line.setProduit_ID(rs.getInt("produit_id"));
 				livraison_Line.setQuantitylivre(rs.getInt("quantitylivre"));
@@ -133,20 +127,18 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			}
 			return livraisoncomplette;
 
-			
-
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-
 		return null;
 	}
-	@Override
-	public Livraison createLivraison(Livraison livraison) {		
 
-		//		TODO corriger requette
+	@Override
+	public Livraison createLivraison(Livraison livraison) {
+
+		// TODO corriger requette
 		String sql = "INSERT INTO `livrily`.`livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`)  VALUES  (?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
@@ -162,8 +154,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				livraison.setLivraison_ID(generatedKeys.getInt(1));
-			}
-			else {
+			} else {
 				throw new SQLException("Creating livraison failed, no ID obtained.");
 			}
 
@@ -175,9 +166,9 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	}
 
 	@Override
-	public Livraison_Line createLivraisonLine(Livraison_Line line) {		
+	public Livraison_Line createLivraisonLine(Livraison_Line line) {
 
-		//		TODO corriger requette
+		// TODO corriger requette
 		String sql = "INSERT INTO `livrily`.`livraison_line` (`livraison_id`, `produit_id`, `quantitylivre`, `volume`) VALUES  (?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
@@ -192,8 +183,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				line.setLivraison_Line_ID(generatedKeys.getInt(1));
-			}
-			else {
+			} else {
 				throw new SQLException("Creating livraison failed, no ID obtained.");
 			}
 
@@ -205,9 +195,9 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	}
 
 	@Override
-	public void updateLivraison(Double volumneTotal, int livraison_id) {		
+	public void updateLivraison(Double volumneTotal, int livraison_id) {
 
-		//		TODO corriger requette
+		// TODO corriger requette
 		String sql = "UPDATE `Livraison` set volumneTotal = ?  where livraison_id = ? ";
 		PreparedStatement stmt;
 		try {
@@ -222,6 +212,5 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 		}
 
 	}
-
 
 }

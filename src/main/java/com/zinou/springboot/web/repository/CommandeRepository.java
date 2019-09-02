@@ -11,15 +11,12 @@ import com.zinou.springboot.web.model.Commandecomplette;
 @Repository
 public interface CommandeRepository {
 
-	List<Commandecomplette> getCommandes (int id_commande);
+	List<Commandecomplette> getCommandes(int id_commande);
 
 	CommandeLine saveCommandeLine(CommandeLine line);
 
 	void updateCommande(Double prixTotal, int commande_ID);
 
 	Commande saveCommande(Commande commande);
-	
-	
-
 
 }

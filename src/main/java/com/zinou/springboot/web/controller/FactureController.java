@@ -15,15 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zinou.springboot.web.service.FactureService;
 
-
 @Controller
 public class FactureController {
 
 	@Autowired
-	FactureService service ;
+	FactureService service;
 
 	@RequestMapping(value = "/Factures", method = RequestMethod.GET)
-	String getLivraisons( @RequestParam(required = false)  String id_facture, ModelMap model){
+	String getLivraisons(@RequestParam(required = false) String id_facture, ModelMap model) {
 
 		int id = id_facture == null || id_facture.length() == 0 ? 0 : Integer.parseInt(id_facture);
 		model.put("invoices", service.getFactures(id));
@@ -31,8 +30,9 @@ public class FactureController {
 		return "Factures";
 
 	}
+
 	@RequestMapping(value = "/FacturesDetail", method = RequestMethod.GET)
-	String getFacturesDetail( @RequestParam(required = false)  String id_facture, ModelMap model){
+	String getFacturesDetail(@RequestParam(required = false) String id_facture, ModelMap model) {
 
 		int id = Integer.parseInt(id_facture);
 		model.put("invoice", service.getFactures(id).get(0));
@@ -41,16 +41,13 @@ public class FactureController {
 
 	}
 
-
 	@PostMapping("Factures")
-	boolean createFacture(@RequestParam int id_livraison){
+	boolean createFacture(@RequestParam int id_livraison) {
 		return service.createFacture(id_livraison);
 	}
 
-
 	@GetMapping(value = "printFacture", produces = "application/pdf")
-	public ResponseEntity<Resource> downloadPDFFile(@RequestParam String id_facture)
-			throws IOException {
+	public ResponseEntity<Resource> downloadPDFFile(@RequestParam String id_facture) throws IOException {
 		return service.printFacture(Integer.parseInt(id_facture));
 	}
 

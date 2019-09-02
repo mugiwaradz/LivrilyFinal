@@ -10,8 +10,8 @@ import com.zinou.springboot.web.model.Commandecomplette;
 @Service
 public interface CommandeService {
 
-	List<Commandecomplette> getCommandes( int commande_id);
-	
+	List<Commandecomplette> getCommandes(int commande_id);
+
 	Commandecomplette createCommandes(List<CommandeSimple> commandes);
-	
+
 }

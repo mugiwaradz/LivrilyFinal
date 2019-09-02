@@ -9,14 +9,13 @@ import com.zinou.springboot.web.model.Produit;
 
 @Service
 public interface ArticleService {
-	
+
 	FullProduit getProduit(int id_article);
-	
-	
+
 	List<FullProduit> getProduits();
-	
+
 	Produit createProduits(Produit produit);
-	
+
 	boolean deleteProduits(int id_article);
 
 }

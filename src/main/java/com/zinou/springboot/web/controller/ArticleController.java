@@ -26,41 +26,39 @@ public class ArticleController {
 
 	@Autowired
 	ArticleService service;
-	
+
 	@GetMapping("Article/{id_article}")
-	FullProduit getArticles(@PathVariable( "id_article") int id_article){
+	FullProduit getArticles(@PathVariable("id_article") int id_article) {
 		return service.getProduit(id_article);
 	}
 
 	@RequestMapping(value = "/articles", method = RequestMethod.GET)
-	String getArticles(ModelMap model){
+	String getArticles(ModelMap model) {
 		List<FullProduit> articles = service.getProduits();
 		model.put("produits", articles);
 		return "articles";
 	}
-	
+
 	@RequestMapping(value = "/Comandearticles", method = RequestMethod.GET)
-	String getCommandeArticles(ModelMap model){
+	String getCommandeArticles(ModelMap model) {
 		List<FullProduit> articles = service.getProduits();
 		model.put("produits", articles);
 		return "Comandearticles";
 	}
-	
 
 	@RequestMapping(value = "/Nosarticles", method = RequestMethod.GET)
-	String getNosarticles(ModelMap model){
+	String getNosarticles(ModelMap model) {
 		List<FullProduit> articles = service.getProduits();
 		model.put("produits", articles);
 		return "Nosarticles";
 	}
-	
-	
+
 	@RequestMapping(value = "/add-Article", method = RequestMethod.GET)
 	public String showAddArticlePage(ModelMap model) {
 		model.addAttribute("Article", new Produit());
 		return "Article";
 	}
-	
+
 	@RequestMapping(value = "/add-Article", method = RequestMethod.POST)
 	public String addArticle(ModelMap model, @Valid Produit article, BindingResult result) {
 
@@ -69,24 +67,24 @@ public class ArticleController {
 		}
 
 		service.createProduits(article);
-				
+
 		return "redirect:/articles";
 	}
-	
+
 	@RequestMapping(value = "/delete-article", method = RequestMethod.GET)
 	public String deleteTodo(@RequestParam int id) {
 
 		service.deleteProduits(id);
 		return "redirect:/articles";
 	}
-	
+
 	@PostMapping("Article")
-	Produit createArticles(@RequestBody Produit produit){
+	Produit createArticles(@RequestBody Produit produit) {
 		return service.createProduits(produit);
 	}
 
 	@DeleteMapping("Article/{id_article}")
-	boolean deleteArticles(@PathVariable("id_article") int id_article){
+	boolean deleteArticles(@PathVariable("id_article") int id_article) {
 		return service.deleteProduits(id_article);
 	}
 
