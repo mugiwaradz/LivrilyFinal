@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.zinou.springboot.web.model.Livraisoncomplette;
 
-
 @Service
 public interface LivraisonService {
 

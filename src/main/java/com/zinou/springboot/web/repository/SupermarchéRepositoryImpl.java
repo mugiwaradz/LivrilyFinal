@@ -16,13 +16,14 @@ import com.zinou.springboot.web.util.DB;
 @Repository
 public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 
-	@Autowired DB db;
+	@Autowired
+	DB db;
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
 	public Supermarche AjouterSupermarché(Supermarche supermarché) {
 
-		String sql ="INSERT INTO `supermarche` ( `filiale_id`, `nom`, `telephone`, `email`) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO `supermarche` ( `filiale_id`, `nom`, `telephone`, `email`) VALUES (?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -36,15 +37,13 @@ public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 
 			if (generatedKeys.next()) {
 				supermarché.setSupermarche_ID(generatedKeys.getInt(1));
-			}
-			else {
+			} else {
 				throw new SQLException("Creating Supermarché failed, no ID obtained.");
 			}
 
 		} catch (SQLException e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
-
 
 		return supermarché;
 	}
@@ -57,8 +56,8 @@ public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setInt(1, id_supermarché);
 
-			int ret=stmt.executeUpdate();
-			return ret>0 ;
+			int ret = stmt.executeUpdate();
+			return ret > 0;
 
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);
@@ -66,8 +65,6 @@ public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 
 		return false;
 
-
 	}
-
 
 }

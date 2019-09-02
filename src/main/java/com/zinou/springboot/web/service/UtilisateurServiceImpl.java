@@ -22,25 +22,27 @@ public class UtilisateurServiceImpl implements UtilisateureService {
 		String sql = null;
 
 		switch (type_user) {
-		case 1: sql=ExacteUser.GetClient();
-		break;
+		case 1:
+			sql = ExacteUser.GetClient();
+			break;
 
-		case 2: sql= ExacteUser.GetLivreur();
-		break;
+		case 2:
+			sql = ExacteUser.GetLivreur();
+			break;
 
-		case 3: sql=ExacteUser.GetFournisseur();
-		break;
+		case 3:
+			sql = ExacteUser.GetFournisseur();
+			break;
 
 		default:
-			sql=ExacteUser.GetUtilisateur();
+			sql = ExacteUser.GetUtilisateur();
 		}
 
-		if(id_utilisateur > 0)
-			sql = sql  + " AND utilisateur.utilisateur_id = " + id_utilisateur;
+		if (id_utilisateur > 0)
+			sql = sql + " AND utilisateur.utilisateur_id = " + id_utilisateur;
 
 		return repository.getUtilsateurs(type_user, sql);
 	}
-
 
 	@Override
 	public boolean deleteUtilisateurs(int id_utilisateur) {
@@ -50,9 +52,8 @@ public class UtilisateurServiceImpl implements UtilisateureService {
 
 	@Override
 	public Utilisateur createutilisateurs(Utilisateur utilisateur) {
-		return repository.createutilisateurs( utilisateur);
+		return repository.createutilisateurs(utilisateur);
 
 	}
-
 
 }

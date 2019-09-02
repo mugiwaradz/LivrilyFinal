@@ -17,15 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.service.SupermarchéService;
 
-
 @Controller
 public class SupermarchéControleur {
-	
+
 	@Autowired
 	SupermarchéService service;
-	
+
 	@PostMapping("Supermarche")
-	Supermarche AjouterSupermarché(@RequestBody Supermarche supermarché){
+	Supermarche AjouterSupermarché(@RequestBody Supermarche supermarché) {
 		return service.AjouterSupermarché(supermarché);
 	}
 
@@ -34,7 +33,7 @@ public class SupermarchéControleur {
 		model.addAttribute("Supermarche", new Supermarche());
 		return "Supermarche";
 	}
-	
+
 	@RequestMapping(value = "/add-Supermarche", method = RequestMethod.POST)
 	public String addSupermarche(ModelMap model, @Valid Supermarche supermarche, BindingResult result) {
 
@@ -43,21 +42,19 @@ public class SupermarchéControleur {
 		}
 
 		service.AjouterSupermarché(supermarche);
-				
+
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping(value = "/delete-Supermarche", method = RequestMethod.GET)
 	public String deleteSupermarche(@RequestParam int id) {
 
 		service.suprimerSupermarché(id);
 		return "redirect:/";
 	}
-	
-	
-	
+
 	@DeleteMapping("Supermarche/{id_supermarche}")
-	boolean SupprimerSupermarché(@PathVariable("id_supermarche") int id_Supermarché){
+	boolean SupprimerSupermarché(@PathVariable("id_supermarche") int id_Supermarché) {
 		return service.suprimerSupermarché(id_Supermarché);
 	}
 

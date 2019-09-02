@@ -13,8 +13,8 @@ import com.zinou.springboot.web.repository.ArticleRepository;
 public class ArticleServiceImpl implements ArticleService {
 
 	@Autowired
-	ArticleRepository repository ;
-	
+	ArticleRepository repository;
+
 	@Override
 	public FullProduit getProduit(int id_article) {
 		return repository.getProduit(id_article);
@@ -33,5 +33,5 @@ public class ArticleServiceImpl implements ArticleService {
 	@Override
 	public List<FullProduit> getProduits() {
 		return repository.getProduits();
-	}	
+	}
 }

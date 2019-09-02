@@ -19,8 +19,9 @@ import com.zinou.springboot.web.util.DB;
 @Repository
 public class ArticleRepositoryImpl implements ArticleRepository {
 
-	@Autowired DB db;
-	
+	@Autowired
+	DB db;
+
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
@@ -33,7 +34,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setInt(1, id_article);
 			ResultSet rs = stmt.executeQuery();
-			if(rs.next()) 
+			if (rs.next())
 				return getProduit(rs);
 
 		} catch (Exception e) {
@@ -42,7 +43,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
 		return null;
 	}
-
 
 	@Override
 	public List<FullProduit> getProduits() {
@@ -55,7 +55,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 			ResultSet rs = stmt.executeQuery();
 
 			List<FullProduit> produits = new ArrayList<>();
-			while(rs.next()) {
+			while (rs.next()) {
 				produits.add(getProduit(rs));
 			}
 
@@ -67,7 +67,6 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
 		return null;
 	}
-
 
 	@Override
 	public Produit createProduits(Produit produit) {
@@ -90,8 +89,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				produit.setProduit_ID(generatedKeys.getInt(1));
-			}
-			else {
+			} else {
 				throw new SQLException("Creating user failed, no ID obtained.");
 			}
 
@@ -109,8 +107,8 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setInt(1, id_article);
 
-			int ret=stmt.executeUpdate();
-			return ret>0 ;
+			int ret = stmt.executeUpdate();
+			return ret > 0;
 
 		} catch (Exception e) {
 			log.log(Level.SEVERE, e.getMessage(), e);

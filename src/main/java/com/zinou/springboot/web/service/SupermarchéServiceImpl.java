@@ -23,6 +23,4 @@ public class SupermarchéServiceImpl implements SupermarchéService {
 		return repository.SupprimerSupermarché(id_supermarché);
 	}
 
-
-
 }

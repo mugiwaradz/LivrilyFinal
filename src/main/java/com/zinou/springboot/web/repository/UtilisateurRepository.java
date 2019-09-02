@@ -9,13 +9,11 @@ import com.zinou.springboot.web.model.Utilisateur;
 
 @Repository
 public interface UtilisateurRepository {
-		
+
 	List<Full_User> getUtilsateurs(int type_user, String sql);
-	
+
 	boolean deleteutilisateurs(int id_utilisateur);
 
 	Utilisateur createutilisateurs(Utilisateur utilisateur);
-
-
 
 }

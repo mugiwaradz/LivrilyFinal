@@ -16,9 +16,9 @@ public class LoginController {
 	LoginService service;
 
 	@PostMapping("login")
-	String Login(@RequestParam String login, @RequestParam String password){
+	String Login(@RequestParam String login, @RequestParam String password) {
 
-		Map<String, Object> resulMap =  service.Login(login, password);
+		Map<String, Object> resulMap = service.Login(login, password);
 		String type = (String) resulMap.get("type");
 		int user_id = (Integer) resulMap.get("user_id");
 		if (user_id <= 0)

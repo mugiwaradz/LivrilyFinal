@@ -10,19 +10,18 @@ import com.zinou.springboot.web.repository.PromotionsRepository;
 
 @Service
 public class PromotionsServiceImpl implements PromotionsService {
-	
+
 	@Autowired
 	PromotionsRepository repository;
 
 	@Override
 	public int PostPromotion(Produit produit) {
-		return repository.postPromotion(produit.getPromotion(),produit.getProduit_ID());
+		return repository.postPromotion(produit.getPromotion(), produit.getProduit_ID());
 	}
 
 	@Override
 	public List<Produit> getPromotion(int categorieProduit_ID) {
 		return repository.getPromotion(categorieProduit_ID);
 	}
-
 
 }

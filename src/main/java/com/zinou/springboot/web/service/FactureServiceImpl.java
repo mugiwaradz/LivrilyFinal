@@ -15,9 +15,8 @@ import com.zinou.springboot.web.model.Facturecomplette;
 import com.zinou.springboot.web.model.Livraisoncomplette;
 import com.zinou.springboot.web.repository.FactureRepository;
 
-
 @Service
-public class FactureServiceImpl implements FactureService{
+public class FactureServiceImpl implements FactureService {
 
 	@Autowired
 	FactureRepository repository;
@@ -25,7 +24,6 @@ public class FactureServiceImpl implements FactureService{
 	LivraisonService livraisonService;
 	@Autowired
 	CommandeService commandeService;
-
 
 	@Override
 	public List<Facturecomplette> getFactures(int id_facture) {
@@ -42,13 +40,12 @@ public class FactureServiceImpl implements FactureService{
 		facture.setLivraison_ID(livraison.getLivraison().getLivraison_ID());
 		String numeroComande = livraison.getLivraison().getNumeroLivraison().replace("Ship_", "");
 		numeroComande = "Fact_" + numeroComande;
-		facture.setNumeroFacture(numeroComande );
+		facture.setNumeroFacture(numeroComande);
 		facture.setClient_ID(commande.getCommande().getClinet_ID());
 		facture.setTarif(commande.getCommande().getTarif());
 		facture.setTva(commande.getCommande().getTva());
 
 		facture = repository.createFacture(facture);
-
 
 		Double total = 0.0;
 
