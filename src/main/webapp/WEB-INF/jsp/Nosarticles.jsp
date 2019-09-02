@@ -1,15 +1,12 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>
 <div style="background-color:#fffff;padding:30px;text-align:center;">
-
-<div class="header"> 
-</div>
-
-<div style="padding-left:20px">
-  <h1>Liste de nos 
-   Articles</h1>
-</div></div>
-
+<body background="back.jpg">
+<div style="background-color:#fffff;padding:30px;text-align:center;">
+<header> <div> <a href="/"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
+<h1 style="color: white; font-family: Arial"; max > Liste des produits</h1>
+ </header>
+<center>
+<section>
 
 <div class="row" >
 

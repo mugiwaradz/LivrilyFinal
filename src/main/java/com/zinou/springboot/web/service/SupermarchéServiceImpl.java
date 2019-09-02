@@ -1,5 +1,7 @@
 package com.zinou.springboot.web.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,4 +25,8 @@ public class SupermarchéServiceImpl implements SupermarchéService {
 		return repository.SupprimerSupermarché(id_supermarché);
 	}
 
+	@Override
+	public List<Supermarche> getSupermarches() {
+	 return repository.getSupermarche();
+	}
 }

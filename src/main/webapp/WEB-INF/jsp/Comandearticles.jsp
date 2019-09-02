@@ -2,7 +2,7 @@
 <body background="back.jpg">
 <div style="background-color:#fffff;padding:30px;text-align:center;">
 <header> <div> <a href="welcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
-<h1 style="color: white;"> Liste des produits</h1>
+<h1 style="color: white; font-family: Arial"; max > Liste des produits</h1>
  </header>
 <center>
 <section>
@@ -17,8 +17,10 @@
     <h5 style align="center" class="card-title">${produit.getNomProduit()}</h5>
     
     <p class="card-text">  <img alt="img" src="${produit.getImage()}" >  </p>
-    <p style align="center" "card-text">	<a type="button" class="btn btn-warning" 
-							href="Factures">Ajouter au panier</a> </p>
+    <p style align="center"><input type="number" name=quantite placeholder="quantité" > </p>
+    <p style align="center" "card-text"><a href="Factures">	<img height="50" width="50" alt="" src="Livrily.png"></a>
+    
+					
 		
   </div>
 </div>

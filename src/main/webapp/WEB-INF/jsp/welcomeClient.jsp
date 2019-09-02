@@ -165,7 +165,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="Inscrire">COMMANDER</a></li>
+        <li><a href="Inscrire">MA COMMANDE</a></li>
+         <li><a href="Profile?user_id="<%=request.getParameter("user_id") %>>MON PROFILE</a></li>
+        
      
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">CONSULTER
@@ -173,7 +175,7 @@
           <ul class="dropdown-menu">
             <li><a href="Comandearticles">nos Articles</a></li>
             <li><a href="Nospromotions">Promotions</a></li>
-            <li><a href="#">Supermarche</a></li> 
+            <li><a href="supermarches">Supermarche</a></li> 
           </ul>
         </li>
         <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>

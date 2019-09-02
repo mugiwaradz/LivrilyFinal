@@ -51,8 +51,8 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 
 					livraisonlines = new ArrayList<>();
 					Livraison livraison = new Livraison();
-					livraison.setCommande_ID(rs.getInt(1));
-					livraison.setLivraison_ID(rs.getInt(2));
+					livraison.setLivraison_ID(rs.getInt(1));
+					livraison.setCommande_ID(rs.getInt(2));
 					livraison.setLivreur_ID(rs.getInt(3));
 					livraison.setNumeroLivraison(rs.getString(4));
 					livraison.setVolumneTotal(rs.getInt(5));
@@ -105,8 +105,8 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 
 					livraisonlines = new ArrayList<>();
 					Livraison livraison = new Livraison();
-					livraison.setCommande_ID(rs.getInt(1));
 					livraison.setLivraison_ID(rs.getInt(2));
+					livraison.setCommande_ID(rs.getInt(1));
 					livraison.setLivreur_ID(rs.getInt(3));
 					livraison.setNumeroLivraison(rs.getString(4));
 					livraison.setVolumneTotal(rs.getInt(5));
@@ -211,6 +211,29 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
 
+	}
+
+	@Override
+	public boolean ValiderLivraison(int id) {
+		
+		String sql ="UPDATE `livrily`.`livraison` SET `estLivre` = ? WHERE (`livraison_id` = ?)";
+
+		PreparedStatement stmt;
+
+		
+			try {
+				stmt = db.getConnection().prepareStatement(sql);
+			
+
+			stmt.setBoolean(1, true);
+			stmt.setInt(2, id);
+
+		 stmt.executeUpdate();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return false;
 	}
 
 }

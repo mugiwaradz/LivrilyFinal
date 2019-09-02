@@ -1,5 +1,7 @@
 package com.zinou.springboot.web.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.zinou.springboot.web.model.FullProduit;
 import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.service.SupermarchéService;
 
@@ -26,6 +29,14 @@ public class SupermarchéControleur {
 	@PostMapping("Supermarche")
 	Supermarche AjouterSupermarché(@RequestBody Supermarche supermarché) {
 		return service.AjouterSupermarché(supermarché);
+	}
+	
+	
+	@RequestMapping(value = "/supermarches", method = RequestMethod.GET)
+	String getCommandeArticles(ModelMap model) {
+		List<Supermarche> supermarches = service.getSupermarches();
+		model.put("markets", supermarches);
+		return "supermarches";
 	}
 
 	@RequestMapping(value = "/add-Supermarche", method = RequestMethod.GET)

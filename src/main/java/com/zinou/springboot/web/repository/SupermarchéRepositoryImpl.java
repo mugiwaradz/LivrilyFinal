@@ -4,12 +4,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.zinou.springboot.web.model.Client;
 import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.util.DB;
 
@@ -66,5 +69,35 @@ public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 		return false;
 
 	}
+
+	@Override
+	public List<Supermarche> getSupermarche() {
+		String sql = "SELECT * FROM supermarche";
+		PreparedStatement stmt;
+		try {
+			stmt = db.getConnection().prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+			List<Supermarche> supermarches=new ArrayList<>();
+			while (rs.next()) {
+				Supermarche supermarche = new Supermarche(); // TODO verifié
+
+				supermarche.setSupermarche_ID(rs.getInt("supermarche_id"));
+				supermarche.setNomSupermarche(rs.getString("nomsupermarche"));
+				supermarche.setTelephoneSupermarche(rs.getInt("telephone"));
+				supermarche.setEmailSupermarche(rs.getString("email"));
+				supermarche.setImage_supermarche(rs.getString("image_supermarche"));
+				supermarches.add(supermarche);
+
+			}
+
+			return supermarches;
+
+		} catch (Exception e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+		}
+
+		return null;
+	}
+
 
 }

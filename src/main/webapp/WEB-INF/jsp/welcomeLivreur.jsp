@@ -7,7 +7,7 @@
     <ul class="navbar-nav mr-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="/Livraisons">Livraisons</a>
+        <a class="nav-link" href="ListeLivraisons">Livraisons</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/Factures">Factures</a>

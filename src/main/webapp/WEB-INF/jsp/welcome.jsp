@@ -244,7 +244,7 @@ textarea {
 						data-toggle="dropdown" href="#">CONSULTER <span class="caret"></span></a>
 						<ul class="dropdown-menu">
 							<li><a href="Nosarticles">nos Articles</a></li>
-							<li><a href="Nospromotions">Promotions</a></li>
+							<li><a href="Promotions">Promotions</a></li>
 							<li><a href="#">Supermarche</a></li>
 						</ul></li>
 					<li><form  class="form-inline my-2 my-lg-0" mr-auto action="getarticle" method="get">

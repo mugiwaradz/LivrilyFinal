@@ -101,4 +101,9 @@ public class LivraisonServiceImpl implements LivraisonService {
 		}
 	}
 
+	@Override
+	public boolean ValiderLivraison(int id) {
+		return repository.ValiderLivraison(id);
+	}
+
 }

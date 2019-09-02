@@ -21,4 +21,6 @@ public interface LivraisonRepository {
 
 	void updateLivraison(Double volumneTotal, int livraison_id);
 
+	boolean ValiderLivraison(int id);
+
 }

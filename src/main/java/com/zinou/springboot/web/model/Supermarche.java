@@ -7,6 +7,15 @@ public class Supermarche {
 	private String NomSupermarche;
 	private int TelephoneSupermarche;
 	private String EmailSupermarche;
+	private String Image_supermarche;
+
+	public String getImage_supermarche() {
+		return Image_supermarche;
+	}
+
+	public void setImage_supermarche(String image_supermarche) {
+		Image_supermarche = image_supermarche;
+	}
 
 	public int getSupermarche_ID() {
 		return Supermarche_ID;
