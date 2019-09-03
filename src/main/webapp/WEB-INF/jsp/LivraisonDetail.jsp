@@ -120,7 +120,10 @@
 				<a type="button" class="btn btn-danger" href="Livraisons">show
 					less</a>
 </div>
-				
+</br></br>		
+			<div align="center">
+				<a type="button" class="btn btn-danger" href="Livreurs?commande_id="${shipment.getLivraison().getCommande_ID()}>Expédier</a>
+</div>		
 			</div>
  <div class="right">
    <h2 style="color: white">About</h2>

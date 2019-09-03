@@ -123,7 +123,13 @@
 					less</a>
 			</div>
 
+			<br>
+			<div align="center">
+				<a type="button" class="btn btn-danger" href="Livreurs?commande_id=${order.getCommande().getCommande_ID()}">Choisir un livreur</a>
+			</div>
+
 		</div>
+		
 		<div class="right">
 			<h2 style="color: white">About</h2>
 			<p style="color: white">Lorem ipsum dolor sit amet, consectetuer

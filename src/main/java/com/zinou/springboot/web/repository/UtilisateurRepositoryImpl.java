@@ -52,7 +52,7 @@ public class UtilisateurRepositoryImpl implements UtilisateurRepository {
 					utilisateur.setMoyenLivraison((rs.getString("moyenLivraison")));
 					utilisateur.setTypePermetConduire((rs.getString("typePermetConduire")));
 					utilisateur.setDistanceMax((rs.getInt("distanceMax")));
-					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
+//					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
 
 					break;
 				case 3:
