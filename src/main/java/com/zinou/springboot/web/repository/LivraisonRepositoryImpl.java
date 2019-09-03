@@ -236,4 +236,24 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 		return false;
 	}
 
+	@Override
+	public void updateCommande(int commmande_id) {
+		
+		String sql ="UPDATE `Commande` SET `status` = 'Livrer' WHERE (`commande_id` = ?)";
+
+		PreparedStatement stmt;
+
+		
+			try {
+				stmt = db.getConnection().prepareStatement(sql);
+			
+
+			stmt.setInt(1, commmande_id);
+
+		 stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+
 }

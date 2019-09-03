@@ -73,7 +73,8 @@ public class LivraisonServiceImpl implements LivraisonService {
 		}
 
 		repository.updateLivraison(volumneTotal, livraison.getLivraison_ID());
-
+		repository.updateCommande(livraison.getCommande_ID());
+		
 		sendMail(commande.getCommande().getClinet_ID());
 
 		return true;

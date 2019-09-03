@@ -33,17 +33,15 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			if (id_commande > 0) {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ "left outer join livraison l on (l.commande_id = commande.commande_id) "
-						+ " where commande.commande_id = (?) ";
-				
+						+ " where commande.statue = 'Livrer' commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
 				rs = stmt.executeQuery();
 			} else {
 				sql = "SELECT * FROM commande inner join commande_line "
-						+ "on (commande.commande_id = commande_line.commande_id)" 
-						+ "left outer join livraison l on (l.commande_id = commande.commande_id) "
+						+ "on (commande.commande_id = commande_line.commande_id)"
+						+ " where commande.statue = 'Livrer' "
 						+ "order by commande.datecommande";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
@@ -63,7 +61,6 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 				if (old_comande_id != rs.getInt(1)) {
 
 					commandecomplette = new Commandecomplette();
-					commandecomplette.setEstLivrer(rs.getString("NumeroLivraison") == null || rs.getString("NumeroLivraison").length()<= 0 ? false : true);
 					commandes.add(commandecomplette);
 
 					commandelines = new ArrayList<>();
@@ -162,7 +159,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			stmt.setInt(1, commande.getClinet_ID());
 			stmt.setInt(2, commande.getSupermarché_ID());
 			stmt.setTimestamp(3, new Timestamp(commande.getDtaedeCommande().getTime()));
-			stmt.setString(4, "non-Livré");
+			stmt.setString(4, "Non Livrer");
 			stmt.setString(5, null);
 			stmt.setInt(6, 0);
 			stmt.setInt(7, commande.getTva());

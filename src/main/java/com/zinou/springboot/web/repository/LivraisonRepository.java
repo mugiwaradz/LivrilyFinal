@@ -23,4 +23,6 @@ public interface LivraisonRepository {
 
 	boolean ValiderLivraison(int id);
 
+	void updateCommande(int commmande_id);
+
 }
