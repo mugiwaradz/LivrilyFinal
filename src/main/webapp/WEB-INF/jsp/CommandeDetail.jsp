@@ -124,10 +124,11 @@
 			</div>
 
 			<br>
-			<div align="center">
+	<div align="center">
 				<a type="button" class="btn btn-danger" href="Livreurs?commande_id=${order.getCommande().getCommande_ID()}">Choisir un livreur</a>
 			</div>
-
+			
+		
 		</div>
 		
 		<div class="right">

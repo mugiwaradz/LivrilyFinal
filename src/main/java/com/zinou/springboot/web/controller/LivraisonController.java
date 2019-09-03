@@ -43,7 +43,7 @@ public class LivraisonController {
 	@PostMapping("Livraisons")
 	String createLivraison(@RequestParam int id_commande, @RequestParam int livreur_id) {
 		service.createLivraison(id_commande, livreur_id);
-		return "redirect:/ListeLivraisons";
+		return "redirect:/Livraisons";
 	}
 	
 	

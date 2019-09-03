@@ -33,14 +33,18 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			if (id_commande > 0) {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
+						+ "left outer join livraison l on (l.commande_id = commande.commande_id) "
 						+ " where commande.commande_id = (?) ";
+				
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
 				rs = stmt.executeQuery();
 			} else {
 				sql = "SELECT * FROM commande inner join commande_line "
-						+ "on (commande.commande_id = commande_line.commande_id)" + "order by commande.datecommande";
+						+ "on (commande.commande_id = commande_line.commande_id)" 
+						+ "left outer join livraison l on (l.commande_id = commande.commande_id) "
+						+ "order by commande.datecommande";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				rs = stmt.executeQuery();
@@ -59,6 +63,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 				if (old_comande_id != rs.getInt(1)) {
 
 					commandecomplette = new Commandecomplette();
+					commandecomplette.setEstLivrer(rs.getString("NumeroLivraison") == null || rs.getString("NumeroLivraison").length()<= 0 ? false : true);
 					commandes.add(commandecomplette);
 
 					commandelines = new ArrayList<>();

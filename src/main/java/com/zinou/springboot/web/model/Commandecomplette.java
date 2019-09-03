@@ -6,7 +6,8 @@ import java.util.List;
 public class Commandecomplette {
 	private Commande commande;
 	private List<CommandeLine> commandelines = new ArrayList<>();
-
+	private boolean estLivrer;
+	
 	public Commande getCommande() {
 		return commande;
 	}
@@ -21,6 +22,14 @@ public class Commandecomplette {
 
 	public void setCommandelines(List<CommandeLine> commandelines) {
 		this.commandelines = commandelines;
+	}
+
+	public boolean isEstLivrer() {
+		return estLivrer;
+	}
+
+	public void setEstLivrer(boolean estLivrer) {
+		this.estLivrer = estLivrer;
 	}
 
 }
