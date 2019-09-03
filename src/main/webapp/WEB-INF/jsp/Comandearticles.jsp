@@ -36,7 +36,7 @@
 											name="qty" placeholder="quantite" value = "1">
 									</div>
 									</p>
-									<button type="submit" class="btn btn-danger">Facturer</button>
+									<button type="submit" class="btn btn-danger">add to panier</button>
 								</form>
 							</div>
 						</div>
