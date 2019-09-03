@@ -58,11 +58,11 @@ public class ClientController {
 	
 	
 	@RequestMapping(value = "/Profile", method = RequestMethod.GET)
-	String getProdile(@RequestParam(required = false) String id_client, ModelMap model) {
+	String getProfile(@RequestParam(required = false) String user_id, ModelMap model) {
 
-		int id = Integer.parseInt(id_client);
+		int id = Integer.parseInt(user_id);
 		int type_user = 1;
-		model.put("Clients", utilisateureService.getutilisateurs(type_user, id));
+		model.put("Clients", utilisateureService.getutilisateurs(type_user, id).get(0));
 
 		return "Profile";
 	}

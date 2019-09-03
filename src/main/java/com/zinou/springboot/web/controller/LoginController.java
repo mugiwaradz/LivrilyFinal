@@ -26,7 +26,7 @@ public class LoginController {
 
 		switch (type) {
 		case "C":
-			return "redirect:/welcomeClient";
+			return "redirect:/welcomeClient?user_id="+user_id;
 		case "ADF":
 			return "redirect:/welcomeADF";
 		case "F":

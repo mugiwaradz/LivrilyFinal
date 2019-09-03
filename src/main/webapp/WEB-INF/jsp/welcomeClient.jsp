@@ -166,7 +166,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="Inscrire">MA COMMANDE</a></li>
-         <li><a href="Profile?user_id="<%=request.getParameter("user_id") %>>MON PROFILE</a></li>
+         <li><a href="Profile?user_id=<%=request.getParameter("user_id")%>&type=1">MON PROFILE</a></li>
         
      
         <li class="dropdown">
