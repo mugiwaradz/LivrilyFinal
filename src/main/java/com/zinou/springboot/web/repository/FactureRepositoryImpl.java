@@ -217,5 +217,27 @@ public class FactureRepositoryImpl implements FactureRepository {
 
 		return null;
 	}
+	
+	
+	@Override
+	public void updateLivraison(int livraison_id) {
+		
+		String sql ="UPDATE `Livraison` SET `statue` = 'Facturer' WHERE (`livraison_id` = ?)";
+
+		PreparedStatement stmt;
+
+		
+			try {
+				stmt = db.getConnection().prepareStatement(sql);
+			
+
+			stmt.setInt(1, livraison_id);
+
+		 stmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+
 
 }

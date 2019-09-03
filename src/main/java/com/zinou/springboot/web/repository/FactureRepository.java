@@ -23,4 +23,6 @@ public interface FactureRepository {
 
 	ResponseEntity<Resource> printFacture(int id_facture);
 
+	void updateLivraison(int livraison_id);
+
 }

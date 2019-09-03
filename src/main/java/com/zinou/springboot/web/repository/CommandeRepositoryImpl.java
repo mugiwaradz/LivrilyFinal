@@ -33,7 +33,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			if (id_commande > 0) {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ " where commande.statue = 'Livrer' commande.commande_id = (?) ";
+						+ " where commande.statue = 'Non Livrer' commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
@@ -41,7 +41,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			} else {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ " where commande.statue = 'Livrer' "
+						+ " where commande.statue = 'Non Livrer' "
 						+ "order by commande.datecommande";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);

@@ -28,7 +28,9 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public List<Livraisoncomplette> getLivraisons(Boolean estlivre) {
 
 		String sql = "SELECT * FROM Livraison inner join livraison_line "
-				+ "on (livraison.livraison_id = livraison_line.livraison_id)" + " where livraison.estLivre= (?)";
+				+ "on (livraison.livraison_id = livraison_line.livraison_id)" 
+				+ " where commande.statue = 'Non Facturer' "
+				+ " AND livraison.estLivre= (?)";
 
 		PreparedStatement stmt;
 
@@ -139,7 +141,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public Livraison createLivraison(Livraison livraison) {
 
 		// TODO corriger requette
-		String sql = "INSERT INTO `livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`)  VALUES  (?,?,?,?,?) ";
+		String sql = "INSERT INTO `livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`, `statue`)  VALUES  (?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -148,6 +150,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			stmt.setString(3, livraison.getNumeroLivraison());
 			stmt.setInt(4, livraison.getVolumneTotal());
 			stmt.setBoolean(5, livraison.isEstLivre());
+			stmt.setString(6, "Non Facturer");
 
 			stmt.executeUpdate();
 
@@ -239,7 +242,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	@Override
 	public void updateCommande(int commmande_id) {
 		
-		String sql ="UPDATE `Commande` SET `status` = 'Livrer' WHERE (`commande_id` = ?)";
+		String sql ="UPDATE `Commande` SET `statue` = 'Livrer' WHERE (`commande_id` = ?)";
 
 		PreparedStatement stmt;
 

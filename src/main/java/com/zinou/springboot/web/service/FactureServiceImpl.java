@@ -61,6 +61,9 @@ public class FactureServiceImpl implements FactureService {
 		}
 
 		repository.updateFacture(total, facture.getFacture_ID());
+		
+		repository.updateLivraison(facture.getLivraison_ID());
+
 
 		return true;
 	}
