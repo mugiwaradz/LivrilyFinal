@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="43"/>
 	<parameter name="facture_id" class="java.lang.Integer"/>
 	<queryString>
-		<![CDATA[SELECT
+		<![CDATA[SELECT distinct
     f.NumeroFacture,
     cc.datecommande,
     s.nomsupermarche AS supemarche,
