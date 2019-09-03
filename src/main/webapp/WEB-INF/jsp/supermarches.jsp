@@ -17,6 +17,7 @@
     <h5 class="card-title">${market.getNomSupermarche()} </h5>
     <p class="card-text">${market.getTelephoneSupermarche()}   supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     <p class="card-text"><small class="text-muted">${market.getEmailSupermarche()}</small></p>
+    <
     </c:forEach>
   </div>
 

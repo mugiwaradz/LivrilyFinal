@@ -1,12 +1,19 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/navigation.jspf" %>
 <div class="container">
+<div class="header">
+<body background="back.jpg">
+		<div align="center"><a href="/welcomeADF" class="logo"><img width="50" height="50" 
+				alt="livrily" src="Livrily.png"> </a> </div>
+			
+<div align="center">
+		<h1  style="font-size: 5vw;color: white" >Ajouter nouveau supermarché</h1>
+	</div>
 	<form:form method="post" commandName="Supermarche">
 
 		<fieldset class="form-group">
-			<form:label path="NomSupermarche">Nom Supermarche</form:label>
-			<form:input path="NomSupermarche" type="text" class="form-control"
-				required="required" />
+			<form:label path="NomSupermarche"> Nom supermarché</form:label>
+			<form:input path="NomSupermarche" type="text"  class="form-control"
+				required="required"  />
 			<form:errors path="NomSupermarche" cssClass="text-warning" />
 		</fieldset>
 
@@ -34,7 +41,9 @@
 		</fieldset>
 		
 		
-		<button type="submit" class="btn btn-success">Add</button>
+	<div align="center">	<button type="submit" class="btn btn-success">Add</button> </div>
 	</form:form>
 </div>
+
+</body>
 <%@ include file="common/footer.jspf" %>

@@ -49,26 +49,7 @@
 		<br>
 		<br>
 		
-<div align="center"> <h1> Click here</h1> <button class=" btn btn-success" onclick="getLocation()">Show my position</button> </div>
 
-<p id="demo"></p>
-
-<script >
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-   x.innerHTML = " <h1>Latitude:</h1> " + position.coords.latitude + 
-  "<br> <h1>Longitude:</h1> " + position.coords.longitude;
-}
-</script>
 
 		</div>
 

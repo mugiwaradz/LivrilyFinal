@@ -1,7 +1,7 @@
 <%@ include file="common/header.jspf" %>
-<%@ include file="common/naviguationadmine.jspf"%>
-<h2 align="center" style=" font-size:10vw"> Liste des Produits</h2>
-<table class="table">
+<h2 align="center" style=" font-size:10vw;"> Liste des Produits</h2>
+<body background="back.jpg">
+<table class="table table-dark">
   <thead class="thead-light">
     <tr>
                     <th>Produit_ID</th>
@@ -38,8 +38,7 @@
 						
 						<td><a type="button" class="btn btn-danger"
 							href="/delete-article?id=${produit.getProduit_ID()}">Supprimer</a> </td>
-						<td><a type="button" class="btn btn-warning"
-							href="/update-todo?id=${produit.getProduit_ID()}">modifier</a> </td>
+						<td></td>
 						
 					</tr>
 				</c:forEach>
@@ -53,4 +52,6 @@
 			<a class="button" href="/add-todo">Add a Todo</a>
 		</div>
 	</div>
+	
+	</body>
 <%@ include file="common/footer.jspf" %>

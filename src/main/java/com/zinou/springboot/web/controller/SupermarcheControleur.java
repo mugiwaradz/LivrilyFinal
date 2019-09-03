@@ -21,7 +21,7 @@ import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.service.SupermarchéService;
 
 @Controller
-public class SupermarchéControleur {
+public class SupermarcheControleur {
 
 	@Autowired
 	SupermarchéService service;
@@ -54,7 +54,7 @@ public class SupermarchéControleur {
 
 		service.AjouterSupermarché(supermarche);
 
-		return "redirect:/";
+		return "redirect:/welcomeADF";
 	}
 
 	@RequestMapping(value = "/delete-Supermarche", method = RequestMethod.GET)

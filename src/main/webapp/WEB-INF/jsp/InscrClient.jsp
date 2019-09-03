@@ -27,8 +27,31 @@
 							name="numCartCredit" placeholder="votre numCartCredit">
 					</div>
 				</div>
-				<button type="submit" class="btn btn-success">Finaliser
-					Inscription</button>
+				<div align="center">  
+				<button class=" btn btn-primary" onclick="getLocation()">Your position</button> </div> <br> <br>
+				<button type="submit" class="btn btn-success">Finaliser Inscription</button>
 			</form>
 		</div>
+		
+
+<p id="demo"></p>
+
+<script >
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 0
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {	
+   x.innerHTML = " 	<div class=\"form-group col-md-6\">	<input type=\"number\" class=\"form-control\" path=\"Latitude\"	name=\"latitude\" value=\"" + position.coords.latitude  + "\"> </div> " 
+   +  " 	<div class=\"form-group col-md-6\">	<input type=\"number\" class=\"form-control\" path=\"Longitude\"	name=\"longitude\" value=\"" + position.coords.longitude  + "\"> </div> "
+    
+}
+</script>
+		
 		<%@ include file="common/footer.jspf"%>
