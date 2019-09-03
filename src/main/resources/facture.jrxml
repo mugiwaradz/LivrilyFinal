@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facture" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="267621e2-3867-4e68-be5b-4eda231e5773">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="43"/>
+	<property name="ireport.y" value="97"/>
 	<parameter name="facture_id" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT distinct
@@ -408,7 +408,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{prix} : ($F{prix}*$F{tva}) / 100]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{prix} :( $F{prix} + ($F{prix}*$F{tva}) / 100)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="47b8c637-cb1d-43ec-9369-6cc039a49814" x="307" y="0" width="55" height="20"/>
@@ -447,7 +447,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{totalLine}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{totalLine} :( $F{totalLine} + ($F{totalLine}*$F{tva}) / 100)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="2e11ab7d-fea5-4bc8-bf7a-b4af405ff209" x="416" y="0" width="31" height="20"/>
@@ -460,7 +460,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tva}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tva} + "%"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement uuid="43535716-46fa-45ff-b8d9-68cb074639b0" x="199" y="0" width="54" height="20"/>
@@ -518,7 +518,7 @@ where f.facture_id = $P{facture_id}]]>
 		<band splitType="Stretch"/>
 	</pageFooter>
 	<summary>
-		<band height="40" splitType="Stretch">
+		<band height="82" splitType="Stretch">
 			<textField>
 				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="0" width="71" height="20"/>
 				<box leftPadding="2" rightPadding="1">
@@ -543,7 +543,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Total TTC]]></text>
+				<text><![CDATA[TVA]]></text>
 			</staticText>
 			<textField>
 				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="20" width="71" height="20"/>
@@ -556,7 +556,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textElement verticalAlignment="Middle">
 					<font size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{total} :( $F{total}*$F{tva}) / 100]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="416" y="0" width="85" height="20"/>
@@ -570,6 +570,32 @@ where f.facture_id = $P{facture_id}]]>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Total HT]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="40" width="71" height="20"/>
+				<box leftPadding="2" rightPadding="1">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{total} :( $F{total} + ($F{total}*$F{tva}) / 100)]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="416" y="40" width="85" height="20"/>
+				<box leftPadding="2" rightPadding="1">
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Total TTC]]></text>
 			</staticText>
 		</band>
 	</summary>
