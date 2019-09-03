@@ -36,6 +36,14 @@ public class LivreurController {
 
 		return "Livreurs";
 	}
+	@RequestMapping(value = "/Listeivreurs", method = RequestMethod.GET)
+	String getListelivreurs( ModelMap model) {
+
+        boolean est_disponible=true;
+		model.put("Livreurs", utilisateureService.getLivreur(est_disponible));
+
+		return "Listeivreurs";
+	}
 
 	@PostMapping("InscrLivreur")
 	String inscrClient(@RequestParam int utilisateur_id, @RequestParam String moyenLivraison,

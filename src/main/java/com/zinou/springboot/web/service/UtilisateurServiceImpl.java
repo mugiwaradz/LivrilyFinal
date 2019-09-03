@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zinou.springboot.web.model.Full_User;
+import com.zinou.springboot.web.model.Livreur;
 import com.zinou.springboot.web.model.Utilisateur;
 import com.zinou.springboot.web.repository.UtilisateurRepository;
 import com.zinou.springboot.web.util.ExacteUser;
@@ -55,5 +56,12 @@ public class UtilisateurServiceImpl implements UtilisateureService {
 		return repository.createutilisateurs(utilisateur);
 
 	}
+
+	@Override
+	public List<Livreur> getLivreur(boolean est_disponible) {
+		return repository.getLivreur(est_disponible);	
+	}
+
+	
 
 }

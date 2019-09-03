@@ -8,7 +8,8 @@ public class Livraison {
 	private String NumeroLivraison;
 	private int volumneTotal;
 	private boolean estLivre;
-
+	private String statue;
+	
 	public int getLivraison_ID() {
 		return Livraison_ID;
 	}
@@ -55,6 +56,14 @@ public class Livraison {
 
 	public void setEstLivre(boolean estLivre) {
 		this.estLivre = estLivre;
+	}
+
+	public String getStatue() {
+		return statue;
+	}
+
+	public void setStatue(String statue) {
+		this.statue = statue;
 	}
 
 }

@@ -57,6 +57,7 @@ public class LivraisonServiceImpl implements LivraisonService {
 		livraison.setNumeroLivraison("Ship_" + commande.getCommande().getNumeroCommande());
 		livraison.setEstLivre(false);
 		livraison.setLivreur_ID(livreur_id);
+		livraison.setStatue("Non Facturer");
 
 		livraison = repository.createLivraison(livraison);
 

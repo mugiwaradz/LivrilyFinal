@@ -110,9 +110,12 @@
 						
 						    <input type="hidden" name="livreur_id" value="${Livreur.getLivreur_ID()}">
 						    <input type="hidden" name="id_commande" value="<%=request.getParameter("commande_id")%>">
+						    <c:if test="${Livreur.isEst_disponible()==true}" >
+  
 						    <button type="submit" class="btn btn-primary">Expédier</button>
-						
+						</c:if>
 						</form>
+						
 <br>
 	</c:forEach>
     

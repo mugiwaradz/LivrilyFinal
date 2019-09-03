@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.zinou.springboot.web.model.Full_User;
+import com.zinou.springboot.web.model.Livreur;
 import com.zinou.springboot.web.model.Utilisateur;
 import com.zinou.springboot.web.util.DB;
 import com.zinou.springboot.web.util.ExacteUser;
@@ -52,7 +53,7 @@ public class UtilisateurRepositoryImpl implements UtilisateurRepository {
 					utilisateur.setMoyenLivraison((rs.getString("moyenLivraison")));
 					utilisateur.setTypePermetConduire((rs.getString("typePermetConduire")));
 					utilisateur.setDistanceMax((rs.getInt("distanceMax")));
-//					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
+					utilisateur.setEst_disponible(rs.getBoolean("estdisponible"));
 
 					break;
 				case 3:
@@ -144,6 +145,43 @@ public class UtilisateurRepositoryImpl implements UtilisateurRepository {
 		}
 
 		return false;
+	}
+
+
+
+	@Override
+	public List<Livreur> getLivreur( boolean est_disponible) {
+		String sql ="SELECT * FROM livrily.livreur where estdisponible=(?)";
+		PreparedStatement stmt;
+		try {
+			stmt = db.getConnection().prepareStatement(sql);
+			stmt.setBoolean(1, est_disponible);
+			ResultSet rs = stmt.executeQuery();
+			List<Livreur>livruers=new ArrayList<>();
+			while(rs.next()) {
+
+				Livreur livreur=new Livreur();
+				livreur.setLivreur_ID(rs.getInt("livreur_id"));
+				livreur.setMoyenLivraison(rs.getString("moyenLivraison"));
+				livreur.setUtilisateur_ID(rs.getInt("utilisateur_id"));
+
+				livruers.add(livreur);
+
+           return livruers;
+
+			}
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+
+
+
+		return null;
 	}
 
 }

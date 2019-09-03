@@ -45,7 +45,7 @@ public class CommandeServiceImpl implements CommandeService {
 		Commande commande = new Commande();
 		commande.setClinet_ID(client.getClient_ID());
 		commande.setDtaedeCommande(new Timestamp(System.currentTimeMillis()));
-		commande.setStatue("Brouillon"); // TODO
+		commande.setStatue("Non Livrer");
 		commande.setSupermarché_ID(commandes.get(0).getSuperMarche_id());
 		commande.setTarif(client.getTarif());
 		commande.setTva(17);

@@ -141,7 +141,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public Livraison createLivraison(Livraison livraison) {
 
 		// TODO corriger requette
-		String sql = "INSERT INTO `livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`, `statue`)  VALUES  (?,?,?,?,?) ";
+		String sql = "INSERT INTO `livraison` ( `commande_id`, `livreur_id`, `NumeroLivraison`, `volumneTotal`, `estLivre`, `statue`)  VALUES  (?,?,?,?,?,?) ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -150,7 +150,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			stmt.setString(3, livraison.getNumeroLivraison());
 			stmt.setInt(4, livraison.getVolumneTotal());
 			stmt.setBoolean(5, livraison.isEstLivre());
-			stmt.setString(6, "Non Facturer");
+			stmt.setString(6, livraison.getStatue());
 
 			stmt.executeUpdate();
 

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.zinou.springboot.web.model.Full_User;
+import com.zinou.springboot.web.model.Livreur;
 import com.zinou.springboot.web.model.Utilisateur;
 
 @Service
@@ -15,5 +16,10 @@ public interface UtilisateureService {
 	boolean deleteUtilisateurs(int id_utilisateur);
 
 	Utilisateur createutilisateurs(Utilisateur utilisateur);
+
+
+		List<Livreur> getLivreur(boolean est_disponible);
+
+	
 
 }
