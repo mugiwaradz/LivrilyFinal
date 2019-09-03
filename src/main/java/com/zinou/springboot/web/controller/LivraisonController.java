@@ -22,7 +22,7 @@ public class LivraisonController {
 			@RequestParam(required = false) String id_livraison, ModelMap model) {
 
 		int id = id_livraison == null || id_livraison.length() == 0 ? 0 : Integer.parseInt(id_livraison);
-		estlivre = true;
+		estlivre = false;
 		model.put("shipments", service.getLivraisons(estlivre, id));
 
 		return "Livraisons";

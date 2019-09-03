@@ -54,6 +54,9 @@ public class ClientController {
 
 		return "Clients";
 	}
+	
+	
+	
 	@RequestMapping(value = "/Profile", method = RequestMethod.GET)
 	String getProdile(@RequestParam(required = false) String id_client, ModelMap model) {
 

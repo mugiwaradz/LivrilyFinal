@@ -1,6 +1,6 @@
 <%@ include file="common/header.jspf" %>
 <%@ include file="common/naviguationadmine.jspf"%>
-<h2 align="center"> Liste des Produits</h2>
+<h2 align="center" style=" font-size:10vw"> Liste des Produits</h2>
 <table class="table">
   <thead class="thead-light">
     <tr>

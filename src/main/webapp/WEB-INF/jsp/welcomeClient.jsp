@@ -178,7 +178,11 @@
             <li><a href="supermarches">Supermarche</a></li> 
           </ul>
         </li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+        <li><form  class="form-inline my-2 my-lg-0" mr-auto action="getarticle" method="get">
+							<input class="form-control mr-sm-2" type="search"
+								placeholder="Rechercher " aria-label="Search">
+							<button class="btn primary btn-sm" type="submit">RECHERCHER</button>
+						</form></li>
       </ul>
     </div>
   </div>

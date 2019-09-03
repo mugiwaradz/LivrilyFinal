@@ -28,15 +28,11 @@
 						<td>${client.getUtilisateur().getPhone1()} </td>				
 						<td>${client.getUtilisateur().getEmail()} </td>						
 						<td><a type="button" class="btn btn-danger"
-							href="/update-todo?id=${produit.getProduit_ID()}">Supprimer</a> </td>
-						<td><a type="button" class="btn btn-warning"
-							href="/update-todo?id=${produit.getProduit_ID()}">modifier</a> </td>
+							href="/delete-user?id=${client.getUtilisateur().getUtilisateur_ID()}">Supprimer</a> </td>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
-			<a class="button" href="/add-todo">Add a Todo</a>
-		</div>
-	</div>
+		
 <%@ include file="common/footer.jspf" %>

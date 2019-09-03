@@ -1,9 +1,10 @@
 <%@ include file="common/header.jspf" %>
+<body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#"> <img   width="42" height="42 alt="livrily" src="/Livrily.png" > </a>
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
         <a class="nav-link" href="ListeLivraisons">Livraisons</a>
@@ -16,7 +17,7 @@
   </div>
 
 </nav>
-
+<h1 align="center" style="font-size: 7vw">Votre Livraison</h1>
 	<table class="table">
   <thead class="thead-light">
 				<tr>
@@ -42,5 +43,5 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
+		</body>
 <%@ include file="common/footer.jspf" %>

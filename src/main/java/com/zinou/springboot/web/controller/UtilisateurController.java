@@ -70,4 +70,12 @@ public class UtilisateurController {
 		return "Inscrire";
 
 	}
+	
+	@RequestMapping(value = "/delete-user", method = RequestMethod.GET)
+	public String deleteTodo(@RequestParam int id) {
+
+		service.deleteUtilisateurs(id);
+		return "redirect:/Clients";
+	}
+
 }

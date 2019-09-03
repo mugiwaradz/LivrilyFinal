@@ -33,8 +33,5 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		<div>
-			<a class="button" href="/add-todo">Add a Todo</a>
-		</div>
-	</div>
+
 <%@ include file="common/footer.jspf" %>

@@ -2,7 +2,7 @@
 <body background="back.jpg">
 <div style="background-color:#fffff;padding:30px;text-align:center;">
 <header> <div> <a href="welcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
-<h1 style="color: white; font-family: Arial"; max > Liste des produits</h1>
+<h1 style="color: black;font-size:10vw; font-family: Arial"; max > Liste des produits</h1>
  </header>
 <center>
 <section>
@@ -11,13 +11,17 @@
 
 <br> <br>
 <c:forEach items="${produits}" var="produit">
-<div class="card text-white bg-dark mb-3" style="max-width: 13.5rem;">
+<div class="card text-white bg-dark mb-3" style="max-width: 16rem;">
   <div style align="center" class="card-header">${produit.getNomCategore()}</div>
   <div class="card-body">
-    <h5 style align="center" class="card-title">${produit.getNomProduit()}</h5>
+    <h5 style align="center" class="card-title">${produit.getNomProduit()} ${produit.getPrixDevante()} DA</h5>
     
     <p class="card-text">  <img alt="img" src="${produit.getImage()}" >  </p>
-    <p style align="center"><input type="number" name=quantite placeholder="quantité" > </p>
+    <div class="form-group col-md-6">
+					<input type="number" class="form-control"
+						path="quantite" name="quantite"
+						placeholder="quantite">
+				</div></p>
     <p style align="center" "card-text"><a href="Factures">	<img height="50" width="50" alt="" src="Livrily.png"></a>
     
 					
@@ -32,8 +36,7 @@
 		
 		</section>
 		</center>
-			<a class
-			="button" href="/add-todo">Add a Todo</a>
+			
 		
 </body>
   

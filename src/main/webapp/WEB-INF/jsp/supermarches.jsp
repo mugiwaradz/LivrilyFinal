@@ -2,7 +2,7 @@
 <body background="back.jpg">
 <div style="background-color:#fffff;padding:30px;text-align:center;">
 <header> <div> <a href="welcomeClient"> <img height="50" width="50" alt="" src="Livrily.png"></a> </div> 
- <h1 style="color: white;">Liste de nos 
+ <h1 style="color: white;font-size:10vw"> nos 
    Supermarchés</h1>
 </header>
 
