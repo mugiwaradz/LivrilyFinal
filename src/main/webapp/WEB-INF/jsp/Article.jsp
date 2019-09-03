@@ -1,5 +1,12 @@
   <%@ include file="common/header.jspf" %>
-<%@ include file="common/naviguationadmine.jspf"%><div class="container">
+  
+  <body background="back.jpg">
+ 	<div align="center"><a href="/welcomeADF" class="logo"><img width="50" height="50" 
+				alt="livrily" src="Livrily.png"> </a> </div>
+			
+<div align="center">
+		<h1  style="font-size: 7vw;color: white" >Add new Article</h1>
+	</div>
 	<form:form method="post" commandName="Article">
 
 		<fieldset class="form-group">
@@ -62,7 +69,8 @@
 			<form:errors path="quantite" cssClass="text-warning" />
 		</fieldset>
 
-		<button type="submit" class="btn btn-success">Add</button>
+	<div align="center">	<button type="submit" class="btn btn-success">Add</button> </div>
 	</form:form>
 </div>
+</body>
 <%@ include file="common/footer.jspf" %>

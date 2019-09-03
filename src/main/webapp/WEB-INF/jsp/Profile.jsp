@@ -45,7 +45,6 @@
 			</div>
 
 			<div align="center">
-				<button type="submit" class="btn btn-success">ubdate profile</button>
 			</div>
 		</form>
 </body>

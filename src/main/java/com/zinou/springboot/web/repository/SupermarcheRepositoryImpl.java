@@ -17,7 +17,7 @@ import com.zinou.springboot.web.model.Supermarche;
 import com.zinou.springboot.web.util.DB;
 
 @Repository
-public class SupermarchéRepositoryImpl implements SupermarchéRepository {
+public class SupermarcheRepositoryImpl implements SupermarchéRepository {
 
 	@Autowired
 	DB db;
@@ -26,7 +26,7 @@ public class SupermarchéRepositoryImpl implements SupermarchéRepository {
 	@Override
 	public Supermarche AjouterSupermarché(Supermarche supermarché) {
 
-		String sql = "INSERT INTO `supermarche` ( `filiale_id`, `nom`, `telephone`, `email`) VALUES (?,?,?,?)";
+		String sql = "INSERT INTO `supermarche` ( `filiale_id`, `nomsupermarche`, `telephone`, `email`) VALUES (?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);

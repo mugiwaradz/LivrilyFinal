@@ -36,7 +36,6 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 
-			stmt.setBoolean(1, estlivre);
 			ResultSet rs = stmt.executeQuery();
 			List<Livraisoncomplette> Livraisons = new ArrayList<>();
 
