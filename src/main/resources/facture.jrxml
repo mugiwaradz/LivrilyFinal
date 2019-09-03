@@ -8,7 +8,7 @@
 		<![CDATA[SELECT
     f.NumeroFacture,
     cc.datecommande,
-    s.nom AS supemarche,
+    s.nomsupermarche AS supemarche,
     u.nom AS client,
     u.email,
     u.phone,
