@@ -36,9 +36,16 @@
 					    <td>${Livreur.isEst_disponible() }</td>
 						<td>${Livreur.getMoyenLivraison() } </td>
 						<td>${Livreur.getTypePermetConduire()} </td>			
-						<td><a type="button" class="btn btn-dark" 
-							href="/Livraisons?livreur_id=${Livreur.getLivreur_ID()}&id_commande=<%=request.getParameter("commande_id")%>">Expédier</a> </td>
-					
+						<td>
+						
+						<form action="/Livraisons" method="post">
+						
+						    <input type="hidden" name="livreur_id" value="${Livreur.getLivreur_ID()}">
+						    <input type="hidden" name="id_commande" value="<%=request.getParameter("commande_id")%>">
+						    <button type="submit" class="btn btn-primary">Expédier</button>
+						
+						</form>
+						
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -41,8 +41,9 @@ public class LivraisonController {
 	}
 
 	@PostMapping("Livraisons")
-	boolean createLivraison(@RequestParam int id_commande, @RequestParam int livreur_id) {
-		return service.createLivraison(id_commande, livreur_id);
+	String createLivraison(@RequestParam int id_commande, @RequestParam int livreur_id) {
+		service.createLivraison(id_commande, livreur_id);
+		return "redirect:/ListeLivraisons";
 	}
 	
 	
