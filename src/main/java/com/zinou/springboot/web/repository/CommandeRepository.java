@@ -11,7 +11,7 @@ import com.zinou.springboot.web.model.Commandecomplette;
 @Repository
 public interface CommandeRepository {
 
-	List<Commandecomplette> getCommandes(int id_commande);
+	List<Commandecomplette> getCommandes(int id_commande,String statue);
 
 	CommandeLine saveCommandeLine(CommandeLine line);
 

@@ -9,7 +9,7 @@ import com.zinou.springboot.web.model.Livraisoncomplette;
 @Service
 public interface LivraisonService {
 
-	List<Livraisoncomplette> getLivraisons(Boolean estlivre, int livraison_id);
+	List<Livraisoncomplette> getLivraisons( int livraison_id);
 
 	boolean createLivraison(int id_commande, int livreur_id);
 

@@ -25,7 +25,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
-	public List<Livraisoncomplette> getLivraisons(Boolean estlivre) {
+	public List<Livraisoncomplette> getLivraisons() {
 
 		String sql = "SELECT * FROM Livraison inner join livraison_line "
 				+ "on (livraison.livraison_id = livraison_line.livraison_id)" 
@@ -85,7 +85,8 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	public Livraisoncomplette getLivraisonByID(int livraison_id) {
 
 		String sql = "SELECT * FROM Livraison inner join livraison_line "
-				+ "on (livraison.livraison_id = livraison_line.livraison_id)" + "where livraison.livraison_id=(?);";
+				+ "on (livraison.livraison_id = livraison_line.livraison_id)" 
+				+ "where livraison.livraison_id= ? ";
 		PreparedStatement stmt;
 
 		try {
@@ -105,8 +106,8 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 
 					livraisonlines = new ArrayList<>();
 					Livraison livraison = new Livraison();
-					livraison.setLivraison_ID(rs.getInt(2));
-					livraison.setCommande_ID(rs.getInt(1));
+					livraison.setLivraison_ID(rs.getInt(1));
+					livraison.setCommande_ID(rs.getInt(2));
 					livraison.setLivreur_ID(rs.getInt(3));
 					livraison.setNumeroLivraison(rs.getString(4));
 					livraison.setVolumneTotal(rs.getInt(5));

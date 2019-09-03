@@ -23,7 +23,7 @@
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="ListeLivraisons">Livraisons</a>
+        <a class="nav-link" href="Livaisons">Livraisons</a>
       </li>
       
       

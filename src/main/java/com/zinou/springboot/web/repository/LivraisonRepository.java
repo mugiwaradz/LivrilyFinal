@@ -11,8 +11,6 @@ import com.zinou.springboot.web.model.Livraisoncomplette;
 @Repository
 public interface LivraisonRepository {
 
-	List<Livraisoncomplette> getLivraisons(Boolean estlivre);
-
 	Livraisoncomplette getLivraisonByID(int livraison_id);
 
 	Livraison createLivraison(Livraison livraison);
@@ -24,5 +22,7 @@ public interface LivraisonRepository {
 	boolean ValiderLivraison(int id);
 
 	void updateCommande(int commmande_id);
+
+	List<Livraisoncomplette> getLivraisons();
 
 }

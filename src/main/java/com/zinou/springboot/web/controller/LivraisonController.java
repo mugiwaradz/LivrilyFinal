@@ -23,19 +23,17 @@ public class LivraisonController {
 
 		int id = id_livraison == null || id_livraison.length() == 0 ? 0 : Integer.parseInt(id_livraison);
 		estlivre = false;
-		model.put("shipments", service.getLivraisons(estlivre, id));
+		model.put("shipments", service.getLivraisons(id));
 
 		return "Livraisons";
 
 	}
 
 	@RequestMapping(value = "/LivraisonDetail", method = RequestMethod.GET)
-	String getLivraisonDetail(@RequestParam(required = false) Boolean estlivre,
-			@RequestParam(required = false) String id_livraison, ModelMap model) {
-		estlivre = false;
+	String getLivraisonDetail(@RequestParam(required = false) String id_livraison, ModelMap model) {
 
 		int id = Integer.parseInt(id_livraison);
-		model.put("shipment", service.getLivraisons(estlivre, id).get(0));
+		model.put("shipment", service.getLivraisons(id).get(0));
 
 		return "LivraisonDetail";
 	}
@@ -51,19 +49,7 @@ public class LivraisonController {
 	public String Validerlivraison(@RequestParam int id_livraison) {
 
 		service.ValiderLivraison(id_livraison);
-		return "redirect:/ListeLivraisons";
-	}
-	
-	@RequestMapping(value = "/ListeLivraisons", method = RequestMethod.GET)
-	String ListeLivraisons(@RequestParam(required = false) Boolean estlivre,
-			@RequestParam(required = false) String id_livraison, ModelMap model) {
-
-		int id = id_livraison == null || id_livraison.length() == 0 ? 0 : Integer.parseInt(id_livraison);
-		estlivre = false;
-		model.put("shipments", service.getLivraisons(estlivre, id));
-
-		return "ListeLivraisons";
-
+		return "redirect:/Livraisons";
 	}
 	
 	

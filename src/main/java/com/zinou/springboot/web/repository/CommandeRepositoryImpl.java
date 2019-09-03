@@ -25,7 +25,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 	Logger log = Logger.getLogger(ArticleRepositoryImpl.class.getName());
 
 	@Override
-	public List<Commandecomplette> getCommandes(int id_commande) {
+	public List<Commandecomplette> getCommandes(int id_commande,String statue) {
 
 		ResultSet rs = null;
 		String sql = null;
@@ -33,7 +33,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			if (id_commande > 0) {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ " where commande.statue = 'Non Livrer' and commande.commande_id = (?) ";
+						+ " where commande.statue = ? and commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
 				stmt.setInt(1, id_commande);
@@ -41,10 +41,11 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			} else {
 				sql = "SELECT * FROM commande inner join commande_line "
 						+ "on (commande.commande_id = commande_line.commande_id)"
-						+ " where commande.statue = 'Non Livrer' "
+						+ " where commande.statue = ? "
 						+ "order by commande.datecommande";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
+				stmt.setString(1, statue);
 				rs = stmt.executeQuery();
 
 			}

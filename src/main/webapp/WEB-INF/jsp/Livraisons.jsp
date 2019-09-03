@@ -90,7 +90,7 @@
 		</table>
 
 	<div align="center">	<a type="button" class="btn btn-success"
-			href="/LivraisonDetail?id_livraison=${shipment.getLivraison().getCommande_ID()}">Détail</a> </div>
+			href="/LivraisonDetail?id_livraison=${shipment.getLivraison().getLivraison_ID()}">Détail</a> </div>
 		<br>
 	</c:forEach>
     

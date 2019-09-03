@@ -40,11 +40,11 @@ public class LivraisonServiceImpl implements LivraisonService {
 	JavaMailSender javaMailSender;
 
 	@Override
-	public List<Livraisoncomplette> getLivraisons(Boolean estlivre, int livraison_id) {
+	public List<Livraisoncomplette> getLivraisons(int livraison_id) {
 		if (livraison_id > 0)
 			return Arrays.asList(repository.getLivraisonByID(livraison_id));
 		else
-			return repository.getLivraisons(estlivre);
+			return repository.getLivraisons();
 
 	}
 
