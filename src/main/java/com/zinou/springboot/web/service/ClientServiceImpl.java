@@ -18,8 +18,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public int inscrClient(int utilsateur_id, int numCartCredit) {
-		return Repository.createClient(utilsateur_id, numCartCredit);
+	public int inscrClient(int utilsateur_id, int numCartCredit, String latitude, String longitude) {
+		return Repository.createClient(utilsateur_id, numCartCredit, latitude, longitude);
 	}
 
 }

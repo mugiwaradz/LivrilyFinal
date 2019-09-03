@@ -9,6 +9,6 @@ public interface ClientService {
 
 	Client getClient(int client_id);
 
-	int inscrClient(int utilsateur_id, int numCartCredit);
+	int inscrClient(int utilsateur_id, int numCartCredit, String latitude, String longitude);
 
 }

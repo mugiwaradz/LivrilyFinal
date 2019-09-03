@@ -8,6 +8,8 @@ public class Client {
 	private String tarif;
 	private boolean envoyerMail;
 	private boolean envoyerSMS;
+	private String latitude;
+	private String longitude;
 
 	public int getClient_ID() {
 		return Client_ID;
@@ -55,6 +57,22 @@ public class Client {
 
 	public void setEnvoyerSMS(boolean envoyerSMS) {
 		this.envoyerSMS = envoyerSMS;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
 
 }

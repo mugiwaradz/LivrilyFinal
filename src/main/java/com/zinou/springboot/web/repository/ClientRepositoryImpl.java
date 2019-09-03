@@ -48,15 +48,17 @@ public class ClientRepositoryImpl implements ClientRepository {
 	}
 
 	@Override
-	public int createClient(int utilsateur_id, int numCartCredit) {
+	public int createClient(int utilsateur_id, int numCartCredit, String latitude, String longitude) {
 
-		String sql = "INSERT INTO `Client` ( `utilisateur_id`, `NumcarteCredit`) VALUES  (?,?)";
+		String sql = "INSERT INTO `Client` ( `utilisateur_id`, `NumcarteCredit`, `latitude`, `longitude`) VALUES  (?,?,?,?)";
 		PreparedStatement stmt;
 		try {
 
 			stmt = db.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 			stmt.setInt(1, utilsateur_id);
 			stmt.setInt(2, numCartCredit);
+			stmt.setString(3, latitude);
+			stmt.setString(4, longitude);
 
 			stmt.executeUpdate();
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
