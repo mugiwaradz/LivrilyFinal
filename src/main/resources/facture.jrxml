@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="facture" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="267621e2-3867-4e68-be5b-4eda231e5773">
-	<property name="ireport.zoom" value="1.0"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="97"/>
+	<property name="ireport.zoom" value="6.0"/>
+	<property name="ireport.x" value="3078"/>
+	<property name="ireport.y" value="1499"/>
 	<parameter name="facture_id" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT distinct
@@ -13,8 +13,6 @@
     u.email,
     u.phone,
     p.nom AS produit,
-    cl.quantityCommande,
-    ll.quantitylivre,
     fl.quantityFacture,
     fl.prix,
     fl.totalLine,
@@ -36,15 +34,11 @@ FROM
         INNER JOIN
     livraison l ON (l.livraison_id = f.livraison_id)
         INNER JOIN
-    livraison_line ll ON (ll.livraison_id = l.livraison_id)
-        INNER JOIN
     livreur liv ON (liv.livreur_id = l.livreur_id)
         INNER JOIN
     utilisateur ul ON (ul.utilisateur_id = liv.utilisateur_id)
         INNER JOIN
     commande cc ON (cc.commande_id = l.commande_id)
-        INNER JOIN
-    commande_line cl ON (cl.commande_id = cc.commande_id)
         INNER JOIN
     produit p ON (p.produit_id = fl.produit_id)
         INNER JOIN
@@ -66,12 +60,6 @@ where f.facture_id = $P{facture_id}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="produit" class="java.lang.String"/>
-	<field name="quantityCommande" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="quantitylivre" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="quantityFacture" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -274,7 +262,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Numéro]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="55" y="0" width="144" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="55" y="0" width="184" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -287,33 +275,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Article]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="199" y="0" width="54" height="20"/>
-				<box leftPadding="2" rightPadding="1">
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Qty Com]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="253" y="0" width="54" height="20"/>
-				<box leftPadding="2" rightPadding="1">
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Qty Liv]]></text>
-			</staticText>
-			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="307" y="0" width="55" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="239" y="0" width="55" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -326,7 +288,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Qty Fac]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="362" y="0" width="54" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="294" y="0" width="61" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -339,7 +301,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Prix HT]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" mode="Opaque" x="416" y="0" width="31" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" mode="Opaque" x="355" y="0" width="46" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -352,7 +314,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[TVA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="447" y="0" width="54" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="401" y="0" width="71" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -365,7 +327,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Prix TTC]]></text>
 			</staticText>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="501" y="0" width="71" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="472" y="0" width="100" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -385,7 +347,7 @@ where f.facture_id = $P{facture_id}]]>
 				<reportElement uuid="b426dc6b-2b6a-4d7e-a51e-0f0eff4127eb" x="0" y="0" width="572" height="20"/>
 			</rectangle>
 			<textField>
-				<reportElement uuid="e5ad4fc7-6083-4cee-9931-9cded9485a3a" x="0" y="0" width="56" height="20"/>
+				<reportElement uuid="e5ad4fc7-6083-4cee-9931-9cded9485a3a" x="0" y="0" width="55" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -398,7 +360,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="1e960ba8-532f-4cb3-a428-159b14be869f" x="447" y="0" width="54" height="20"/>
+				<reportElement uuid="1e960ba8-532f-4cb3-a428-159b14be869f" x="401" y="0" width="71" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -411,7 +373,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{prix} :( $F{prix} + ($F{prix}*$F{tva}) / 100)]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="47b8c637-cb1d-43ec-9369-6cc039a49814" x="307" y="0" width="55" height="20"/>
+				<reportElement uuid="47b8c637-cb1d-43ec-9369-6cc039a49814" x="239" y="0" width="55" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -424,20 +386,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{quantityFacture}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="ff72a68b-22e4-4101-b219-614870db1c39" x="253" y="0" width="54" height="20"/>
-				<box leftPadding="2" rightPadding="1">
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{quantitylivre}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="4f204370-bc05-4944-a4e0-3234ed47197b" x="501" y="0" width="71" height="20"/>
+				<reportElement uuid="4f204370-bc05-4944-a4e0-3234ed47197b" x="472" y="0" width="100" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -450,7 +399,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{totalLine} :( $F{totalLine} + ($F{totalLine}*$F{tva}) / 100)]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="2e11ab7d-fea5-4bc8-bf7a-b4af405ff209" x="416" y="0" width="31" height="20"/>
+				<reportElement uuid="2e11ab7d-fea5-4bc8-bf7a-b4af405ff209" x="355" y="0" width="46" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -463,20 +412,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{tva} + "%"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="43535716-46fa-45ff-b8d9-68cb074639b0" x="199" y="0" width="54" height="20"/>
-				<box leftPadding="2" rightPadding="1">
-					<topPen lineWidth="0.5"/>
-					<leftPen lineWidth="0.5"/>
-					<bottomPen lineWidth="0.5"/>
-					<rightPen lineWidth="0.5"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{quantityCommande}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement uuid="1e960ba8-532f-4cb3-a428-159b14be869f" x="362" y="0" width="54" height="20"/>
+				<reportElement uuid="1e960ba8-532f-4cb3-a428-159b14be869f" x="294" y="0" width="61" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -489,7 +425,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{prix}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement uuid="cc28ad94-8206-49b7-ac01-8819c70fd2b3" x="56" y="0" width="143" height="20"/>
+				<reportElement uuid="cc28ad94-8206-49b7-ac01-8819c70fd2b3" x="55" y="0" width="184" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -520,7 +456,7 @@ where f.facture_id = $P{facture_id}]]>
 	<summary>
 		<band height="82" splitType="Stretch">
 			<textField>
-				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="0" width="71" height="20"/>
+				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="472" y="0" width="100" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -533,7 +469,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="416" y="20" width="85" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="402" y="20" width="70" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -546,7 +482,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[TVA]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="20" width="71" height="20"/>
+				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="472" y="20" width="100" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -559,7 +495,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{total} :( $F{total}*$F{tva}) / 100]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="416" y="0" width="85" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="402" y="0" width="70" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -572,7 +508,7 @@ where f.facture_id = $P{facture_id}]]>
 				<text><![CDATA[Total HT]]></text>
 			</staticText>
 			<textField>
-				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="501" y="40" width="71" height="20"/>
+				<reportElement uuid="12d4fd61-1614-4a5e-a886-5a8a0a74b653" x="472" y="40" width="100" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>
@@ -585,7 +521,7 @@ where f.facture_id = $P{facture_id}]]>
 				<textFieldExpression><![CDATA[$F{tva} == 0 ? $F{total} :( $F{total} + ($F{total}*$F{tva}) / 100)]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="416" y="40" width="85" height="20"/>
+				<reportElement uuid="9580b7b1-84ae-4e70-b14f-7402cf93f4f3" x="402" y="40" width="70" height="20"/>
 				<box leftPadding="2" rightPadding="1">
 					<topPen lineWidth="0.5"/>
 					<leftPen lineWidth="0.5"/>

@@ -39,12 +39,12 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<input type="text" class="form-control" id="date"
-						placeholder="Phonne 1">
+					<input type="text" class="form-control" id="Phone1" name="Phone1"
+						placeholder="Phone 1">
 				</div>
 				<div class="form-group col-md-6">
-					<input type="text" class="form-control" id="Phonne 2"
-						placeholder="Phonne 2">
+					<input type="text" class="form-control" id="Phone2" name="Phone2"
+						placeholder="Phone 2">
 				</div>
 			</div>
 			<div class="form-row">
