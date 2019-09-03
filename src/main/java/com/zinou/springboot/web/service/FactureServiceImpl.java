@@ -34,7 +34,7 @@ public class FactureServiceImpl implements FactureService {
 	public boolean createFacture(int id_livraison) throws Exception {
 
 		Livraisoncomplette livraison = livraisonService.getLivraisons(id_livraison).get(0);
-		Commandecomplette commande = commandeService.getCommandes(livraison.getLivraison().getCommande_ID()).get(0);
+		Commandecomplette commande = commandeService.getCommandes(livraison.getLivraison().getCommande_ID(), "Livrer").get(0);
 
 		Facture facture = new Facture();
 		facture.setLivraison_ID(livraison.getLivraison().getLivraison_ID());

@@ -33,7 +33,7 @@
 									</p>
 									<div class="form-group col-md-6">
 										<input type="number" class="form-control" path="qty"
-											name="qty" placeholder="quantite">
+											name="qty" placeholder="quantite" value = "1">
 									</div>
 									</p>
 									<button type="submit" class="btn btn-danger">Facturer</button>

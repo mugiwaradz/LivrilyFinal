@@ -108,11 +108,11 @@
 				    <td>${line.getLivraison_Line_ID()}</td>
 				    <td>${line.getProduit_ID()}</td>
 				    <td>${line.getQuantitylivre()}</td>
-				    <td>${line.getVolume()}</td>
-				    
+				    <td>${line.getVolume()}</td>				    
 	
 				</tr>
 			</c:forEach>
+			
 		</tbody>
 	</table>
                <br>

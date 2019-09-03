@@ -99,7 +99,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			List<Livraison_Line> livraisonlines = null;
 			int old_livraison_id = 0;
 
-			if (rs.next()) {
+			while (rs.next()) {
 				if (old_livraison_id != rs.getInt(1)) {
 
 					livraisoncomplette = new Livraisoncomplette();

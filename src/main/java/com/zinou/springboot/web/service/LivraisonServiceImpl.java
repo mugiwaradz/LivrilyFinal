@@ -51,7 +51,7 @@ public class LivraisonServiceImpl implements LivraisonService {
 	@Override
 	public boolean createLivraison(int id_commande, int livreur_id) {
 
-		Commandecomplette commande = commandeservice.getCommandes(id_commande).get(0);
+		Commandecomplette commande = commandeservice.getCommandes(id_commande, "Non Livrer").get(0);
 		Livraison livraison = new Livraison();
 		livraison.setCommande_ID(commande.getCommande().getCommande_ID());
 		livraison.setNumeroLivraison("Ship_" + commande.getCommande().getNumeroCommande());

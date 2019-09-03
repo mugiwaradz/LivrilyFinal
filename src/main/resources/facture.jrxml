@@ -85,7 +85,7 @@ where f.facture_id = $P{facture_id}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="livraison" class="java.lang.String"/>
-	<field name="commande" class="java.lang.Integer"/>
+	<field name="commande" class="java.lang.String"/>
 	<field name="tva" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>

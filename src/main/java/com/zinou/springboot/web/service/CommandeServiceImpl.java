@@ -32,8 +32,8 @@ public class CommandeServiceImpl implements CommandeService {
 	ArticleService articleService;
 
 	@Override
-	public List<Commandecomplette> getCommandes(int id_commande) {
-		return repository.getCommandes(id_commande);
+	public List<Commandecomplette> getCommandes(int id_commande, String statue) {
+		return repository.getCommandes(id_commande, statue);
 	}
 
 	@Override

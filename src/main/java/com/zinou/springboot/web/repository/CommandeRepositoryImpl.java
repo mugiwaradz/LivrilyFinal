@@ -36,7 +36,9 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 						+ " where commande.statue = ? and commande.commande_id = (?) ";
 				PreparedStatement stmt;
 				stmt = db.getConnection().prepareStatement(sql);
-				stmt.setInt(1, id_commande);
+				stmt.setString(1, statue);
+				stmt.setInt(2, id_commande);
+
 				rs = stmt.executeQuery();
 			} else {
 				sql = "SELECT * FROM commande inner join commande_line "
@@ -74,7 +76,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 					commande.setStatue(rs.getString(5));
 					commande.setNumeroCommande(rs.getString(6));
 					commande.setTarif(rs.getString(7));
-					commande.setTotal(rs.getDouble(8));
+					commande.setTotal(rs.getDouble("total"));
 					commande.setTva(rs.getInt(9));
 					commandecomplette.setCommande(commande);
 
@@ -138,8 +140,8 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setDouble(1, prixTotal);
-			stmt.setInt(2, commande_ID);
-			stmt.setString(3, numeroCommande);
+			stmt.setString(2, numeroCommande);
+			stmt.setInt(3, commande_ID);
 
 			stmt.executeUpdate();
 

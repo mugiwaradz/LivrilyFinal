@@ -26,7 +26,7 @@ public class CommandeController {
 	String getCommandes(@RequestParam(required = false) String id_commande, ModelMap model) {
 
 		int id = id_commande == null || id_commande.length() == 0 ? 0 : Integer.parseInt(id_commande);
-		model.put("orders", service.getCommandes(id));
+		model.put("orders", service.getCommandes(id, "Non Livrer"));
 
 		return "Commandes";
 	}
@@ -35,7 +35,7 @@ public class CommandeController {
 	String getCommandesDetail(@RequestParam(required = false) String id_commande, ModelMap model) {
 
 		int id = Integer.parseInt(id_commande);
-		model.put("order", service.getCommandes(id).get(0));
+		model.put("order", service.getCommandes(id, "Non Livrer").get(0));
 
 		return "CommandeDetail";
 	}
