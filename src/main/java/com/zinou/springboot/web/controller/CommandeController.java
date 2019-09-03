@@ -1,7 +1,9 @@
 package com.zinou.springboot.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.internal.util.privilegedactions.NewInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,6 +20,8 @@ import com.zinou.springboot.web.service.CommandeService;
 @Controller
 public class CommandeController {
 
+	
+	private static List<CommandeSimple> produitsCommande = new ArrayList<>(); 
 	@Autowired
 	CommandeService service;
 
@@ -42,6 +46,12 @@ public class CommandeController {
 	@PostMapping("Commander")
 	Commandecomplette getCommandes(@RequestBody List<CommandeSimple> commandes) {
 		return service.createCommandes(commandes);
+	}
+	
+	@PostMapping("add-panier")
+	String getCommandes(@RequestParam int product_id, @RequestParam int qty, @RequestParam int client_id) {
+		produitsCommande.add(new CommandeSimple(product_id, qty, client_id, 1));
+		return "redirect:/Comandearticles";
 	}
 
 }

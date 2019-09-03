@@ -22,8 +22,10 @@
 						path="quantite" name="quantite"
 						placeholder="quantite">
 				</div></p>
-    <p style align="center" "card-text"><a href="Factures">	<img height="50" width="50" alt="" src="Livrily.png"></a>
-    
+				<form class="px-4 py-3" action="add-panier?product_id=1&qty=2&client_id=2" method="post">
+					<button type="submit" class="btn btn-danger">Facturer</button>
+			</form>
+				
 					
 		
   </div>

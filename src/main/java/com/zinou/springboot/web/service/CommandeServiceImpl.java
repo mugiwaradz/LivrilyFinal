@@ -78,7 +78,7 @@ public class CommandeServiceImpl implements CommandeService {
 
 		commandeComplete.setCommandelines(lines);
 
-		repository.updateCommande(prixTotal, commande.getCommande_ID());
+		repository.updateCommande(prixTotal, commande.getCommande_ID(), "Commande_" + commande.getCommande_ID());
 		commande.setTotal(prixTotal);
 		return commandeComplete;
 	}

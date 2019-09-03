@@ -71,7 +71,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 					commande.setClinet_ID(rs.getInt(3));
 					commande.setDtaedeCommande(rs.getDate(4));
 					commande.setStatue(rs.getString(5));
-					commande.setNumeroCommande(rs.getInt(6));
+					commande.setNumeroCommande(rs.getString(6));
 					commande.setTarif(rs.getString(7));
 					commande.setTotal(rs.getDouble(8));
 					commande.setTva(rs.getInt(9));
@@ -129,15 +129,16 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 	}
 
 	@Override
-	public void updateCommande(Double prixTotal, int commande_ID) {
+	public void updateCommande(Double prixTotal, int commande_ID, String numeroCommande) {
 
 		// TODO corriger requette
-		String sql = "UPDATE `Commande` set total = ?  where commande_ID = ? ";
+		String sql = "UPDATE `Commande` set total = ?, numeroCommande = ? where commande_ID = ? ";
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
 			stmt.setDouble(1, prixTotal);
 			stmt.setInt(2, commande_ID);
+			stmt.setString(3, numeroCommande);
 
 			stmt.executeUpdate();
 
@@ -160,7 +161,7 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			stmt.setInt(2, commande.getSupermarché_ID());
 			stmt.setTimestamp(3, new Timestamp(commande.getDtaedeCommande().getTime()));
 			stmt.setString(4, commande.getStatue());
-			stmt.setString(5, null);
+			stmt.setString(5, commande.getNumeroCommande());
 			stmt.setInt(6, 0);
 			stmt.setInt(7, commande.getTva());
 
@@ -169,7 +170,6 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 			if (generatedKeys.next()) {
 				commande.setCommande_ID(generatedKeys.getInt(1));
-				commande.setNumeroCommande(1000 + generatedKeys.getInt(1));
 			} else {
 				throw new SQLException("Creating commande failed, no ID obtained.");
 			}

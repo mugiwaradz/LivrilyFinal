@@ -9,7 +9,7 @@ public class Commande {
 	private int Clinet_ID;
 	private Date DtaedeCommande;
 	private String Statue;
-	private int NumeroCommande;
+	private String NumeroCommande;
 	private Double total;
 	private String tarif;
 	private int tva;
@@ -78,11 +78,11 @@ public class Commande {
 		this.tva = tva;
 	}
 
-	public int getNumeroCommande() {
+	public String getNumeroCommande() {
 		return NumeroCommande;
 	}
 
-	public void setNumeroCommande(int numeroCommande) {
+	public void setNumeroCommande(String numeroCommande) {
 		NumeroCommande = numeroCommande;
 	}
 

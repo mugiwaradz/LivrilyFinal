@@ -7,6 +7,22 @@ public class CommandeSimple {
 	private int client_id;
 	private int superMarche_id;
 
+	
+	
+	
+	public CommandeSimple(int produit_id, int qtyCommande, int client_id, int superMarche_id) {
+		super();
+		this.produit_id = produit_id;
+		this.qtyCommande = qtyCommande;
+		this.client_id = client_id;
+		this.superMarche_id = superMarche_id;
+	}
+
+	public CommandeSimple() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getProduit_id() {
 		return produit_id;
 	}

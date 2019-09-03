@@ -29,8 +29,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 
 		String sql = "SELECT * FROM Livraison inner join livraison_line "
 				+ "on (livraison.livraison_id = livraison_line.livraison_id)" 
-				+ " where Livraison.statue = 'Non Facturer' "
-				+ " AND livraison.estLivre= (?)";
+				+ " where Livraison.statue = 'Non Facturer' ";
 
 		PreparedStatement stmt;
 

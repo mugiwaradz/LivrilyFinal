@@ -15,7 +15,7 @@ public interface CommandeRepository {
 
 	CommandeLine saveCommandeLine(CommandeLine line);
 
-	void updateCommande(Double prixTotal, int commande_ID);
+	void updateCommande(Double prixTotal, int commande_ID, String numeroCommande);
 
 	Commande saveCommande(Commande commande);
 
