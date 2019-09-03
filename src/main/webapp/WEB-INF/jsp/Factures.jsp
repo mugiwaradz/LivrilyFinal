@@ -61,11 +61,11 @@
 			<br> <br> <br>
 
 
-
+	<c:forEach items="${invoices}" var="invoice">
+				
 			<table class="table" border="2">
 				<thead class="thead-light">
 
-					<c:forEach items="${invoices}" var="invoice">
 						<tr>
 							<th>Facture_ID</th>
 							<td>${invoice.getFacture().getFacture_ID()}</td>
