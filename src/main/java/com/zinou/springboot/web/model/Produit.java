@@ -11,6 +11,8 @@ public class Produit {
 	private String Image;
 	private String Referance;
 	private int quantite;
+	private int superMarche_id;
+	
 
 	public int getQuantite() {
 		return quantite;
@@ -92,6 +94,14 @@ public class Produit {
 
 	public void setReferance(String referance) {
 		Referance = referance;
+	}
+
+	public int getSuperMarche_id() {
+		return superMarche_id;
+	}
+
+	public void setSuperMarche_id(int superMarche_id) {
+		this.superMarche_id = superMarche_id;
 	}
 
 }

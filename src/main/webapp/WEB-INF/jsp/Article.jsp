@@ -1,4 +1,4 @@
-<%@ include file="common/header.jspf" %>
+  <%@ include file="common/header.jspf" %>
 <%@ include file="common/naviguationadmine.jspf"%><div class="container">
 	<form:form method="post" commandName="Article">
 
@@ -50,8 +50,8 @@
 
 		<fieldset class="form-group">
 			<form:label path="Image">image</form:label>
-			<form:input path="Image" type="text" class="form-control"
-				required="required" />
+			<form:input path="Image" type="file" class="form-control"
+				required="required" />				
 			<form:errors path="Image" cssClass="text-warning" />
 		</fieldset>
 
