@@ -42,8 +42,9 @@ public class FactureController {
 	}
 
 	@PostMapping("Factures")
-	boolean createFacture(@RequestParam int id_livraison) {
-		return service.createFacture(id_livraison);
+	String createFacture(@RequestParam int id_livraison) throws Exception {
+		service.createFacture(id_livraison);
+		return "redirect:/Factures";
 	}
 
 	@GetMapping(value = "printFacture", produces = "application/pdf")

@@ -13,7 +13,7 @@ public interface FactureService {
 
 	List<Facturecomplette> getFactures(int id_facture);
 
-	boolean createFacture(int id_livraison);
+	boolean createFacture(int id_livraison) throws Exception;
 
 	ResponseEntity<Resource> printFacture(int id_facture);
 

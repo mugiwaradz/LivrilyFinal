@@ -120,9 +120,8 @@
 				<a type="button" class="btn btn-danger" href="Livraisons">show
 					less</a>
 </div>
-</br></br>		
+</br></br>
 			<div align="center">
-				<a type="button" class="btn btn-danger" href="Livreurs?commande_id="${shipment.getLivraison().getCommande_ID()}>Expédier</a>
 </div>		
 			</div>
  <div class="right">
@@ -130,7 +129,17 @@
     <p style="color: white">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
   </div>
 </div>
-			
+
+<div align="center">
+			<form class="px-4 py-3" action="Factures" method="post">
+				
+				</div>
+										<input type="hidden" class="form-control" name="id_livraison"
+											value = "${shipment.getLivraison().getLivraison_ID()}">
+									</div>
+					<button type="submit" class="btn btn-danger">Facturer</button>
+			</form>
+			</div>	
 </body>
 
 

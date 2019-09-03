@@ -31,7 +31,7 @@ public class FactureServiceImpl implements FactureService {
 	}
 
 	@Override
-	public boolean createFacture(int id_livraison) {
+	public boolean createFacture(int id_livraison) throws Exception {
 
 		Livraisoncomplette livraison = livraisonService.getLivraisons(null, id_livraison).get(0);
 		Commandecomplette commande = commandeService.getCommandes(livraison.getLivraison().getCommande_ID()).get(0);
