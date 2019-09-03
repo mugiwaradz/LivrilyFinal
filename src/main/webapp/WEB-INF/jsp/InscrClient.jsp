@@ -27,14 +27,7 @@
 							name="numCartCredit" placeholder="votre numCartCredit">
 					</div>
 				</div>
-				<div align="center">  
-				<button class=" btn btn-primary" onclick="getLocation()">Your position</button> </div> <br> <br>
-				<button type="submit" class="btn btn-success">Finaliser Inscription</button>
-			</form>
-		</div>
-		
-
-<p id="demo"></p>
+				<p id="demo"></p>
 
 <script >
 var x = document.getElementById("demo");
@@ -48,10 +41,18 @@ function getLocation() {
 }
 
 function showPosition(position) {	
-   x.innerHTML = " 	<div class=\"form-group col-md-6\">	<input type=\"number\" class=\"form-control\" path=\"Latitude\"	name=\"latitude\" value=\"" + position.coords.latitude  + "\"> </div> " 
-   +  " 	<div class=\"form-group col-md-6\">	<input type=\"number\" class=\"form-control\" path=\"Longitude\"	name=\"longitude\" value=\"" + position.coords.longitude  + "\"> </div> "
+   x.innerHTML = " 	<div class=\"form-group col-md-4\">	<input type=\"number\" class=\"form-control\" path=\"Latitude\"	name=\"latitude\" value=\"" + position.coords.latitude  + "\"> </div> " 
+   +  " 	<div class=\"form-group col-md-4\">	<input type=\"number\" class=\"form-control\" path=\"Longitude\"	name=\"longitude\" value=\"" + position.coords.longitude  + "\"> </div> "
     
 }
 </script>
+				<div align="center">  
+				<button type="submit" class="btn btn-success">Finaliser Inscription</button>
+			</form>
+		</div>
+		<div align="center"> <img width="50" height="50" alt="" src="map.png">			<button class=" btn btn-primary" onclick="getLocation()">ton position</button> </div> <br> <br>
+		
+
+
 		
 		<%@ include file="common/footer.jspf"%>
