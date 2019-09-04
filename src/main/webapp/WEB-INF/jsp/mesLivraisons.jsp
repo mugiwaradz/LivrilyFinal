@@ -58,7 +58,7 @@
 <br>
 
 
-
+<table>
 
 	<tbody>
 	<c:forEach items="${shipments}" var="shipment">

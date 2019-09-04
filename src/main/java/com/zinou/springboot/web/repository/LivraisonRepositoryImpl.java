@@ -218,7 +218,7 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 	@Override
 	public boolean ValiderLivraison(int id) {
 		
-		String sql ="UPDATE `livraison` SET `estLivre` = ? WHERE (`livraison_id` = ?)";
+		String sql ="UPDATE `livraison` SET `estLivre` = ? ";
 
 		PreparedStatement stmt;
 
@@ -228,7 +228,6 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			
 
 			stmt.setBoolean(1, true);
-			stmt.setInt(2, id);
 
 		 stmt.executeUpdate();
 			} catch (SQLException e) {
@@ -256,6 +255,47 @@ public class LivraisonRepositoryImpl implements LivraisonRepository {
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
+	}
+
+	@Override
+	public List<Livraison> getmesLivraisons(int id, Boolean estlivre) {
+		String sql = "SELECT * FROM Livraison where livreur_id= ? AND est livrer = ? ";
+				
+				
+
+		PreparedStatement stmt;
+
+		try {
+			stmt = db.getConnection().prepareStatement(sql);
+
+			List<Livraison> Livraisons = new ArrayList<>();
+
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+
+
+					Livraison livraison = new Livraison();
+					livraison.setLivraison_ID(rs.getInt(1));
+					livraison.setCommande_ID(rs.getInt(2));
+					livraison.setLivreur_ID(id);
+					livraison.setNumeroLivraison(rs.getString(4));
+					livraison.setVolumneTotal(rs.getInt(5));
+					livraison.setEstLivre(estlivre);
+
+					
+
+					Livraisons.add(livraison);
+			}
+			return Livraisons;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return null;
 	}
 
 }

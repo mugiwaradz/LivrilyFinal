@@ -25,4 +25,6 @@ public interface LivraisonRepository {
 
 	List<Livraisoncomplette> getLivraisons();
 
+	List<Livraison> getmesLivraisons(int id, Boolean estlivre);
+
 }

@@ -108,4 +108,9 @@ public class LivraisonServiceImpl implements LivraisonService {
 		return repository.ValiderLivraison(id);
 	}
 
+	@Override
+	public List<Livraison> getmesLivraisons(int id, Boolean estlivre) {
+		return repository.getmesLivraisons( id,  estlivre);
+	}
+
 }

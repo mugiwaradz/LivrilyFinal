@@ -22,7 +22,7 @@
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="mesLivraisons?livreur_id=<%=request.getParameter("livreur_id") %>">Livraisons</a>
+        <a class="nav-link" href="mesLivraisons?id_livreur=<%=request.getParameter("livreur_id") %>">Livraisons</a>
       </li>
       
       

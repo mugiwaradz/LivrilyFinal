@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.zinou.springboot.web.model.Livraison;
 import com.zinou.springboot.web.model.Livraisoncomplette;
 
 @Service
@@ -16,5 +17,8 @@ public interface LivraisonService {
 	boolean sendMail(int user_id);
 
 	boolean ValiderLivraison(int id);
+
+	List<Livraison> getmesLivraisons(int id, Boolean estlivre);
+
 
 }

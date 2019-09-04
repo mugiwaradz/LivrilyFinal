@@ -28,6 +28,19 @@ public class LivraisonController {
 		return "Livraisons";
 
 	}
+	@RequestMapping(value = "/mesLivraisons", method = RequestMethod.GET)
+	String getmesLivraisons(@RequestParam(required = false) Boolean estlivre,
+			@RequestParam(required = false) String id_livreur, ModelMap model) {
+
+		int id = Integer.parseInt(id_livreur);
+		estlivre = false;
+		model.put("shipments", service.getmesLivraisons(id,estlivre));
+
+		return "mesLivraisons";
+
+	}
+	
+	
 
 	@RequestMapping(value = "/LivraisonDetail", method = RequestMethod.GET)
 	String getLivraisonDetail(@RequestParam(required = false) String id_livraison, ModelMap model) {
