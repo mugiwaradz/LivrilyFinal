@@ -48,8 +48,8 @@ public class LivreurController {
 	@PostMapping("InscrLivreur")
 	String inscrClient(@RequestParam int utilisateur_id, @RequestParam String moyenLivraison,
 			@RequestParam String typePermetConduire, @RequestParam int distanceMax) {
-		service.inscrLivreur(utilisateur_id, moyenLivraison, typePermetConduire, distanceMax);
-		return "redirect:/welcomeLivreur";
+		int livreur_id = service.inscrLivreur(utilisateur_id, moyenLivraison, typePermetConduire, distanceMax);
+		return "redirect:/welcomeLivreur?user_id="+utilisateur_id+"&livreur_id="+livreur_id ;
 	}
 
 	@GetMapping("/InscrLivreur")

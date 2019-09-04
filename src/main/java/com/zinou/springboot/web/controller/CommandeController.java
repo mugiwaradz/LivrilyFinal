@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -46,11 +47,18 @@ public class CommandeController {
 		commandes = new ArrayList<>();
 		return "redirect:/Commandes";
 	}
+
+	@GetMapping("maCommande")
+	String getCommandes(ModelMap map){
+		map.put("commandes", commandes);
+		return "redirect:/maCommande";
+	}
+	
 	
 	@PostMapping("add-panier")
 	String getCommandes(@RequestParam int product_id, @RequestParam int qty, @RequestParam int client_id) {
 		commandes.add(new CommandeSimple(product_id, qty, client_id, 1));
-		return "redirect:/Comandearticles";
+		return "redirect:/Comandearticles?client_id=" + client_id;
 	}
 
 }

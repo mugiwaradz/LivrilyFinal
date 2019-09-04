@@ -173,7 +173,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">CONSULTER
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="Comandearticles">nos Articles</a></li>
+            <li><a href="Comandearticles?client_id=<%=request.getParameter("client_id")%>">nos Articles</a></li>
             <li><a href="Nospromotions">Promotions</a></li>
             <li><a href="supermarches">Supermarche</a></li> 
           </ul>

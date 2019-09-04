@@ -27,7 +27,7 @@
 									<input type="hidden" class="form-control" path="product_id"
 										name="product_id" value="${produit.getProduit_ID()}">
 									<input type="hidden" class="form-control" path="client_id"
-										name="client_id" value="2">
+										name="client_id" value="<%=request.getParameter("client_id")%>">
 									<p class="card-text">
 										<img alt="img" src="${produit.getImage()}">
 									</p>

@@ -30,8 +30,8 @@ public class ClientController {
 
 	@PostMapping("InscrClient")
 	String inscrClient(@RequestParam int utilisateur_id, @RequestParam int numCartCredit, @RequestParam String longitude, @RequestParam String latitude) {
-		service.inscrClient(utilisateur_id, numCartCredit,latitude, longitude);
-		return "redirect:/welcomeClient";
+		int client_id = service.inscrClient(utilisateur_id, numCartCredit,latitude, longitude);
+		return "redirect:/welcomeClient?user_id="+utilisateur_id+"&client_id=" + client_id;
 	}
 
 	@GetMapping("/InscrClient")
