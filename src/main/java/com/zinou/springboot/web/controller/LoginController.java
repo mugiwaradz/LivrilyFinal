@@ -35,7 +35,7 @@ public class LoginController {
 		case "L":
 			return "redirect:/welcomeLivreur?user_id="+user_id+"&livreur_id="+id ;
 		case "ADS":
-			return "redirect:/welcomeADS?user_id="+user_id+"&adf_id="+id ;
+			return "redirect:/welcomeADS?user_id="+user_id+"&ads_id="+id ;
 		default:
 			return "redirect:/";
 		}
