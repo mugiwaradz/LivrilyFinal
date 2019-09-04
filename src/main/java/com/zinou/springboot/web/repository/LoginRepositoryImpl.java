@@ -29,7 +29,17 @@ public class LoginRepositoryImpl implements LoginRepository {
 				+ "        WHEN l.livreur_id IS NOT NULL THEN 'L' "
 				+ "        WHEN adf.admine_de_filiale_id IS NOT NULL THEN 'ADF' "
 				+ "        WHEN ads.admine_de_sm_id IS NOT NULL THEN 'ADS' " + "        ELSE 'U' "
-				+ "    END) AS type_user " + "FROM " + "    utilisateur u " + "        LEFT JOIN "
+				+ "    END) AS type_user, "
+				+ "    (CASE "
+				+ "    	        WHEN c.client_id IS NOT NULL THEN c.client_id "
+				+ "    	        WHEN f.fournisseur_id IS NOT NULL THEN f.fournisseur_id  "
+				+ "         WHEN l.livreur_id IS NOT NULL THEN l.livreur_id "
+				+ "    WHEN adf.admine_de_filiale_id IS NOT NULL THEN adf.admine_de_filiale_id "
+				+ "      WHEN ads.admine_de_sm_id IS NOT NULL THEN ads.admine_de_sm_id "
+				+ "    ELSE 0 "
+				+ "     END) AS id "
+				+ " FROM " 
+				+ "    utilisateur u " + "        LEFT JOIN "
 				+ "    client c ON (u.utilisateur_id = c.utilisateur_id) " + "        LEFT JOIN "
 				+ "    fournisseur f ON (u.utilisateur_id = f.utilisateur_id) " + "        LEFT JOIN "
 				+ "    livreur l ON (u.utilisateur_id = l.utilisateur_id) " + "        LEFT JOIN "
@@ -45,7 +55,7 @@ public class LoginRepositoryImpl implements LoginRepository {
 
 			ResultSet rs = stmt.executeQuery();
 			if (rs.next()) {
-				return Stream.of(new Object[][] { { "user_id", rs.getInt(1) }, { "type", rs.getString(2) }, })
+				return Stream.of(new Object[][] { { "user_id", rs.getInt(1) }, { "type", rs.getString(2) }, { "id", rs.getInt(3) } })
 						.collect(Collectors.toMap(data -> (String) data[0], data -> data[1]));
 			}
 

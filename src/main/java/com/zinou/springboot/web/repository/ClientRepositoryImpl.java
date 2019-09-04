@@ -23,10 +23,12 @@ public class ClientRepositoryImpl implements ClientRepository {
 	@Override
 	public Client getClient(int client_id) {
 
-		String sql = "SELECT * FROM Client";
+		String sql = "SELECT * FROM Client WHERE client_id = ? ";
+		
 		PreparedStatement stmt;
 		try {
 			stmt = db.getConnection().prepareStatement(sql);
+			stmt.setInt(1, client_id);
 			ResultSet rs = stmt.executeQuery();
 
 			Client client = new Client(); // TODO verifié
@@ -64,7 +66,7 @@ public class ClientRepositoryImpl implements ClientRepository {
 			ResultSet generatedKeys = stmt.getGeneratedKeys();
 
 			if (generatedKeys.next()) {
-				return generatedKeys.getInt(1);
+				return generatedKeys.getInt(1); //client_id
 			}
 
 		} catch (Exception e) {

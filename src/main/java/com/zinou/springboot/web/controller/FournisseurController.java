@@ -42,8 +42,8 @@ public class FournisseurController {
 	@PostMapping("InscrFournisseur")
 	String inscrClient(@RequestParam int utilisateur_id, @RequestParam int numeroRegistre,
 			@RequestParam int numeroFiscale, @RequestParam String taxId) {
-		service.inscrFournisseur(utilisateur_id, numeroRegistre, numeroFiscale, taxId);
-		return "redirect:/welcomeFournisseur";
+		int fournisseur_id = service.inscrFournisseur(utilisateur_id, numeroRegistre, numeroFiscale, taxId);
+		return "redirect:/welcomeFournisseur?user_id="+utilisateur_id+"&fournisseur_id="+fournisseur_id ;
 	}
 
 	@GetMapping("/InscrFournisseur")
