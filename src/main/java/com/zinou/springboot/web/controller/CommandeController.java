@@ -45,7 +45,7 @@ public class CommandeController {
 	String getCommandes() {
 		service.createCommandes(commandes);
 		commandes = new ArrayList<>();
-		return "redirect:/welcomeClient";
+		return "redirect:/Commandes";
 	}
 
 	@GetMapping("maCommande")
