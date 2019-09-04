@@ -39,6 +39,13 @@ public class ArticleController {
 		return "articles";
 	}
 
+	@RequestMapping(value = "/articlesFiltrer", method = RequestMethod.GET)
+	String getArticlesFilrer(ModelMap model, @RequestParam String nom) {
+		List<FullProduit> articles = service.getProduitsByNom(nom);
+		model.put("produits", articles);
+		return "articlesFiltrer";
+	}
+
 	@RequestMapping(value = "/Comandearticles", method = RequestMethod.GET)
 	String getCommandeArticles(ModelMap model) {
 		List<FullProduit> articles = service.getProduits();

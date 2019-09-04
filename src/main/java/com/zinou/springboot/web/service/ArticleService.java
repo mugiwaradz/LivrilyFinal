@@ -18,4 +18,6 @@ public interface ArticleService {
 
 	boolean deleteProduits(int id_article);
 
+	List<FullProduit> getProduitsByNom(String nom);
+
 }

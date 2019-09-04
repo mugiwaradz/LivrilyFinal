@@ -18,4 +18,6 @@ public interface ArticleRepository {
 
 	List<FullProduit> getProduits();
 
+	List<FullProduit> getProduitsByNom(String nom);
+
 }

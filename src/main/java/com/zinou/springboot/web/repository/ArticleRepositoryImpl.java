@@ -134,4 +134,29 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
 	}
 
+	@Override
+	public List<FullProduit> getProduitsByNom(String nom) {
+
+		String sql = "select nom from produit where upper(nom) like upper('%?%')";
+		PreparedStatement stmt;
+		try {
+			stmt = db.getConnection().prepareStatement(sql);
+			stmt.setString(1, nom);
+			ResultSet rs = stmt.executeQuery();
+
+			List<FullProduit> produits = new ArrayList<>();
+			while (rs.next()) {
+				produits.add(getProduit(rs));
+			}
+
+			return produits;
+			
+		} catch (Exception e) {
+			log.log(Level.SEVERE, e.getMessage(), e);
+		}
+
+		return null;
+	}
+
+
 }

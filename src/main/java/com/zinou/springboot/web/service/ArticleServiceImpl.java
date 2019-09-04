@@ -34,4 +34,10 @@ public class ArticleServiceImpl implements ArticleService {
 	public List<FullProduit> getProduits() {
 		return repository.getProduits();
 	}
+
+	@Override
+	public List<FullProduit> getProduitsByNom(String nom) {
+		return repository.getProduitsByNom(nom);
+
+	}
 }
