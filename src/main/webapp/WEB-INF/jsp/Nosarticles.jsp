@@ -28,7 +28,6 @@
 
 </div>
 		<div>
-			<a class="button" href="/add-todo">Add a Todo</a>
 		</div>
 
 <%@ include file="common/footer.jspf" %>

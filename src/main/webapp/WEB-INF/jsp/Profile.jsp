@@ -7,7 +7,7 @@
 		style="background-color: #fffff; padding: 30px; text-align: center;">
 
 		<div class="header">
-			<a href="/" class="logo"><img width="50" height="50"
+			<a href="welcomeClient" class="logo"><img width="50" height="50"
 				alt="livrily" src="Livrily.png"> </a>
 			<h1 style="color: white;">
 				<strong>Mon profile</strong>

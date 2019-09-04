@@ -247,8 +247,8 @@ textarea {
 							<li><a href="Promotions">Promotions</a></li>
 							<li><a href="#">Supermarche</a></li>
 						</ul></li>
-					<li><form  class="form-inline my-2 my-lg-0" mr-auto action="getarticle" method="get">
-							<input class="form-control mr-sm-2" type="search"
+					<li><form  class="form-inline my-2 my-lg-0" mr-auto action="articlesFiltrer" method="get">
+							<input class="form-control mr-sm-2" type="text" name="nom"
 								placeholder="Rechercher " aria-label="Search">
 							<button class="btn primary btn-sm" type="submit">RECHERCHER</button>
 						</form></li>

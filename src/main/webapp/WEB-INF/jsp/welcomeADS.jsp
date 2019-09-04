@@ -28,10 +28,7 @@ footer {
 	<div style="overflow: auto">
 		<div class="menu">
 
-			<div>
-				<img width="50" height="50" alt="" src="/scooter-livraison.png">
-				<a href="/Livreurs">Liste des Livreurs</a>
-			</div>
+			
 			<div>
 				<img width="50" height="50" alt="" src="/admin-icon-png-19.jpg">
 				<a href="/Fournisseurs">Liste des Fournisseurs</a>

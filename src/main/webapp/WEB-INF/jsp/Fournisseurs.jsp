@@ -27,8 +27,7 @@
 						<td>${Fournisseur.getTaxid()} </td>						
 						<td><a type="button" class="btn btn-danger"
 							href="/update-todo?id=${produit.getProduit_ID()}">Supprimer</a> </td>
-						<td><a type="button" class="btn btn-warning"
-							href="/update-todo?id=${produit.getProduit_ID()}">modifier</a> </td>
+						
 					</tr>
 				</c:forEach>
 			</tbody>
