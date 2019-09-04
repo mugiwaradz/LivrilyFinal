@@ -44,7 +44,7 @@ public class CommandeController {
 	String getCommandes() {
 		service.createCommandes(commandes);
 		commandes = new ArrayList<>();
-		return "redirect:/Commandes";
+		return "redirect:/welcomeClient";
 	}
 	
 	@PostMapping("add-panier")

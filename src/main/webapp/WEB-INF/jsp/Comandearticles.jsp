@@ -8,7 +8,6 @@
 					src="Livrily.png"></a>
 			</div>
 			<h1 style="color: black; font-size: 10vw; font-family: Arial" ; max>
-				Liste des produits</h1>
 		</header>
 		<center>
 			<section>
@@ -36,7 +35,7 @@
 											name="qty" placeholder="quantite" value = "1">
 									</div>
 									</p>
-									<button type="submit" class="btn btn-danger">add to panier</button>
+									<button type="submit" class="btn btn-warning">add to panier</button>
 								</form>
 							</div>
 						</div>
@@ -44,7 +43,7 @@
 				</div>
 	</div>
 
-	<div>
+	<div align="center">
 		<form method="post" action = "Commander">
 			<button type="submit" class="btn btn-danger">Confirmer votre Commande</button>
 		</form>

@@ -91,12 +91,12 @@
 
 						<tr>
 							<th>Tva</th>
-							<td>${invoice.getFacture().getTva()}</td>
+							<td>${invoice.getFacture().getTva()} DA</td>
 						</tr>
 
 						<tr>
 							<th>Total</th>
-							<td>${invoice.getFacture().getTotal()}</td>
+							<td>${invoice.getFacture().getTotal()} DA</td>
 						</tr>
 			</table>
 			<div align="center">

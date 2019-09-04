@@ -81,11 +81,11 @@
 					</tr>
 					<tr>
 						<th>Total</th>
-						<td>${order.getCommande().getTotal()}</td>
+						<td>${order.getCommande().getTotal()} DA</td>
 					</tr>
 					<tr>
 						<th>TVA</th>
-						<td>${order.getCommande().getTva()}</td>
+						<td>${order.getCommande().getTva()} DA</td>
 					</tr>
 			</table>
 
@@ -108,9 +108,9 @@
 					<tr>
 						<td style="width: 2px; height: 20px">${line.getCommandeLine_ID()}</td>
 						<td>${line.getProduit_ID()}</td>
-						<td>${line.getPrix()}</td>
+						<td>${line.getPrix()} DA</td>
 						<td>${line.getQuantityCommande()}</td>
-						<td>${line.getTotalLine()}</td>
+						<td>${line.getTotalLine()} DA</td>
 
 
 					</tr>

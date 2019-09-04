@@ -1,5 +1,4 @@
 <%@ include file="common/header.jspf"%>
-<%@ include file="common/header.jspf"%>
  <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -23,7 +22,7 @@
     <ul class="navbar-nav ml-auto">
       
       <li class="nav-item">
-        <a class="nav-link" href="Livaisons">Livraisons</a>
+        <a class="nav-link" href="ListeLivraisons">Livraisons</a>
       </li>
       
       
@@ -54,25 +53,9 @@
 		</div>
 
 		
-	</div>
+
 
 	
-
-
-
-
-
-
-
-
-
-
-	<%@ include file="common/footer.jspf"%>
-
-
-
-
-
 
 
 

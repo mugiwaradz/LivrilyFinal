@@ -49,8 +49,11 @@ public class LivraisonController {
 	public String Validerlivraison(@RequestParam int id_livraison) {
 
 		service.ValiderLivraison(id_livraison);
-		return "redirect:/Livraisons";
+		return "redirect:/ListeLivraisons";
 	}
+	
+	
+	
 	
 	
 	@GetMapping("mail")

@@ -83,10 +83,10 @@
 					<td>${shipment.getLivraison().getNumeroLivraison()}</td>
 				</tr>
 
-				<tr>
-					<th>VolumneTotal</th>
-					<td>${shipment.getLivraison().getVolumneTotal()}</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<th>VolumneTotal</th> -->
+<%-- 					<td>${shipment.getLivraison().getVolumneTotal()}</td> --%>
+<!-- 				</tr> -->
 		</table>
 
 	<div align="center">	<a type="button" class="btn btn-success"

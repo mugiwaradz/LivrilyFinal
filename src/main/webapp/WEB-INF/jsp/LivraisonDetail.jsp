@@ -80,10 +80,10 @@
 				<td>${shipment.getLivraison().getNumeroLivraison()}</td>
 			</tr> 
 			
-			<tr>
-				<th>VolumneTotal</th>
-	        	<td>${shipment.getLivraison().getVolumneTotal()}</td>
-			</tr>
+<!-- 			<tr> -->
+<!-- 				<th>VolumneTotal</th> -->
+<%-- 	        	<td>${shipment.getLivraison().getVolumneTotal()}</td> --%>
+<!-- 			</tr> -->
 			
 			
 	
@@ -97,7 +97,7 @@
 					 <th>Line_ID </th>
 				     <th>Produit_ID </th>
 				     <th>Quantité </th>
-				     <th>Volume</th>
+<!-- 				     <th>Volume</th> -->
 				     
 					</tr>
 					</thead>
@@ -108,7 +108,7 @@
 				    <td>${line.getLivraison_Line_ID()}</td>
 				    <td>${line.getProduit_ID()}</td>
 				    <td>${line.getQuantitylivre()}</td>
-				    <td>${line.getVolume()}</td>				    
+<%-- 				    <td>${line.getVolume()}</td>				     --%>
 	
 				</tr>
 			</c:forEach>
@@ -137,7 +137,7 @@
 										<input type="hidden" class="form-control" name="id_livraison"
 											value = "${shipment.getLivraison().getLivraison_ID()}">
 									</div>
-					<button type="submit" class="btn btn-danger">Facturer</button>
+			<div align="center">		<button type="submit" class="btn btn-primary">Facturer</button> 
 			</form>
 			</div>	
 </body>
