@@ -14,4 +14,6 @@ public interface CommandeService {
 
 	Commandecomplette createCommandes(List<CommandeSimple> commandes);
 
+	List<Commandecomplette> getCommandeyClient(String client_id);
+
 }

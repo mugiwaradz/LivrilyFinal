@@ -2,6 +2,7 @@ package com.zinou.springboot.web.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zinou.springboot.web.model.CommandeSimple;
-import com.zinou.springboot.web.model.Commandecomplette;
 import com.zinou.springboot.web.service.CommandeService;
 
 @Controller
@@ -32,6 +32,16 @@ public class CommandeController {
 		return "Commandes";
 	}
 
+	
+
+	@RequestMapping(value = "/CommandesByClient", method = RequestMethod.GET)
+	String getCommandesByClient(@RequestParam String client_id, ModelMap model) {
+		model.put("orders", service.getCommandeyClient(client_id));
+
+		return "CommandesByClient";
+	}
+
+
 	@RequestMapping(value = "/CommandeDetail", method = RequestMethod.GET)
 	String getCommandesDetail(@RequestParam(required = false) String id_commande, ModelMap model) {
 
@@ -44,8 +54,9 @@ public class CommandeController {
 	@PostMapping("Commander")
 	String getCommandes() {
 		service.createCommandes(commandes);
+		int client_id =  commandes.get(0).getClient_id();
 		commandes = new ArrayList<>();
-		return "redirect:/Commandes";
+		return "redirect:/CommandesByClient?client_id=" + client_id;
 	}
 
 	@GetMapping("maCommande")

@@ -83,4 +83,9 @@ public class CommandeServiceImpl implements CommandeService {
 		return commandeComplete;
 	}
 
+	@Override
+	public List<Commandecomplette> getCommandeyClient(String client_id) {
+		return repository.getCommandes(client_id);
+	}
+
 }

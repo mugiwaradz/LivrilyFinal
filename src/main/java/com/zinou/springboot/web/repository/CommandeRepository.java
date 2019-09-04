@@ -19,4 +19,6 @@ public interface CommandeRepository {
 
 	Commande saveCommande(Commande commande);
 
+	List<Commandecomplette> getCommandes(String client_id);
+
 }

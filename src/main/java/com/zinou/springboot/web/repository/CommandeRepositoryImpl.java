@@ -184,4 +184,67 @@ public class CommandeRepositoryImpl implements CommandeRepository {
 
 	}
 
+	@Override
+	public List<Commandecomplette> getCommandes(String client_id) {
+
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "SELECT * FROM commande inner join commande_line "
+					+ "on (commande.commande_id = commande_line.commande_id)"
+					+ " where commande.client_id = (?) ";
+			PreparedStatement stmt;
+			stmt = db.getConnection().prepareStatement(sql);
+			stmt.setInt(1, Integer.parseInt(client_id));
+			
+			rs = stmt.executeQuery();
+			List<Commandecomplette> commandes = new ArrayList<>();
+
+			int old_comande_id = 0;
+
+			Commandecomplette commandecomplette = null;
+			List<CommandeLine> commandelines = null;
+
+			while (rs.next()) {
+
+				if (old_comande_id != rs.getInt(1)) {
+
+					commandecomplette = new Commandecomplette();
+					commandes.add(commandecomplette);
+
+					commandelines = new ArrayList<>();
+
+					Commande commande = new Commande();
+					commande.setCommande_ID(rs.getInt(1));
+					commande.setSupermarché_ID(rs.getInt(2));
+					commande.setClinet_ID(rs.getInt(3));
+					commande.setDtaedeCommande(rs.getDate(4));
+					commande.setStatue(rs.getString(5));
+					commande.setNumeroCommande(rs.getString(6));
+					commande.setTarif(rs.getString(7));
+					commande.setTotal(rs.getDouble("total"));
+					commande.setTva(rs.getInt(9));
+					commandecomplette.setCommande(commande);
+
+					commandecomplette.setCommandelines(commandelines);
+
+					old_comande_id = rs.getInt(1);
+				}
+
+				CommandeLine commandeline = new CommandeLine();
+				commandeline.setCommandeLine_ID(rs.getInt("commande_line_id"));
+				commandeline.setProduit_ID(rs.getInt("produit_id"));
+				commandeline.setPrix(rs.getDouble("prix"));
+				commandeline.setQuantityCommande(rs.getInt("quantityCommande"));
+				commandeline.setTotalLine(rs.getDouble("totalLine"));
+				commandelines.add(commandeline);
+			}
+			return commandes;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }
